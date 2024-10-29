@@ -113,6 +113,7 @@ function registerListener(event, func) {
 </span><span class=hll><span class=cp>#include</span><span class=w> </span><span class=cpf>&lt;vtkRenderWindowInteractor.h&gt;</span>
 </span><span class=hll><span class=cp>#include</span><span class=w> </span><span class=cpf>&lt;vtkRenderer.h&gt;</span>
 </span><span class=hll><span class=cp>#include</span><span class=w> </span><span class=cpf>&lt;vtkSmartPointer.h&gt;</span>
+</span><span class=hll><span class=cp>#include</span><span class=w> </span><span class=cpf>&lt;vtkVersion.h&gt;</span>
 </span>
 <span class=c1>// Pipeline</span>
 <span class=hll><span class=cp>#include</span><span class=w> </span><span class=cpf>&lt;vtkAppendPolyData.h&gt;</span>
@@ -121,6 +122,10 @@ function registerListener(event, func) {
 </span><span class=hll><span class=cp>#include</span><span class=w> </span><span class=cpf>&lt;vtkTransformPolyDataFilter.h&gt;</span>
 </span><span class=hll><span class=cp>#include</span><span class=w> </span><span class=cpf>&lt;vtkUnsignedCharArray.h&gt;</span>
 </span>
+<span class=cp>#if VTK_BUILD_VERSION &gt;= 20240630</span>
+<span class=cp>#define USE_IMPORTER_UPDATE</span>
+<span class=cp>#endif</span>
+
 <span class=cp>#include</span><span class=w> </span><span class=cpf>&lt;algorithm&gt;</span><span class=c1> // For transform()</span>
 <span class=cp>#include</span><span class=w> </span><span class=cpf>&lt;cctype&gt;</span><span class=c1>    // For to_lower</span>
 <span class=cp>#include</span><span class=w> </span><span class=cpf>&lt;string&gt;</span><span class=c1>    // For find_last_of()</span>
@@ -153,7 +158,11 @@ function registerListener(event, func) {
 </span><span class=w>    </span><span class=n>importer</span><span class=o>-&gt;</span><span class=n>SetFileName</span><span class=p>(</span><span class=n>argv</span><span class=p>[</span><span class=mi>1</span><span class=p>]);</span>
 <span class=w>    </span><span class=n>importer</span><span class=o>-&gt;</span><span class=n>SetRenderWindow</span><span class=p>(</span><span class=n>importRenderWindow</span><span class=p>);</span>
 <span class=w>    </span><span class=n>importRenderWindow</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=n>importer</span><span class=o>-&gt;</span><span class=n>GetRenderWindow</span><span class=p>();</span>
+<span class=cp>#ifdef USE_IMPORTER_UPDATE</span>
+<span class=w>    </span><span class=n>importer</span><span class=o>-&gt;</span><span class=n>Update</span><span class=p>();</span>
+<span class=cp>#else</span>
 <span class=w>    </span><span class=n>importer</span><span class=o>-&gt;</span><span class=n>Read</span><span class=p>();</span>
+<span class=cp>#endif</span>
 <span class=w>    </span><span class=n>importRenderer</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=n>importer</span><span class=o>-&gt;</span><span class=n>GetRenderer</span><span class=p>();</span>
 <span class=w>    </span><span class=c1>// filePrefixArgOffset = 2;</span>
 <span class=w>  </span><span class=p>}</span>
@@ -163,7 +172,11 @@ function registerListener(event, func) {
 </span><span class=w>    </span><span class=n>importer</span><span class=o>-&gt;</span><span class=n>SetFileName</span><span class=p>(</span><span class=n>argv</span><span class=p>[</span><span class=mi>1</span><span class=p>]);</span>
 <span class=w>    </span><span class=n>importer</span><span class=o>-&gt;</span><span class=n>SetRenderWindow</span><span class=p>(</span><span class=n>importRenderWindow</span><span class=p>);</span>
 <span class=w>    </span><span class=n>importRenderWindow</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=n>importer</span><span class=o>-&gt;</span><span class=n>GetRenderWindow</span><span class=p>();</span>
+<span class=cp>#ifdef USE_IMPORTER_UPDATE</span>
+<span class=w>    </span><span class=n>importer</span><span class=o>-&gt;</span><span class=n>Update</span><span class=p>();</span>
+<span class=cp>#else</span>
 <span class=w>    </span><span class=n>importer</span><span class=o>-&gt;</span><span class=n>Read</span><span class=p>();</span>
+<span class=cp>#endif</span>
 <span class=w>    </span><span class=n>importRenderer</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=n>importer</span><span class=o>-&gt;</span><span class=n>GetRenderer</span><span class=p>();</span>
 <span class=w>    </span><span class=c1>// filePrefixArgOffset = 2;</span>
 <span class=w>  </span><span class=p>}</span>
@@ -173,7 +186,11 @@ function registerListener(event, func) {
 </span><span class=w>    </span><span class=n>importer</span><span class=o>-&gt;</span><span class=n>SetFileName</span><span class=p>(</span><span class=n>argv</span><span class=p>[</span><span class=mi>1</span><span class=p>]);</span>
 <span class=w>    </span><span class=n>importer</span><span class=o>-&gt;</span><span class=n>SetRenderWindow</span><span class=p>(</span><span class=n>importRenderWindow</span><span class=p>);</span>
 <span class=w>    </span><span class=n>importRenderWindow</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=n>importer</span><span class=o>-&gt;</span><span class=n>GetRenderWindow</span><span class=p>();</span>
+<span class=cp>#ifdef USE_IMPORTER_UPDATE</span>
+<span class=w>    </span><span class=n>importer</span><span class=o>-&gt;</span><span class=n>Update</span><span class=p>();</span>
+<span class=cp>#else</span>
 <span class=w>    </span><span class=n>importer</span><span class=o>-&gt;</span><span class=n>Read</span><span class=p>();</span>
+<span class=cp>#endif</span>
 <span class=w>    </span><span class=n>importRenderer</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=n>importer</span><span class=o>-&gt;</span><span class=n>GetRenderer</span><span class=p>();</span>
 <span class=w>    </span><span class=c1>// filePrefixArgOffset = 2;</span>
 <span class=w>  </span><span class=p>}</span>
@@ -185,7 +202,11 @@ function registerListener(event, func) {
 <span class=w>    </span><span class=n>importer</span><span class=o>-&gt;</span><span class=n>SetTexturePath</span><span class=p>(</span><span class=n>argv</span><span class=p>[</span><span class=mi>3</span><span class=p>]);</span>
 <span class=w>    </span><span class=n>importer</span><span class=o>-&gt;</span><span class=n>SetRenderWindow</span><span class=p>(</span><span class=n>importRenderWindow</span><span class=p>);</span>
 <span class=w>    </span><span class=n>importRenderWindow</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=n>importer</span><span class=o>-&gt;</span><span class=n>GetRenderWindow</span><span class=p>();</span>
+<span class=cp>#ifdef USE_IMPORTER_UPDATE</span>
+<span class=w>    </span><span class=n>importer</span><span class=o>-&gt;</span><span class=n>Update</span><span class=p>();</span>
+<span class=cp>#else</span>
 <span class=w>    </span><span class=n>importer</span><span class=o>-&gt;</span><span class=n>Read</span><span class=p>();</span>
+<span class=cp>#endif</span>
 <span class=w>    </span><span class=n>importRenderer</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=n>importer</span><span class=o>-&gt;</span><span class=n>GetRenderer</span><span class=p>();</span>
 <span class=w>    </span><span class=c1>// filePrefixArgOffset = 4;</span>
 <span class=w>  </span><span class=p>}</span>

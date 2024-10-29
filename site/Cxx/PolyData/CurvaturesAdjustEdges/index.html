@@ -105,7 +105,6 @@ function registerListener(event, func) {
 </span><span class=hll><span class=cp>#include</span><span class=w> </span><span class=cpf>&lt;vtkDoubleArray.h&gt;</span>
 </span><span class=hll><span class=cp>#include</span><span class=w> </span><span class=cpf>&lt;vtkFeatureEdges.h&gt;</span>
 </span><span class=hll><span class=cp>#include</span><span class=w> </span><span class=cpf>&lt;vtkFloatArray.h&gt;</span>
-</span><span class=hll><span class=cp>#include</span><span class=w> </span><span class=cpf>&lt;vtkIdFilter.h&gt;</span>
 </span><span class=hll><span class=cp>#include</span><span class=w> </span><span class=cpf>&lt;vtkIdList.h&gt;</span>
 </span><span class=hll><span class=cp>#include</span><span class=w> </span><span class=cpf>&lt;vtkInteractorStyleTrackballCamera.h&gt;</span>
 </span><span class=hll><span class=cp>#include</span><span class=w> </span><span class=cpf>&lt;vtkLinearSubdivisionFilter.h&gt;</span>
@@ -139,6 +138,14 @@ function registerListener(event, func) {
 <span class=cp>#if VTK_VERSION_NUMBER &gt;= 90020210809ULL</span>
 <span class=cp>#define HAS_COW</span>
 <span class=hll><span class=cp>#include</span><span class=w> </span><span class=cpf>&lt;vtkCameraOrientationWidget.h&gt;</span>
+</span><span class=cp>#endif</span>
+
+<span class=c1>// vtkGenerateIds was introduced in VTK build version 20240504</span>
+<span class=cp>#if VTK_BUILD_VERSION &gt;= 20240504</span>
+<span class=cp>#define USE_USE_GENERATE_IDS</span>
+<span class=hll><span class=cp>#include</span><span class=w> </span><span class=cpf>&lt;vtkGenerateIds.h&gt;</span>
+</span><span class=cp>#else</span>
+<span class=hll><span class=cp>#include</span><span class=w> </span><span class=cpf>&lt;vtkIdFilter.h&gt;</span>
 </span><span class=cp>#endif</span>
 
 <span class=cp>#include</span><span class=w> </span><span class=cpf>&lt;algorithm&gt;</span>
@@ -494,8 +501,12 @@ function registerListener(event, func) {
 
 <span class=w>  </span><span class=c1>// Get the boundary point IDs.</span>
 <span class=w>  </span><span class=n>std</span><span class=o>::</span><span class=n>string</span><span class=w> </span><span class=n>name</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=s>&quot;Ids&quot;</span><span class=p>;</span>
+<span class=cp>#ifdef USE_USE_GENERATE_IDS</span>
+<span class=hll><span class=w>  </span><span class=n>vtkNew</span><span class=o>&lt;</span><span class=n>vtkGenerateIds</span><span class=o>&gt;</span><span class=w> </span><span class=n>idFilter</span><span class=p>;</span>
+</span><span class=cp>#else</span>
 <span class=hll><span class=w>  </span><span class=n>vtkNew</span><span class=o>&lt;</span><span class=n>vtkIdFilter</span><span class=o>&gt;</span><span class=w> </span><span class=n>idFilter</span><span class=p>;</span>
-</span><span class=w>  </span><span class=n>idFilter</span><span class=o>-&gt;</span><span class=n>SetInputData</span><span class=p>(</span><span class=n>source</span><span class=p>);</span>
+</span><span class=cp>#endif</span>
+<span class=w>  </span><span class=n>idFilter</span><span class=o>-&gt;</span><span class=n>SetInputData</span><span class=p>(</span><span class=n>source</span><span class=p>);</span>
 <span class=w>  </span><span class=n>idFilter</span><span class=o>-&gt;</span><span class=n>SetPointIds</span><span class=p>(</span><span class=nb>true</span><span class=p>);</span>
 <span class=w>  </span><span class=n>idFilter</span><span class=o>-&gt;</span><span class=n>SetCellIds</span><span class=p>(</span><span class=nb>false</span><span class=p>);</span>
 <span class=w>  </span><span class=n>idFilter</span><span class=o>-&gt;</span><span class=n>SetPointIdsArrayName</span><span class=p>(</span><span class=n>name</span><span class=p>.</span><span class=n>c_str</span><span class=p>());</span>

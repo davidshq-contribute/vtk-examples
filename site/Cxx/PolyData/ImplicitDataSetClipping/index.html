@@ -102,7 +102,6 @@ function registerListener(event, func) {
 </span><span class=hll><span class=cp>#include</span><span class=w> </span><span class=cpf>&lt;vtkClipPolyData.h&gt;</span>
 </span><span class=hll><span class=cp>#include</span><span class=w> </span><span class=cpf>&lt;vtkCubeSource.h&gt;</span>
 </span><span class=hll><span class=cp>#include</span><span class=w> </span><span class=cpf>&lt;vtkDataSetWriter.h&gt;</span>
-</span><span class=hll><span class=cp>#include</span><span class=w> </span><span class=cpf>&lt;vtkIdFilter.h&gt;</span>
 </span><span class=hll><span class=cp>#include</span><span class=w> </span><span class=cpf>&lt;vtkIdTypeArray.h&gt;</span>
 </span><span class=hll><span class=cp>#include</span><span class=w> </span><span class=cpf>&lt;vtkNamedColors.h&gt;</span>
 </span><span class=hll><span class=cp>#include</span><span class=w> </span><span class=cpf>&lt;vtkNew.h&gt;</span>
@@ -118,6 +117,14 @@ function registerListener(event, func) {
 <span class=cp>#if VTK_VERSION_NUMBER &gt;= 89000000000ULL</span>
 <span class=cp>#define VTK890 1</span>
 <span class=cp>#endif</span>
+
+<span class=c1>// vtkGenerateIds was introduced in VTK build version 20240504</span>
+<span class=cp>#if VTK_BUILD_VERSION &gt;= 20240504</span>
+<span class=cp>#define USE_USE_GENERATE_IDS</span>
+<span class=hll><span class=cp>#include</span><span class=w> </span><span class=cpf>&lt;vtkGenerateIds.h&gt;</span>
+</span><span class=cp>#else</span>
+<span class=hll><span class=cp>#include</span><span class=w> </span><span class=cpf>&lt;vtkIdFilter.h&gt;</span>
+</span><span class=cp>#endif</span>
 
 <span class=cp>#include</span><span class=w> </span><span class=cpf>&lt;iostream&gt;</span>
 <span class=cp>#include</span><span class=w> </span><span class=cpf>&lt;string&gt;</span>
@@ -148,8 +155,12 @@ function registerListener(event, func) {
 <span class=w>            </span><span class=o>&lt;&lt;</span><span class=w> </span><span class=s>&quot; cells. &quot;</span><span class=w> </span><span class=o>&lt;&lt;</span><span class=w> </span><span class=n>std</span><span class=o>::</span><span class=n>endl</span><span class=p>;</span>
 
 <span class=w>  </span><span class=c1>// Add ids to the points and cells of the sphere.</span>
+<span class=cp>#ifdef USE_USE_GENERATE_IDS</span>
+<span class=hll><span class=w>  </span><span class=n>vtkNew</span><span class=o>&lt;</span><span class=n>vtkGenerateIds</span><span class=o>&gt;</span><span class=w> </span><span class=n>cellIdFilter</span><span class=p>;</span>
+</span><span class=cp>#else</span>
 <span class=hll><span class=w>  </span><span class=n>vtkNew</span><span class=o>&lt;</span><span class=n>vtkIdFilter</span><span class=o>&gt;</span><span class=w> </span><span class=n>cellIdFilter</span><span class=p>;</span>
-</span><span class=w>  </span><span class=n>cellIdFilter</span><span class=o>-&gt;</span><span class=n>SetInputConnection</span><span class=p>(</span><span class=n>sphereSource</span><span class=o>-&gt;</span><span class=n>GetOutputPort</span><span class=p>());</span>
+</span><span class=cp>#endif</span>
+<span class=w>  </span><span class=n>cellIdFilter</span><span class=o>-&gt;</span><span class=n>SetInputConnection</span><span class=p>(</span><span class=n>sphereSource</span><span class=o>-&gt;</span><span class=n>GetOutputPort</span><span class=p>());</span>
 <span class=w>  </span><span class=n>cellIdFilter</span><span class=o>-&gt;</span><span class=n>SetCellIds</span><span class=p>(</span><span class=nb>true</span><span class=p>);</span>
 <span class=w>  </span><span class=n>cellIdFilter</span><span class=o>-&gt;</span><span class=n>SetPointIds</span><span class=p>(</span><span class=nb>false</span><span class=p>);</span>
 <span class=cp>#if VTK890</span>
@@ -159,10 +170,18 @@ function registerListener(event, func) {
 <span class=cp>#endif</span>
 <span class=w>  </span><span class=n>cellIdFilter</span><span class=o>-&gt;</span><span class=n>Update</span><span class=p>();</span>
 
+<span class=cp>#ifdef USE_USE_GENERATE_IDS</span>
+<span class=w>  </span><span class=n>WriteDataSet</span><span class=p>(</span><span class=n>cellIdFilter</span><span class=o>-&gt;</span><span class=n>GetPolyDataOutput</span><span class=p>(),</span><span class=w> </span><span class=s>&quot;CellIdFilter.vtp&quot;</span><span class=p>);</span>
+<span class=cp>#else</span>
 <span class=w>  </span><span class=n>WriteDataSet</span><span class=p>(</span><span class=n>cellIdFilter</span><span class=o>-&gt;</span><span class=n>GetOutput</span><span class=p>(),</span><span class=w> </span><span class=s>&quot;CellIdFilter.vtp&quot;</span><span class=p>);</span>
+<span class=cp>#endif</span>
 
+<span class=cp>#ifdef USE_USE_GENERATE_IDS</span>
+<span class=hll><span class=w>  </span><span class=n>vtkNew</span><span class=o>&lt;</span><span class=n>vtkGenerateIds</span><span class=o>&gt;</span><span class=w> </span><span class=n>pointIdFilter</span><span class=p>;</span>
+</span><span class=cp>#else</span>
 <span class=hll><span class=w>  </span><span class=n>vtkNew</span><span class=o>&lt;</span><span class=n>vtkIdFilter</span><span class=o>&gt;</span><span class=w> </span><span class=n>pointIdFilter</span><span class=p>;</span>
-</span><span class=w>  </span><span class=n>pointIdFilter</span><span class=o>-&gt;</span><span class=n>SetInputConnection</span><span class=p>(</span><span class=n>cellIdFilter</span><span class=o>-&gt;</span><span class=n>GetOutputPort</span><span class=p>());</span>
+</span><span class=cp>#endif</span>
+<span class=w>  </span><span class=n>pointIdFilter</span><span class=o>-&gt;</span><span class=n>SetInputConnection</span><span class=p>(</span><span class=n>cellIdFilter</span><span class=o>-&gt;</span><span class=n>GetOutputPort</span><span class=p>());</span>
 <span class=w>  </span><span class=n>pointIdFilter</span><span class=o>-&gt;</span><span class=n>SetCellIds</span><span class=p>(</span><span class=nb>false</span><span class=p>);</span>
 <span class=w>  </span><span class=n>pointIdFilter</span><span class=o>-&gt;</span><span class=n>SetPointIds</span><span class=p>(</span><span class=nb>true</span><span class=p>);</span>
 <span class=cp>#if VTK890</span>
@@ -172,8 +191,14 @@ function registerListener(event, func) {
 <span class=cp>#endif</span>
 <span class=w>  </span><span class=n>pointIdFilter</span><span class=o>-&gt;</span><span class=n>Update</span><span class=p>();</span>
 
+<span class=cp>#ifdef USE_USE_GENERATE_IDS</span>
+<span class=hll><span class=w>  </span><span class=n>vtkDataSet</span><span class=o>*</span><span class=w> </span><span class=n>sphereWithIds</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=n>pointIdFilter</span><span class=o>-&gt;</span><span class=n>GetPolyDataOutput</span><span class=p>();</span>
+</span><span class=cp>#else</span>
 <span class=hll><span class=w>  </span><span class=n>vtkDataSet</span><span class=o>*</span><span class=w> </span><span class=n>sphereWithIds</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=n>pointIdFilter</span><span class=o>-&gt;</span><span class=n>GetOutput</span><span class=p>();</span>
-</span>
+</span><span class=cp>#endif</span>
+
+
+
 <span class=w>  </span><span class=n>WriteDataSet</span><span class=p>(</span><span class=n>sphereWithIds</span><span class=p>,</span><span class=w> </span><span class=s>&quot;BothIdFilter.vtp&quot;</span><span class=p>);</span>
 
 <span class=hll><span class=w>  </span><span class=n>vtkNew</span><span class=o>&lt;</span><span class=n>vtkCubeSource</span><span class=o>&gt;</span><span class=w> </span><span class=n>cubeSource</span><span class=p>;</span>
