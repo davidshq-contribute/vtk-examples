@@ -7637,6 +7637,10 @@
          <lastmod>2024-11-18</lastmod>
     </url>
     <url>
+         <loc>https://examples.vtk.org/site/PythonicAPI/Filtering/ExtractVisibleCells/</loc>
+         <lastmod>2024-11-18</lastmod>
+    </url>
+    <url>
          <loc>https://examples.vtk.org/site/PythonicAPI/Filtering/Glyph2D/</loc>
          <lastmod>2024-11-18</lastmod>
     </url>
@@ -7877,6 +7881,10 @@
          <lastmod>2024-11-18</lastmod>
     </url>
     <url>
+         <loc>https://examples.vtk.org/site/PythonicAPI/ImageData/VoxelsOnBoundary/</loc>
+         <lastmod>2024-11-18</lastmod>
+    </url>
+    <url>
          <loc>https://examples.vtk.org/site/PythonicAPI/ImageData/WriteReadVtkImageData/</loc>
          <lastmod>2024-11-18</lastmod>
     </url>
@@ -7918,6 +7926,54 @@
     </url>
     <url>
          <loc>https://examples.vtk.org/site/PythonicAPI/Images/BackgroundImage/</loc>
+         <lastmod>2024-11-18</lastmod>
+    </url>
+    <url>
+         <loc>https://examples.vtk.org/site/PythonicAPI/Images/CenterAnImage/</loc>
+         <lastmod>2024-11-18</lastmod>
+    </url>
+    <url>
+         <loc>https://examples.vtk.org/site/PythonicAPI/Images/CombiningRGBChannels/</loc>
+         <lastmod>2024-11-18</lastmod>
+    </url>
+    <url>
+         <loc>https://examples.vtk.org/site/PythonicAPI/Images/DotProduct/</loc>
+         <lastmod>2024-11-18</lastmod>
+    </url>
+    <url>
+         <loc>https://examples.vtk.org/site/PythonicAPI/Images/ExtractComponents/</loc>
+         <lastmod>2024-11-18</lastmod>
+    </url>
+    <url>
+         <loc>https://examples.vtk.org/site/PythonicAPI/Images/ImageCityBlockDistance/</loc>
+         <lastmod>2024-11-18</lastmod>
+    </url>
+    <url>
+         <loc>https://examples.vtk.org/site/PythonicAPI/Images/ImageContinuousDilate3D/</loc>
+         <lastmod>2024-11-18</lastmod>
+    </url>
+    <url>
+         <loc>https://examples.vtk.org/site/PythonicAPI/Images/ImageContinuousErode3D/</loc>
+         <lastmod>2024-11-18</lastmod>
+    </url>
+    <url>
+         <loc>https://examples.vtk.org/site/PythonicAPI/Images/ImageConvolve/</loc>
+         <lastmod>2024-11-18</lastmod>
+    </url>
+    <url>
+         <loc>https://examples.vtk.org/site/PythonicAPI/Images/ImageCorrelation/</loc>
+         <lastmod>2024-11-18</lastmod>
+    </url>
+    <url>
+         <loc>https://examples.vtk.org/site/PythonicAPI/Images/ImageDifference/</loc>
+         <lastmod>2024-11-18</lastmod>
+    </url>
+    <url>
+         <loc>https://examples.vtk.org/site/PythonicAPI/Images/ImageDivergence/</loc>
+         <lastmod>2024-11-18</lastmod>
+    </url>
+    <url>
+         <loc>https://examples.vtk.org/site/PythonicAPI/Images/ImageEllipsoidSource/</loc>
          <lastmod>2024-11-18</lastmod>
     </url>
     <url>
@@ -7974,6 +8030,14 @@
     </url>
     <url>
          <loc>https://examples.vtk.org/site/PythonicAPI/Interaction/EllipticalButton/</loc>
+         <lastmod>2024-11-18</lastmod>
+    </url>
+    <url>
+         <loc>https://examples.vtk.org/site/PythonicAPI/Interaction/ImageClip/</loc>
+         <lastmod>2024-11-18</lastmod>
+    </url>
+    <url>
+         <loc>https://examples.vtk.org/site/PythonicAPI/Interaction/ImageRegion/</loc>
          <lastmod>2024-11-18</lastmod>
     </url>
     <url>
@@ -8897,6 +8961,10 @@
          <lastmod>2024-11-18</lastmod>
     </url>
     <url>
+         <loc>https://examples.vtk.org/site/PythonicAPI/VolumeRendering/MinIntensityRendering/</loc>
+         <lastmod>2024-11-18</lastmod>
+    </url>
+    <url>
          <loc>https://examples.vtk.org/site/PythonicAPI/VolumeRendering/PseudoVolumeRendering/</loc>
          <lastmod>2024-11-18</lastmod>
     </url>
@@ -8958,6 +9026,10 @@
     </url>
     <url>
          <loc>https://examples.vtk.org/site/PythonicAPI/Widgets/DistanceWidget/</loc>
+         <lastmod>2024-11-18</lastmod>
+    </url>
+    <url>
+         <loc>https://examples.vtk.org/site/PythonicAPI/Widgets/HoverWidget/</loc>
          <lastmod>2024-11-18</lastmod>
     </url>
     <url>
