@@ -8029,7 +8029,19 @@
          <lastmod>2024-11-29</lastmod>
     </url>
     <url>
+         <loc>https://examples.vtk.org/site/PythonicAPI/Images/ImageSeparableConvolution/</loc>
+         <lastmod>2024-11-29</lastmod>
+    </url>
+    <url>
          <loc>https://examples.vtk.org/site/PythonicAPI/Images/ImageSlice/</loc>
+         <lastmod>2024-11-29</lastmod>
+    </url>
+    <url>
+         <loc>https://examples.vtk.org/site/PythonicAPI/Images/ImageSobel2D/</loc>
+         <lastmod>2024-11-29</lastmod>
+    </url>
+    <url>
+         <loc>https://examples.vtk.org/site/PythonicAPI/Images/ImageStack/</loc>
          <lastmod>2024-11-29</lastmod>
     </url>
     <url>
@@ -9122,6 +9134,14 @@
     </url>
     <url>
          <loc>https://examples.vtk.org/site/PythonicAPI/Widgets/ImagePlaneWidget/</loc>
+         <lastmod>2024-11-29</lastmod>
+    </url>
+    <url>
+         <loc>https://examples.vtk.org/site/PythonicAPI/Widgets/ImageTracerWidgetInsideContour/</loc>
+         <lastmod>2024-11-29</lastmod>
+    </url>
+    <url>
+         <loc>https://examples.vtk.org/site/PythonicAPI/Widgets/ImageTracerWidgetNonPlanar/</loc>
          <lastmod>2024-11-29</lastmod>
     </url>
     <url>

@@ -1865,3 +1865,8 @@ https://github.com/Kitware/vtk-examples/blob/gh-pages/src/Testing/Baseline/Pytho
 https://github.com/Kitware/vtk-examples/blob/gh-pages/src/Testing/Baseline/PythonicAPI/Images/TestRGBToYIQ.png https://tinyurl.com/28fmrxlf
 https://github.com/Kitware/vtk-examples/blob/gh-pages/src/Testing/Baseline/PythonicAPI/Images/TestResizeImage.png https://tinyurl.com/222pgeju
 https://github.com/Kitware/vtk-examples/blob/gh-pages/src/Testing/Baseline/PythonicAPI/Widgets/TestImagePlaneWidget.png https://tinyurl.com/25dh47ty
+https://github.com/Kitware/vtk-examples/blob/gh-pages/src/Testing/Baseline/PythonicAPI/Images/TestImageSeparableConvolution.png https://tinyurl.com/25phdqbb
+https://github.com/Kitware/vtk-examples/blob/gh-pages/src/Testing/Baseline/PythonicAPI/Images/TestImageStack.png https://tinyurl.com/2dyjo7gs
+https://github.com/Kitware/vtk-examples/blob/gh-pages/src/Testing/Baseline/PythonicAPI/Images/TestImageSobel2D.png https://tinyurl.com/28yw9hjm
+https://github.com/Kitware/vtk-examples/blob/gh-pages/src/Testing/Baseline/PythonicAPI/Widgets/TestImageTracerWidgetInsideContour.png https://tinyurl.com/232brrmg
+https://github.com/Kitware/vtk-examples/blob/gh-pages/src/Testing/Baseline/PythonicAPI/Widgets/TestImageTracerWidgetNonPlanar.png https://tinyurl.com/2ydgxvye
