@@ -195,8 +195,6 @@ function registerListener(event, func) {
     <span class=n>slider_rep</span><span class=o>.</span><span class=n>point2_coordinate</span><span class=o>.</span><span class=n>coordinate_system</span> <span class=o>=</span> <span class=n>properties</span><span class=o>.</span><span class=n>Position</span><span class=o>.</span><span class=n>coordinate_system</span>
     <span class=n>slider_rep</span><span class=o>.</span><span class=n>point2_coordinate</span><span class=o>.</span><span class=n>value</span> <span class=o>=</span> <span class=n>properties</span><span class=o>.</span><span class=n>Position</span><span class=o>.</span><span class=n>point2</span>
 
-    <span class=c1># if properties.Text.title_font_name:</span>
-    <span class=c1>#     slider_rep.title_property.font_family_as_string = properties.Text.title_font_name</span>
     <span class=n>title_font_family</span> <span class=o>=</span> <span class=n>properties</span><span class=o>.</span><span class=n>Text</span><span class=o>.</span><span class=n>title_font_family</span>
     <span class=k>match</span> <span class=n>title_font_family</span><span class=p>:</span>
         <span class=k>case</span> <span class=s1>&#39;Courier&#39;</span><span class=p>:</span>
@@ -216,9 +214,6 @@ function registerListener(event, func) {
             <span class=n>slider_rep</span><span class=o>.</span><span class=n>label_property</span><span class=o>.</span><span class=n>SetFontFamilyToTimes</span><span class=p>()</span>
         <span class=k>case</span><span class=w> </span><span class=k>_</span><span class=p>:</span>
             <span class=n>slider_rep</span><span class=o>.</span><span class=n>label_property</span><span class=o>.</span><span class=n>SetFontFamilyToArial</span><span class=p>()</span>
-
-    <span class=k>if</span> <span class=n>properties</span><span class=o>.</span><span class=n>Text</span><span class=o>.</span><span class=n>label_font_family</span><span class=o>.</span><span class=n>title</span><span class=p>()</span> <span class=ow>in</span> <span class=p>[</span><span class=s1>&#39;Ariel&#39;</span><span class=p>,</span> <span class=s1>&#39;Courier&#39;</span><span class=p>,</span> <span class=s1>&#39;Times&#39;</span><span class=p>]:</span>
-        <span class=n>slider_rep</span><span class=o>.</span><span class=n>label_property</span><span class=o>.</span><span class=n>font_family_as_string</span> <span class=o>=</span> <span class=n>properties</span><span class=o>.</span><span class=n>Text</span><span class=o>.</span><span class=n>label_font_name</span>
     <span class=n>slider_rep</span><span class=o>.</span><span class=n>label_property</span><span class=o>.</span><span class=n>bold</span> <span class=o>=</span> <span class=n>properties</span><span class=o>.</span><span class=n>Text</span><span class=o>.</span><span class=n>label_bold</span>
     <span class=n>slider_rep</span><span class=o>.</span><span class=n>label_property</span><span class=o>.</span><span class=n>italic</span> <span class=o>=</span> <span class=n>properties</span><span class=o>.</span><span class=n>Text</span><span class=o>.</span><span class=n>label_italic</span>
     <span class=n>slider_rep</span><span class=o>.</span><span class=n>label_property</span><span class=o>.</span><span class=n>shadow</span> <span class=o>=</span> <span class=n>properties</span><span class=o>.</span><span class=n>Text</span><span class=o>.</span><span class=n>label_shadow</span>
