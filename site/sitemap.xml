@@ -573,7 +573,15 @@
          <lastmod>2024-12-31</lastmod>
     </url>
     <url>
+         <loc>https://examples.vtk.org/site/Cxx/Annotation/LegendScaleActor/</loc>
+         <lastmod>2024-12-31</lastmod>
+    </url>
+    <url>
          <loc>https://examples.vtk.org/site/Cxx/Annotation/MultiLineText/</loc>
+         <lastmod>2024-12-31</lastmod>
+    </url>
+    <url>
+         <loc>https://examples.vtk.org/site/Cxx/Annotation/PolarAxesActor/</loc>
          <lastmod>2024-12-31</lastmod>
     </url>
     <url>
@@ -925,6 +933,10 @@
          <lastmod>2024-12-31</lastmod>
     </url>
     <url>
+         <loc>https://examples.vtk.org/site/Cxx/GeometricObjects/ConesOnSphere/</loc>
+         <lastmod>2024-12-31</lastmod>
+    </url>
+    <url>
          <loc>https://examples.vtk.org/site/Cxx/GeometricObjects/ConvexPointSet/</loc>
          <lastmod>2024-12-31</lastmod>
     </url>
@@ -970,6 +982,10 @@
     </url>
     <url>
          <loc>https://examples.vtk.org/site/Cxx/GeometricObjects/GeometricObjectsDemo/</loc>
+         <lastmod>2024-12-31</lastmod>
+    </url>
+    <url>
+         <loc>https://examples.vtk.org/site/Cxx/GeometricObjects/GoldenBallSource/</loc>
          <lastmod>2024-12-31</lastmod>
     </url>
     <url>
@@ -1133,7 +1149,7 @@
          <lastmod>2024-12-31</lastmod>
     </url>
     <url>
-         <loc>https://examples.vtk.org/site/Cxx/GeometricObjects/Sphere/</loc>
+         <loc>https://examples.vtk.org/site/Cxx/GeometricObjects/SphereSource/</loc>
          <lastmod>2024-12-31</lastmod>
     </url>
     <url>
@@ -4253,10 +4269,6 @@
          <lastmod>2024-12-31</lastmod>
     </url>
     <url>
-         <loc>https://examples.vtk.org/site/Cxx/Visualization/LegendScaleActor/</loc>
-         <lastmod>2024-12-31</lastmod>
-    </url>
-    <url>
          <loc>https://examples.vtk.org/site/Cxx/Visualization/LineWidth/</loc>
          <lastmod>2024-12-31</lastmod>
     </url>
@@ -4825,6 +4837,10 @@
          <lastmod>2024-12-31</lastmod>
     </url>
     <url>
+         <loc>https://examples.vtk.org/site/Cxx/Widgets/ImplicitAnnulusWidget/</loc>
+         <lastmod>2024-12-31</lastmod>
+    </url>
+    <url>
          <loc>https://examples.vtk.org/site/Cxx/Widgets/ImplicitConeWidget/</loc>
          <lastmod>2024-12-31</lastmod>
     </url>
@@ -4942,6 +4958,10 @@
     </url>
     <url>
          <loc>https://examples.vtk.org/site/Java/Snippets/</loc>
+         <lastmod>2024-12-31</lastmod>
+    </url>
+    <url>
+         <loc>https://examples.vtk.org/site/Java/Annotation/LegendScaleActor/</loc>
          <lastmod>2024-12-31</lastmod>
     </url>
     <url>
@@ -5730,10 +5750,6 @@
     </url>
     <url>
          <loc>https://examples.vtk.org/site/Java/Visualization/Legend/</loc>
-         <lastmod>2024-12-31</lastmod>
-    </url>
-    <url>
-         <loc>https://examples.vtk.org/site/Java/Visualization/LegendScaleActor/</loc>
          <lastmod>2024-12-31</lastmod>
     </url>
     <url>
@@ -7585,6 +7601,14 @@
          <lastmod>2024-12-31</lastmod>
     </url>
     <url>
+         <loc>https://examples.vtk.org/site/PythonicAPI/Annotation/LegendScaleActor/</loc>
+         <lastmod>2024-12-31</lastmod>
+    </url>
+    <url>
+         <loc>https://examples.vtk.org/site/PythonicAPI/Annotation/PolarAxesActor/</loc>
+         <lastmod>2024-12-31</lastmod>
+    </url>
+    <url>
          <loc>https://examples.vtk.org/site/PythonicAPI/Annotation/TextOrigin/</loc>
          <lastmod>2024-12-31</lastmod>
     </url>
@@ -7677,6 +7701,10 @@
          <lastmod>2024-12-31</lastmod>
     </url>
     <url>
+         <loc>https://examples.vtk.org/site/PythonicAPI/GeometricObjects/ConesOnSphere/</loc>
+         <lastmod>2024-12-31</lastmod>
+    </url>
+    <url>
          <loc>https://examples.vtk.org/site/PythonicAPI/GeometricObjects/ConvexPointSet/</loc>
          <lastmod>2024-12-31</lastmod>
     </url>
@@ -7698,6 +7726,10 @@
     </url>
     <url>
          <loc>https://examples.vtk.org/site/PythonicAPI/GeometricObjects/GeometricObjectsDemo/</loc>
+         <lastmod>2024-12-31</lastmod>
+    </url>
+    <url>
+         <loc>https://examples.vtk.org/site/PythonicAPI/GeometricObjects/GoldenBallSource/</loc>
          <lastmod>2024-12-31</lastmod>
     </url>
     <url>
@@ -7750,6 +7782,10 @@
     </url>
     <url>
          <loc>https://examples.vtk.org/site/PythonicAPI/GeometricObjects/SourceObjectsDemo/</loc>
+         <lastmod>2024-12-31</lastmod>
+    </url>
+    <url>
+         <loc>https://examples.vtk.org/site/PythonicAPI/GeometricObjects/SphereSource/</loc>
          <lastmod>2024-12-31</lastmod>
     </url>
     <url>
@@ -9238,6 +9274,10 @@
     </url>
     <url>
          <loc>https://examples.vtk.org/site/PythonicAPI/Widgets/ImageTracerWidgetNonPlanar/</loc>
+         <lastmod>2024-12-31</lastmod>
+    </url>
+    <url>
+         <loc>https://examples.vtk.org/site/PythonicAPI/Widgets/ImplicitAnnulusWidget/</loc>
          <lastmod>2024-12-31</lastmod>
     </url>
     <url>
