@@ -59,29 +59,29 @@ function registerListener(event, func) {
 
 <span class=c1># Translated from TenEllip.tcl</span>
 
-<span class=kn>from</span> <span class=nn>dataclasses</span> <span class=kn>import</span> <span class=n>dataclass</span>
+<span class=kn>from</span><span class=w> </span><span class=nn>dataclasses</span><span class=w> </span><span class=kn>import</span> <span class=n>dataclass</span>
 
 <span class=c1># noinspection PyUnresolvedReferences</span>
-<span class=kn>import</span> <span class=nn>vtkmodules.vtkInteractionStyle</span>
+<span class=kn>import</span><span class=w> </span><span class=nn>vtkmodules.vtkInteractionStyle</span>
 <span class=c1># noinspection PyUnresolvedReferences</span>
-<span class=kn>import</span> <span class=nn>vtkmodules.vtkRenderingOpenGL2</span>
-<span class=kn>from</span> <span class=nn>vtkmodules.vtkCommonColor</span> <span class=kn>import</span> <span class=p>(</span>
+<span class=kn>import</span><span class=w> </span><span class=nn>vtkmodules.vtkRenderingOpenGL2</span>
+<span class=kn>from</span><span class=w> </span><span class=nn>vtkmodules.vtkCommonColor</span><span class=w> </span><span class=kn>import</span> <span class=p>(</span>
 <span class=hll>    <span class=n>vtkColorSeries</span><span class=p>,</span>
 </span><span class=hll>    <span class=n>vtkNamedColors</span>
 </span><span class=p>)</span>
-<span class=hll><span class=kn>from</span> <span class=nn>vtkmodules.vtkCommonCore</span> <span class=kn>import</span> <span class=n>vtkLookupTable</span>
-</span><span class=kn>from</span> <span class=nn>vtkmodules.vtkFiltersCore</span> <span class=kn>import</span> <span class=p>(</span>
+<span class=hll><span class=kn>from</span><span class=w> </span><span class=nn>vtkmodules.vtkCommonCore</span><span class=w> </span><span class=kn>import</span> <span class=n>vtkLookupTable</span>
+</span><span class=kn>from</span><span class=w> </span><span class=nn>vtkmodules.vtkFiltersCore</span><span class=w> </span><span class=kn>import</span> <span class=p>(</span>
 <span class=hll>    <span class=n>vtkPolyDataNormals</span><span class=p>,</span>
 </span><span class=hll>    <span class=n>vtkTensorGlyph</span>
 </span><span class=p>)</span>
-<span class=hll><span class=kn>from</span> <span class=nn>vtkmodules.vtkFiltersGeometry</span> <span class=kn>import</span> <span class=n>vtkImageDataGeometryFilter</span>
-</span><span class=hll><span class=kn>from</span> <span class=nn>vtkmodules.vtkFiltersModeling</span> <span class=kn>import</span> <span class=n>vtkOutlineFilter</span>
-</span><span class=kn>from</span> <span class=nn>vtkmodules.vtkFiltersSources</span> <span class=kn>import</span> <span class=p>(</span>
+<span class=hll><span class=kn>from</span><span class=w> </span><span class=nn>vtkmodules.vtkFiltersGeometry</span><span class=w> </span><span class=kn>import</span> <span class=n>vtkImageDataGeometryFilter</span>
+</span><span class=hll><span class=kn>from</span><span class=w> </span><span class=nn>vtkmodules.vtkFiltersModeling</span><span class=w> </span><span class=kn>import</span> <span class=n>vtkOutlineFilter</span>
+</span><span class=kn>from</span><span class=w> </span><span class=nn>vtkmodules.vtkFiltersSources</span><span class=w> </span><span class=kn>import</span> <span class=p>(</span>
 <span class=hll>    <span class=n>vtkConeSource</span><span class=p>,</span>
 </span><span class=hll>    <span class=n>vtkSphereSource</span>
 </span><span class=p>)</span>
-<span class=hll><span class=kn>from</span> <span class=nn>vtkmodules.vtkImagingHybrid</span> <span class=kn>import</span> <span class=n>vtkPointLoad</span>
-</span><span class=kn>from</span> <span class=nn>vtkmodules.vtkRenderingCore</span> <span class=kn>import</span> <span class=p>(</span>
+<span class=hll><span class=kn>from</span><span class=w> </span><span class=nn>vtkmodules.vtkImagingHybrid</span><span class=w> </span><span class=kn>import</span> <span class=n>vtkPointLoad</span>
+</span><span class=kn>from</span><span class=w> </span><span class=nn>vtkmodules.vtkRenderingCore</span><span class=w> </span><span class=kn>import</span> <span class=p>(</span>
 <span class=hll>    <span class=n>vtkActor</span><span class=p>,</span>
 </span><span class=hll>    <span class=n>vtkCamera</span><span class=p>,</span>
 </span><span class=hll>    <span class=n>vtkPolyDataMapper</span><span class=p>,</span>
@@ -91,7 +91,7 @@ function registerListener(event, func) {
 </span><span class=p>)</span>
 
 
-<span class=k>def</span> <span class=nf>main</span><span class=p>():</span>
+<span class=k>def</span><span class=w> </span><span class=nf>main</span><span class=p>():</span>
 <span class=hll>    <span class=n>colors</span> <span class=o>=</span> <span class=n>vtkNamedColors</span><span class=p>()</span>
 </span>
     <span class=c1># Create the RenderWindow, Renderer and interactive renderer.</span>
@@ -157,7 +157,7 @@ function registerListener(event, func) {
     <span class=n>iren</span><span class=o>.</span><span class=n>Start</span><span class=p>()</span>
 
 
-<span class=k>def</span> <span class=nf>make_log_lut</span><span class=p>():</span>
+<span class=k>def</span><span class=w> </span><span class=nf>make_log_lut</span><span class=p>():</span>
     <span class=c1># Make the lookup using a Brewer palette.</span>
 <span class=hll>    <span class=n>color_series</span> <span class=o>=</span> <span class=n>vtkColorSeries</span><span class=p>(</span><span class=n>color_scheme</span><span class=o>=</span><span class=n>vtkColorSeries</span><span class=o>.</span><span class=n>BREWER_DIVERGING_SPECTRAL_8</span><span class=p>)</span>
 </span>
@@ -172,9 +172,9 @@ function registerListener(event, func) {
 
 
 <span class=nd>@dataclass</span><span class=p>(</span><span class=n>frozen</span><span class=o>=</span><span class=kc>True</span><span class=p>)</span>
-<span class=k>class</span> <span class=nc>LookupTable</span><span class=p>:</span>
+<span class=k>class</span><span class=w> </span><span class=nc>LookupTable</span><span class=p>:</span>
     <span class=nd>@dataclass</span><span class=p>(</span><span class=n>frozen</span><span class=o>=</span><span class=kc>True</span><span class=p>)</span>
-    <span class=k>class</span> <span class=nc>Scale</span><span class=p>:</span>
+    <span class=k>class</span><span class=w> </span><span class=nc>Scale</span><span class=p>:</span>
         <span class=n>VTK_SCALE_LINEAR</span><span class=p>:</span> <span class=nb>int</span> <span class=o>=</span> <span class=mi>0</span>
         <span class=n>VTK_SCALE_LOG10</span><span class=p>:</span> <span class=nb>int</span> <span class=o>=</span> <span class=mi>1</span>
 

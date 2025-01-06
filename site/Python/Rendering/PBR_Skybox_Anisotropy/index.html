@@ -66,57 +66,57 @@ Options:
  -t, --use_tonemapping Use tone mapping.
 </code></pre></div> <p>Additionally, you can save a screenshot by pressing "k".</p> <h4 id=further-reading>Further Reading<a class=headerlink href=#further-reading title="Permanent link">&para;</a></h4> <ul> <li><a href=https://blog.kitware.com/vtk-pbr/ >Introducing Physically Based Rendering with VTK</a></li> <li><a href=https://blog.kitware.com/pbrj1/ >PBR Journey Part 1: High Dynamic Range Image Based Lighting with VTK</a></li> <li><a href=https://blog.kitware.com/pbr-journey-part-2-anisotropy-model-with-vtk/ >PBR Journey Part 2 : Anisotropy model with VTK</a></li> <li><a href=https://blog.kitware.com/pbr-journey-part-3-clear-coat-model-with-vtk/ >PBR Journey Part 3 : Clear Coat Model with VTK</a></li> <li><a href=https://gitlab.kitware.com/paraview/paraview-docs/-/blob/master/doc/source/ReferenceManual/objectShadingProperties.rst>Object Shading Properties</a></li> </ul> <div class="admonition note"> <p class=admonition-title>Note</p> <ul> <li><code>&lt;DATA&gt;/PBR_Skybox_Anisotropy.json</code> assumes that the skyboxes and textures are in the subfolders <code>Skyboxes</code> and <code>Textures</code> relative to this file. This allows you to copy this JSON file and the associated subfolders to any other location on your computer.</li> <li>You can turn off the skybox in the JSON file by setting <code>"skybox":false</code>. Image based lighting will still be active.</li> </ul> </div> <div class="admonition note"> <p class=admonition-title>Note</p> <ul> <li>The C++ example requires C++17 as <code>std::filesystem</code> is used. If your compiler does not support C++17 comment out the filesystem stuff.</li> </ul> </div> <div class="admonition tip"> <p class=admonition-title>Other languages</p> <p>See (<a href=../../../Cxx/Rendering/PBR_Skybox_Anisotropy>Cxx</a>), (<a href=../../../PythonicAPI/Rendering/PBR_Skybox_Anisotropy>PythonicAPI</a>)</p> </div> <div class="admonition question"> <p class=admonition-title>Question</p> <p>If you have a question about this example, please use the <a href=https://discourse.vtk.org/ >VTK Discourse Forum</a></p> </div> <h3 id=code>Code<a class=headerlink href=#code title="Permanent link">&para;</a></h3> <p><strong>PBR_Skybox_Anisotropy.py</strong></p> <div class=codehilite><pre><span></span><code><span class=ch>#!/usr/bin/env python3</span>
 
-<span class=kn>import</span> <span class=nn>json</span>
-<span class=kn>import</span> <span class=nn>sys</span>
-<span class=kn>from</span> <span class=nn>pathlib</span> <span class=kn>import</span> <span class=n>Path</span>
+<span class=kn>import</span><span class=w> </span><span class=nn>json</span>
+<span class=kn>import</span><span class=w> </span><span class=nn>sys</span>
+<span class=kn>from</span><span class=w> </span><span class=nn>pathlib</span><span class=w> </span><span class=kn>import</span> <span class=n>Path</span>
 
 <span class=c1># noinspection PyUnresolvedReferences</span>
-<span class=kn>import</span> <span class=nn>vtkmodules.vtkRenderingOpenGL2</span>
-<span class=hll><span class=kn>from</span> <span class=nn>vtkmodules.vtkCommonColor</span> <span class=kn>import</span> <span class=n>vtkNamedColors</span>
-</span><span class=kn>from</span> <span class=nn>vtkmodules.vtkCommonComputationalGeometry</span> <span class=kn>import</span> <span class=p>(</span>
+<span class=kn>import</span><span class=w> </span><span class=nn>vtkmodules.vtkRenderingOpenGL2</span>
+<span class=hll><span class=kn>from</span><span class=w> </span><span class=nn>vtkmodules.vtkCommonColor</span><span class=w> </span><span class=kn>import</span> <span class=n>vtkNamedColors</span>
+</span><span class=kn>from</span><span class=w> </span><span class=nn>vtkmodules.vtkCommonComputationalGeometry</span><span class=w> </span><span class=kn>import</span> <span class=p>(</span>
 <span class=hll>    <span class=n>vtkParametricBoy</span><span class=p>,</span>
 </span><span class=hll>    <span class=n>vtkParametricMobius</span><span class=p>,</span>
 </span><span class=hll>    <span class=n>vtkParametricRandomHills</span><span class=p>,</span>
 </span><span class=hll>    <span class=n>vtkParametricTorus</span>
 </span><span class=p>)</span>
-<span class=kn>from</span> <span class=nn>vtkmodules.vtkCommonCore</span> <span class=kn>import</span> <span class=p>(</span>
+<span class=kn>from</span><span class=w> </span><span class=nn>vtkmodules.vtkCommonCore</span><span class=w> </span><span class=kn>import</span> <span class=p>(</span>
     <span class=n>VTK_VERSION_NUMBER</span><span class=p>,</span>
 <span class=hll>    <span class=n>vtkCommand</span><span class=p>,</span>
 </span><span class=hll>    <span class=n>vtkFloatArray</span><span class=p>,</span>
 </span><span class=hll>    <span class=n>vtkVersion</span>
 </span><span class=p>)</span>
-<span class=hll><span class=kn>from</span> <span class=nn>vtkmodules.vtkCommonDataModel</span> <span class=kn>import</span> <span class=n>vtkPlane</span>
-</span><span class=hll><span class=kn>from</span> <span class=nn>vtkmodules.vtkCommonTransforms</span> <span class=kn>import</span> <span class=n>vtkTransform</span>
-</span><span class=kn>from</span> <span class=nn>vtkmodules.vtkFiltersCore</span> <span class=kn>import</span> <span class=p>(</span>
+<span class=hll><span class=kn>from</span><span class=w> </span><span class=nn>vtkmodules.vtkCommonDataModel</span><span class=w> </span><span class=kn>import</span> <span class=n>vtkPlane</span>
+</span><span class=hll><span class=kn>from</span><span class=w> </span><span class=nn>vtkmodules.vtkCommonTransforms</span><span class=w> </span><span class=kn>import</span> <span class=n>vtkTransform</span>
+</span><span class=kn>from</span><span class=w> </span><span class=nn>vtkmodules.vtkFiltersCore</span><span class=w> </span><span class=kn>import</span> <span class=p>(</span>
 <span class=hll>    <span class=n>vtkCleanPolyData</span><span class=p>,</span>
 </span><span class=hll>    <span class=n>vtkClipPolyData</span><span class=p>,</span>
 </span><span class=hll>    <span class=n>vtkPolyDataNormals</span><span class=p>,</span>
 </span><span class=hll>    <span class=n>vtkPolyDataTangents</span><span class=p>,</span>
 </span><span class=hll>    <span class=n>vtkTriangleFilter</span>
 </span><span class=p>)</span>
-<span class=hll><span class=kn>from</span> <span class=nn>vtkmodules.vtkFiltersGeneral</span> <span class=kn>import</span> <span class=n>vtkTransformPolyDataFilter</span>
-</span><span class=hll><span class=kn>from</span> <span class=nn>vtkmodules.vtkFiltersModeling</span> <span class=kn>import</span> <span class=n>vtkLinearSubdivisionFilter</span>
-</span><span class=kn>from</span> <span class=nn>vtkmodules.vtkFiltersSources</span> <span class=kn>import</span> <span class=p>(</span>
+<span class=hll><span class=kn>from</span><span class=w> </span><span class=nn>vtkmodules.vtkFiltersGeneral</span><span class=w> </span><span class=kn>import</span> <span class=n>vtkTransformPolyDataFilter</span>
+</span><span class=hll><span class=kn>from</span><span class=w> </span><span class=nn>vtkmodules.vtkFiltersModeling</span><span class=w> </span><span class=kn>import</span> <span class=n>vtkLinearSubdivisionFilter</span>
+</span><span class=kn>from</span><span class=w> </span><span class=nn>vtkmodules.vtkFiltersSources</span><span class=w> </span><span class=kn>import</span> <span class=p>(</span>
 <span class=hll>    <span class=n>vtkCubeSource</span><span class=p>,</span>
 </span><span class=hll>    <span class=n>vtkParametricFunctionSource</span><span class=p>,</span>
 </span><span class=hll>    <span class=n>vtkTexturedSphereSource</span>
 </span><span class=p>)</span>
-<span class=kn>from</span> <span class=nn>vtkmodules.vtkIOImage</span> <span class=kn>import</span> <span class=p>(</span>
+<span class=kn>from</span><span class=w> </span><span class=nn>vtkmodules.vtkIOImage</span><span class=w> </span><span class=kn>import</span> <span class=p>(</span>
 <span class=hll>    <span class=n>vtkHDRReader</span><span class=p>,</span>
 </span><span class=hll>    <span class=n>vtkJPEGWriter</span><span class=p>,</span>
 </span><span class=hll>    <span class=n>vtkImageReader2Factory</span><span class=p>,</span>
 </span><span class=hll>    <span class=n>vtkPNGWriter</span>
 </span><span class=p>)</span>
-<span class=hll><span class=kn>from</span> <span class=nn>vtkmodules.vtkImagingCore</span> <span class=kn>import</span> <span class=n>vtkImageFlip</span>
-</span><span class=hll><span class=kn>from</span> <span class=nn>vtkmodules.vtkInteractionStyle</span> <span class=kn>import</span> <span class=n>vtkInteractorStyleTrackballCamera</span>
-</span><span class=kn>from</span> <span class=nn>vtkmodules.vtkInteractionWidgets</span> <span class=kn>import</span> <span class=p>(</span>
+<span class=hll><span class=kn>from</span><span class=w> </span><span class=nn>vtkmodules.vtkImagingCore</span><span class=w> </span><span class=kn>import</span> <span class=n>vtkImageFlip</span>
+</span><span class=hll><span class=kn>from</span><span class=w> </span><span class=nn>vtkmodules.vtkInteractionStyle</span><span class=w> </span><span class=kn>import</span> <span class=n>vtkInteractorStyleTrackballCamera</span>
+</span><span class=kn>from</span><span class=w> </span><span class=nn>vtkmodules.vtkInteractionWidgets</span><span class=w> </span><span class=kn>import</span> <span class=p>(</span>
 <span class=hll>    <span class=n>vtkCameraOrientationWidget</span><span class=p>,</span>
 </span><span class=hll>    <span class=n>vtkOrientationMarkerWidget</span><span class=p>,</span>
 </span><span class=hll>    <span class=n>vtkSliderRepresentation2D</span><span class=p>,</span>
 </span><span class=hll>    <span class=n>vtkSliderWidget</span>
 </span><span class=p>)</span>
-<span class=hll><span class=kn>from</span> <span class=nn>vtkmodules.vtkRenderingAnnotation</span> <span class=kn>import</span> <span class=n>vtkAxesActor</span>
-</span><span class=kn>from</span> <span class=nn>vtkmodules.vtkRenderingCore</span> <span class=kn>import</span> <span class=p>(</span>
+<span class=hll><span class=kn>from</span><span class=w> </span><span class=nn>vtkmodules.vtkRenderingAnnotation</span><span class=w> </span><span class=kn>import</span> <span class=n>vtkAxesActor</span>
+</span><span class=kn>from</span><span class=w> </span><span class=nn>vtkmodules.vtkRenderingCore</span><span class=w> </span><span class=kn>import</span> <span class=p>(</span>
 <span class=hll>    <span class=n>vtkActor</span><span class=p>,</span>
 </span><span class=hll>    <span class=n>vtkPolyDataMapper</span><span class=p>,</span>
 </span><span class=hll>    <span class=n>vtkRenderWindow</span><span class=p>,</span>
@@ -126,7 +126,7 @@ Options:
 </span><span class=hll>    <span class=n>vtkRenderer</span><span class=p>,</span>
 </span><span class=hll>    <span class=n>vtkWindowToImageFilter</span>
 </span><span class=p>)</span>
-<span class=kn>from</span> <span class=nn>vtkmodules.vtkRenderingOpenGL2</span> <span class=kn>import</span> <span class=p>(</span>
+<span class=kn>from</span><span class=w> </span><span class=nn>vtkmodules.vtkRenderingOpenGL2</span><span class=w> </span><span class=kn>import</span> <span class=p>(</span>
 <span class=hll>    <span class=n>vtkCameraPass</span><span class=p>,</span>
 </span><span class=hll>    <span class=n>vtkLightsPass</span><span class=p>,</span>
 </span><span class=hll>    <span class=n>vtkOpaquePass</span><span class=p>,</span>
@@ -137,8 +137,8 @@ Options:
 </span><span class=p>)</span>
 
 
-<span class=k>def</span> <span class=nf>get_program_parameters</span><span class=p>():</span>
-    <span class=kn>import</span> <span class=nn>argparse</span>
+<span class=k>def</span><span class=w> </span><span class=nf>get_program_parameters</span><span class=p>():</span>
+    <span class=kn>import</span><span class=w> </span><span class=nn>argparse</span>
     <span class=n>description</span> <span class=o>=</span> <span class=s1>&#39;Demonstrates physically based rendering, image based lighting, anisotropic texturing and a skybox.&#39;</span>
     <span class=n>epilogue</span> <span class=o>=</span> <span class=s1>&#39;&#39;&#39;</span>
 <span class=s1>Physically based rendering sets color, metallicity and roughness of the object.</span>
@@ -160,7 +160,7 @@ Options:
     <span class=k>return</span> <span class=n>args</span><span class=o>.</span><span class=n>file_name</span><span class=p>,</span> <span class=n>args</span><span class=o>.</span><span class=n>surface</span><span class=p>,</span> <span class=n>args</span><span class=o>.</span><span class=n>use_cubemap</span><span class=p>,</span> <span class=n>args</span><span class=o>.</span><span class=n>use_tonemapping</span>
 
 
-<span class=k>def</span> <span class=nf>main</span><span class=p>():</span>
+<span class=k>def</span><span class=w> </span><span class=nf>main</span><span class=p>():</span>
     <span class=k>if</span> <span class=ow>not</span> <span class=n>vtk_version_ok</span><span class=p>(</span><span class=mi>9</span><span class=p>,</span> <span class=mi>0</span><span class=p>,</span> <span class=mi>0</span><span class=p>):</span>
         <span class=nb>print</span><span class=p>(</span><span class=s1>&#39;You need VTK version 9.0 or greater to run this program.&#39;</span><span class=p>)</span>
         <span class=k>return</span>
@@ -523,7 +523,7 @@ Options:
     <span class=n>interactor</span><span class=o>.</span><span class=n>Start</span><span class=p>()</span>
 
 
-<span class=k>def</span> <span class=nf>vtk_version_ok</span><span class=p>(</span><span class=n>major</span><span class=p>,</span> <span class=n>minor</span><span class=p>,</span> <span class=n>build</span><span class=p>):</span>
+<span class=k>def</span><span class=w> </span><span class=nf>vtk_version_ok</span><span class=p>(</span><span class=n>major</span><span class=p>,</span> <span class=n>minor</span><span class=p>,</span> <span class=n>build</span><span class=p>):</span>
 <span class=w>    </span><span class=sd>&quot;&quot;&quot;</span>
 <span class=sd>    Check the VTK version.</span>
 
@@ -545,7 +545,7 @@ Options:
         <span class=k>return</span> <span class=kc>False</span>
 
 
-<span class=k>def</span> <span class=nf>get_parameters</span><span class=p>(</span><span class=n>fn_path</span><span class=p>):</span>
+<span class=k>def</span><span class=w> </span><span class=nf>get_parameters</span><span class=p>(</span><span class=n>fn_path</span><span class=p>):</span>
 <span class=w>    </span><span class=sd>&quot;&quot;&quot;</span>
 <span class=sd>    Read the parameters from a JSON file and check that the file paths exist.</span>
 
@@ -600,7 +600,7 @@ Options:
     <span class=k>return</span> <span class=n>paths_ok</span><span class=p>,</span> <span class=n>parameters</span>
 
 
-<span class=k>def</span> <span class=nf>display_parameters</span><span class=p>(</span><span class=n>parameters</span><span class=p>):</span>
+<span class=k>def</span><span class=w> </span><span class=nf>display_parameters</span><span class=p>(</span><span class=n>parameters</span><span class=p>):</span>
     <span class=n>res</span> <span class=o>=</span> <span class=nb>list</span><span class=p>()</span>
     <span class=n>parameter_keys</span> <span class=o>=</span> <span class=p>[</span><span class=s1>&#39;title&#39;</span><span class=p>,</span> <span class=s1>&#39;object&#39;</span><span class=p>,</span> <span class=s1>&#39;objcolor&#39;</span><span class=p>,</span> <span class=s1>&#39;bkgcolor&#39;</span><span class=p>,</span> <span class=s1>&#39;skybox&#39;</span><span class=p>,</span> <span class=s1>&#39;cubemap&#39;</span><span class=p>,</span> <span class=s1>&#39;equirectangular&#39;</span><span class=p>,</span> <span class=s1>&#39;albedo&#39;</span><span class=p>,</span>
                       <span class=s1>&#39;normal&#39;</span><span class=p>,</span> <span class=s1>&#39;material&#39;</span><span class=p>,</span> <span class=s1>&#39;coat&#39;</span><span class=p>,</span> <span class=s1>&#39;anisotropy&#39;</span><span class=p>,</span> <span class=s1>&#39;emissive&#39;</span><span class=p>]</span>
@@ -618,7 +618,7 @@ Options:
     <span class=k>return</span> <span class=n>res</span>
 
 
-<span class=k>def</span> <span class=nf>read_cubemap</span><span class=p>(</span><span class=n>cubemap</span><span class=p>):</span>
+<span class=k>def</span><span class=w> </span><span class=nf>read_cubemap</span><span class=p>(</span><span class=n>cubemap</span><span class=p>):</span>
 <span class=w>    </span><span class=sd>&quot;&quot;&quot;</span>
 <span class=sd>    Read six images forming a cubemap.</span>
 
@@ -649,7 +649,7 @@ Options:
     <span class=k>return</span> <span class=n>cube_map</span>
 
 
-<span class=k>def</span> <span class=nf>read_equirectangular_file</span><span class=p>(</span><span class=n>fn_path</span><span class=p>):</span>
+<span class=k>def</span><span class=w> </span><span class=nf>read_equirectangular_file</span><span class=p>(</span><span class=n>fn_path</span><span class=p>):</span>
 <span class=w>    </span><span class=sd>&quot;&quot;&quot;</span>
 <span class=sd>    Read an equirectangular environment file and convert to a texture.</span>
 
@@ -687,7 +687,7 @@ Options:
     <span class=k>return</span> <span class=n>texture</span>
 
 
-<span class=k>def</span> <span class=nf>read_texture</span><span class=p>(</span><span class=n>image_path</span><span class=p>):</span>
+<span class=k>def</span><span class=w> </span><span class=nf>read_texture</span><span class=p>(</span><span class=n>image_path</span><span class=p>):</span>
 <span class=w>    </span><span class=sd>&quot;&quot;&quot;</span>
 <span class=sd>    Read an image and convert it to a texture</span>
 <span class=sd>    :param image_path: The image path.</span>
@@ -713,7 +713,7 @@ Options:
     <span class=k>return</span> <span class=n>texture</span>
 
 
-<span class=k>def</span> <span class=nf>check_for_missing_textures</span><span class=p>(</span><span class=n>parameters</span><span class=p>,</span> <span class=n>wanted_textures</span><span class=p>):</span>
+<span class=k>def</span><span class=w> </span><span class=nf>check_for_missing_textures</span><span class=p>(</span><span class=n>parameters</span><span class=p>,</span> <span class=n>wanted_textures</span><span class=p>):</span>
 <span class=w>    </span><span class=sd>&quot;&quot;&quot;</span>
 <span class=sd>    Check that the needed textures exist.</span>
 
@@ -733,7 +733,7 @@ Options:
     <span class=k>return</span> <span class=n>have_textures</span>
 
 
-<span class=k>def</span> <span class=nf>get_boy</span><span class=p>():</span>
+<span class=k>def</span><span class=w> </span><span class=nf>get_boy</span><span class=p>():</span>
     <span class=n>u_resolution</span> <span class=o>=</span> <span class=mi>51</span>
     <span class=n>v_resolution</span> <span class=o>=</span> <span class=mi>51</span>
 <span class=hll>    <span class=n>surface</span> <span class=o>=</span> <span class=n>vtkParametricBoy</span><span class=p>()</span>
@@ -752,7 +752,7 @@ Options:
     <span class=k>return</span> <span class=n>tangents</span><span class=o>.</span><span class=n>GetOutput</span><span class=p>()</span>
 
 
-<span class=k>def</span> <span class=nf>get_mobius</span><span class=p>():</span>
+<span class=k>def</span><span class=w> </span><span class=nf>get_mobius</span><span class=p>():</span>
     <span class=n>u_resolution</span> <span class=o>=</span> <span class=mi>51</span>
     <span class=n>v_resolution</span> <span class=o>=</span> <span class=mi>51</span>
 <span class=hll>    <span class=n>surface</span> <span class=o>=</span> <span class=n>vtkParametricMobius</span><span class=p>()</span>
@@ -781,7 +781,7 @@ Options:
     <span class=k>return</span> <span class=n>transform_filter</span><span class=o>.</span><span class=n>GetOutput</span><span class=p>()</span>
 
 
-<span class=k>def</span> <span class=nf>get_random_hills</span><span class=p>():</span>
+<span class=k>def</span><span class=w> </span><span class=nf>get_random_hills</span><span class=p>():</span>
     <span class=n>u_resolution</span> <span class=o>=</span> <span class=mi>51</span>
     <span class=n>v_resolution</span> <span class=o>=</span> <span class=mi>51</span>
 <span class=hll>    <span class=n>surface</span> <span class=o>=</span> <span class=n>vtkParametricRandomHills</span><span class=p>()</span>
@@ -813,7 +813,7 @@ Options:
     <span class=k>return</span> <span class=n>transform_filter</span><span class=o>.</span><span class=n>GetOutput</span><span class=p>()</span>
 
 
-<span class=k>def</span> <span class=nf>get_torus</span><span class=p>():</span>
+<span class=k>def</span><span class=w> </span><span class=nf>get_torus</span><span class=p>():</span>
     <span class=n>u_resolution</span> <span class=o>=</span> <span class=mi>51</span>
     <span class=n>v_resolution</span> <span class=o>=</span> <span class=mi>51</span>
 <span class=hll>    <span class=n>surface</span> <span class=o>=</span> <span class=n>vtkParametricTorus</span><span class=p>()</span>
@@ -840,7 +840,7 @@ Options:
     <span class=k>return</span> <span class=n>transform_filter</span><span class=o>.</span><span class=n>GetOutput</span><span class=p>()</span>
 
 
-<span class=k>def</span> <span class=nf>get_sphere</span><span class=p>():</span>
+<span class=k>def</span><span class=w> </span><span class=nf>get_sphere</span><span class=p>():</span>
     <span class=n>theta_resolution</span> <span class=o>=</span> <span class=mi>32</span>
     <span class=n>phi_resolution</span> <span class=o>=</span> <span class=mi>32</span>
 <span class=hll>    <span class=n>surface</span> <span class=o>=</span> <span class=n>vtkTexturedSphereSource</span><span class=p>()</span>
@@ -854,7 +854,7 @@ Options:
     <span class=k>return</span> <span class=n>tangents</span><span class=o>.</span><span class=n>GetOutput</span><span class=p>()</span>
 
 
-<span class=k>def</span> <span class=nf>get_clipped_sphere</span><span class=p>():</span>
+<span class=k>def</span><span class=w> </span><span class=nf>get_clipped_sphere</span><span class=p>():</span>
     <span class=n>theta_resolution</span> <span class=o>=</span> <span class=mi>32</span>
     <span class=n>phi_resolution</span> <span class=o>=</span> <span class=mi>32</span>
 <span class=hll>    <span class=n>surface</span> <span class=o>=</span> <span class=n>vtkTexturedSphereSource</span><span class=p>()</span>
@@ -877,7 +877,7 @@ Options:
     <span class=k>return</span> <span class=n>tangents</span><span class=o>.</span><span class=n>GetOutput</span><span class=p>()</span>
 
 
-<span class=k>def</span> <span class=nf>get_cube</span><span class=p>():</span>
+<span class=k>def</span><span class=w> </span><span class=nf>get_cube</span><span class=p>():</span>
 <span class=hll>    <span class=n>surface</span> <span class=o>=</span> <span class=n>vtkCubeSource</span><span class=p>()</span>
 </span>
     <span class=c1># Triangulate.</span>
@@ -896,7 +896,7 @@ Options:
     <span class=k>return</span> <span class=n>tangents</span><span class=o>.</span><span class=n>GetOutput</span><span class=p>()</span>
 
 
-<span class=k>def</span> <span class=nf>get_clipped_cube</span><span class=p>():</span>
+<span class=k>def</span><span class=w> </span><span class=nf>get_clipped_cube</span><span class=p>():</span>
 <span class=hll>    <span class=n>surface</span> <span class=o>=</span> <span class=n>vtkCubeSource</span><span class=p>()</span>
 </span>
     <span class=c1># Triangulate.</span>
@@ -936,7 +936,7 @@ Options:
     <span class=k>return</span> <span class=n>tangents</span><span class=o>.</span><span class=n>GetOutput</span><span class=p>()</span>
 
 
-<span class=k>def</span> <span class=nf>uv_tcoords</span><span class=p>(</span><span class=n>u_resolution</span><span class=p>,</span> <span class=n>v_resolution</span><span class=p>,</span> <span class=n>pd</span><span class=p>):</span>
+<span class=k>def</span><span class=w> </span><span class=nf>uv_tcoords</span><span class=p>(</span><span class=n>u_resolution</span><span class=p>,</span> <span class=n>v_resolution</span><span class=p>,</span> <span class=n>pd</span><span class=p>):</span>
 <span class=w>    </span><span class=sd>&quot;&quot;&quot;</span>
 <span class=sd>    Generate u, v texture coordinates on a parametric surface.</span>
 <span class=sd>    :param u_resolution: u resolution</span>
@@ -967,7 +967,7 @@ Options:
     <span class=k>return</span> <span class=n>pd</span>
 
 
-<span class=k>class</span> <span class=nc>SliderProperties</span><span class=p>:</span>
+<span class=k>class</span><span class=w> </span><span class=nc>SliderProperties</span><span class=p>:</span>
     <span class=n>tube_width</span> <span class=o>=</span> <span class=mf>0.008</span>
     <span class=n>slider_length</span> <span class=o>=</span> <span class=mf>0.075</span>
     <span class=n>slider_width</span> <span class=o>=</span> <span class=mf>0.025</span>
@@ -994,7 +994,7 @@ Options:
     <span class=n>bar_ends_color</span> <span class=o>=</span> <span class=s1>&#39;Indigo&#39;</span>
 
 
-<span class=k>def</span> <span class=nf>make_slider_widget</span><span class=p>(</span><span class=n>properties</span><span class=p>):</span>
+<span class=k>def</span><span class=w> </span><span class=nf>make_slider_widget</span><span class=p>(</span><span class=n>properties</span><span class=p>):</span>
 <span class=hll>    <span class=n>colors</span> <span class=o>=</span> <span class=n>vtkNamedColors</span><span class=p>()</span>
 </span>
 <span class=hll>    <span class=n>slider</span> <span class=o>=</span> <span class=n>vtkSliderRepresentation2D</span><span class=p>()</span>
@@ -1039,78 +1039,78 @@ Options:
     <span class=k>return</span> <span class=n>slider_widget</span>
 
 
-<span class=k>class</span> <span class=nc>SliderCallbackExposure</span><span class=p>:</span>
-    <span class=k>def</span> <span class=fm>__init__</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>tone_mapping_property</span><span class=p>):</span>
+<span class=k>class</span><span class=w> </span><span class=nc>SliderCallbackExposure</span><span class=p>:</span>
+    <span class=k>def</span><span class=w> </span><span class=fm>__init__</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>tone_mapping_property</span><span class=p>):</span>
         <span class=bp>self</span><span class=o>.</span><span class=n>tone_mapping_property</span> <span class=o>=</span> <span class=n>tone_mapping_property</span>
 
-    <span class=k>def</span> <span class=fm>__call__</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>caller</span><span class=p>,</span> <span class=n>ev</span><span class=p>):</span>
+    <span class=k>def</span><span class=w> </span><span class=fm>__call__</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>caller</span><span class=p>,</span> <span class=n>ev</span><span class=p>):</span>
         <span class=n>slider_widget</span> <span class=o>=</span> <span class=n>caller</span>
         <span class=n>value</span> <span class=o>=</span> <span class=n>slider_widget</span><span class=o>.</span><span class=n>GetRepresentation</span><span class=p>()</span><span class=o>.</span><span class=n>GetValue</span><span class=p>()</span>
         <span class=bp>self</span><span class=o>.</span><span class=n>tone_mapping_property</span><span class=o>.</span><span class=n>SetExposure</span><span class=p>(</span><span class=n>value</span><span class=p>)</span>
 
 
-<span class=k>class</span> <span class=nc>SliderCallbackMetallic</span><span class=p>:</span>
-    <span class=k>def</span> <span class=fm>__init__</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>actor_property</span><span class=p>):</span>
+<span class=k>class</span><span class=w> </span><span class=nc>SliderCallbackMetallic</span><span class=p>:</span>
+    <span class=k>def</span><span class=w> </span><span class=fm>__init__</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>actor_property</span><span class=p>):</span>
         <span class=bp>self</span><span class=o>.</span><span class=n>actor_property</span> <span class=o>=</span> <span class=n>actor_property</span>
 
-    <span class=k>def</span> <span class=fm>__call__</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>caller</span><span class=p>,</span> <span class=n>ev</span><span class=p>):</span>
+    <span class=k>def</span><span class=w> </span><span class=fm>__call__</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>caller</span><span class=p>,</span> <span class=n>ev</span><span class=p>):</span>
         <span class=n>slider_widget</span> <span class=o>=</span> <span class=n>caller</span>
         <span class=n>value</span> <span class=o>=</span> <span class=n>slider_widget</span><span class=o>.</span><span class=n>GetRepresentation</span><span class=p>()</span><span class=o>.</span><span class=n>GetValue</span><span class=p>()</span>
         <span class=bp>self</span><span class=o>.</span><span class=n>actor_property</span><span class=o>.</span><span class=n>SetMetallic</span><span class=p>(</span><span class=n>value</span><span class=p>)</span>
 
 
-<span class=k>class</span> <span class=nc>SliderCallbackRoughness</span><span class=p>:</span>
-    <span class=k>def</span> <span class=fm>__init__</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>actor_property</span><span class=p>):</span>
+<span class=k>class</span><span class=w> </span><span class=nc>SliderCallbackRoughness</span><span class=p>:</span>
+    <span class=k>def</span><span class=w> </span><span class=fm>__init__</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>actor_property</span><span class=p>):</span>
         <span class=bp>self</span><span class=o>.</span><span class=n>actorProperty</span> <span class=o>=</span> <span class=n>actor_property</span>
 
-    <span class=k>def</span> <span class=fm>__call__</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>caller</span><span class=p>,</span> <span class=n>ev</span><span class=p>):</span>
+    <span class=k>def</span><span class=w> </span><span class=fm>__call__</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>caller</span><span class=p>,</span> <span class=n>ev</span><span class=p>):</span>
         <span class=n>slider_widget</span> <span class=o>=</span> <span class=n>caller</span>
         <span class=n>value</span> <span class=o>=</span> <span class=n>slider_widget</span><span class=o>.</span><span class=n>GetRepresentation</span><span class=p>()</span><span class=o>.</span><span class=n>GetValue</span><span class=p>()</span>
         <span class=bp>self</span><span class=o>.</span><span class=n>actorProperty</span><span class=o>.</span><span class=n>SetRoughness</span><span class=p>(</span><span class=n>value</span><span class=p>)</span>
 
 
-<span class=k>class</span> <span class=nc>SliderCallbackOcclusionStrength</span><span class=p>:</span>
-    <span class=k>def</span> <span class=fm>__init__</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>actor_property</span><span class=p>):</span>
+<span class=k>class</span><span class=w> </span><span class=nc>SliderCallbackOcclusionStrength</span><span class=p>:</span>
+    <span class=k>def</span><span class=w> </span><span class=fm>__init__</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>actor_property</span><span class=p>):</span>
         <span class=bp>self</span><span class=o>.</span><span class=n>actorProperty</span> <span class=o>=</span> <span class=n>actor_property</span>
 
-    <span class=k>def</span> <span class=fm>__call__</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>caller</span><span class=p>,</span> <span class=n>ev</span><span class=p>):</span>
+    <span class=k>def</span><span class=w> </span><span class=fm>__call__</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>caller</span><span class=p>,</span> <span class=n>ev</span><span class=p>):</span>
         <span class=n>slider_widget</span> <span class=o>=</span> <span class=n>caller</span>
         <span class=n>value</span> <span class=o>=</span> <span class=n>slider_widget</span><span class=o>.</span><span class=n>GetRepresentation</span><span class=p>()</span><span class=o>.</span><span class=n>GetValue</span><span class=p>()</span>
         <span class=bp>self</span><span class=o>.</span><span class=n>actorProperty</span><span class=o>.</span><span class=n>SetOcclusionStrength</span><span class=p>(</span><span class=n>value</span><span class=p>)</span>
 
 
-<span class=k>class</span> <span class=nc>SliderCallbackNormalScale</span><span class=p>:</span>
-    <span class=k>def</span> <span class=fm>__init__</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>actor_property</span><span class=p>):</span>
+<span class=k>class</span><span class=w> </span><span class=nc>SliderCallbackNormalScale</span><span class=p>:</span>
+    <span class=k>def</span><span class=w> </span><span class=fm>__init__</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>actor_property</span><span class=p>):</span>
         <span class=bp>self</span><span class=o>.</span><span class=n>actorProperty</span> <span class=o>=</span> <span class=n>actor_property</span>
 
-    <span class=k>def</span> <span class=fm>__call__</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>caller</span><span class=p>,</span> <span class=n>ev</span><span class=p>):</span>
+    <span class=k>def</span><span class=w> </span><span class=fm>__call__</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>caller</span><span class=p>,</span> <span class=n>ev</span><span class=p>):</span>
         <span class=n>slider_widget</span> <span class=o>=</span> <span class=n>caller</span>
         <span class=n>value</span> <span class=o>=</span> <span class=n>slider_widget</span><span class=o>.</span><span class=n>GetRepresentation</span><span class=p>()</span><span class=o>.</span><span class=n>GetValue</span><span class=p>()</span>
         <span class=bp>self</span><span class=o>.</span><span class=n>actorProperty</span><span class=o>.</span><span class=n>SetNormalScale</span><span class=p>(</span><span class=n>value</span><span class=p>)</span>
 
 
-<span class=k>class</span> <span class=nc>SliderCallbackAnisotropy</span><span class=p>:</span>
-    <span class=k>def</span> <span class=fm>__init__</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>actor_property</span><span class=p>):</span>
+<span class=k>class</span><span class=w> </span><span class=nc>SliderCallbackAnisotropy</span><span class=p>:</span>
+    <span class=k>def</span><span class=w> </span><span class=fm>__init__</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>actor_property</span><span class=p>):</span>
         <span class=bp>self</span><span class=o>.</span><span class=n>actorProperty</span> <span class=o>=</span> <span class=n>actor_property</span>
 
-    <span class=k>def</span> <span class=fm>__call__</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>caller</span><span class=p>,</span> <span class=n>ev</span><span class=p>):</span>
+    <span class=k>def</span><span class=w> </span><span class=fm>__call__</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>caller</span><span class=p>,</span> <span class=n>ev</span><span class=p>):</span>
         <span class=n>slider_widget</span> <span class=o>=</span> <span class=n>caller</span>
         <span class=n>value</span> <span class=o>=</span> <span class=n>slider_widget</span><span class=o>.</span><span class=n>GetRepresentation</span><span class=p>()</span><span class=o>.</span><span class=n>GetValue</span><span class=p>()</span>
         <span class=bp>self</span><span class=o>.</span><span class=n>actorProperty</span><span class=o>.</span><span class=n>SetAnisotropy</span><span class=p>(</span><span class=n>value</span><span class=p>)</span>
 
 
-<span class=k>class</span> <span class=nc>SliderCallbackAnisotropyRotation</span><span class=p>:</span>
-    <span class=k>def</span> <span class=fm>__init__</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>actor_property</span><span class=p>):</span>
+<span class=k>class</span><span class=w> </span><span class=nc>SliderCallbackAnisotropyRotation</span><span class=p>:</span>
+    <span class=k>def</span><span class=w> </span><span class=fm>__init__</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>actor_property</span><span class=p>):</span>
         <span class=bp>self</span><span class=o>.</span><span class=n>actorProperty</span> <span class=o>=</span> <span class=n>actor_property</span>
 
-    <span class=k>def</span> <span class=fm>__call__</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>caller</span><span class=p>,</span> <span class=n>ev</span><span class=p>):</span>
+    <span class=k>def</span><span class=w> </span><span class=fm>__call__</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>caller</span><span class=p>,</span> <span class=n>ev</span><span class=p>):</span>
         <span class=n>slider_widget</span> <span class=o>=</span> <span class=n>caller</span>
         <span class=n>value</span> <span class=o>=</span> <span class=n>slider_widget</span><span class=o>.</span><span class=n>GetRepresentation</span><span class=p>()</span><span class=o>.</span><span class=n>GetValue</span><span class=p>()</span>
         <span class=bp>self</span><span class=o>.</span><span class=n>actorProperty</span><span class=o>.</span><span class=n>SetAnisotropyRotation</span><span class=p>(</span><span class=n>value</span><span class=p>)</span>
 
 
-<span class=k>class</span> <span class=nc>PrintCallback</span><span class=p>:</span>
-    <span class=k>def</span> <span class=fm>__init__</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>caller</span><span class=p>,</span> <span class=n>file_name</span><span class=p>,</span> <span class=n>image_quality</span><span class=o>=</span><span class=mi>1</span><span class=p>,</span> <span class=n>rgba</span><span class=o>=</span><span class=kc>True</span><span class=p>):</span>
+<span class=k>class</span><span class=w> </span><span class=nc>PrintCallback</span><span class=p>:</span>
+    <span class=k>def</span><span class=w> </span><span class=fm>__init__</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>caller</span><span class=p>,</span> <span class=n>file_name</span><span class=p>,</span> <span class=n>image_quality</span><span class=o>=</span><span class=mi>1</span><span class=p>,</span> <span class=n>rgba</span><span class=o>=</span><span class=kc>True</span><span class=p>):</span>
 <span class=w>        </span><span class=sd>&quot;&quot;&quot;</span>
 <span class=sd>        Set the parameters for writing the</span>
 <span class=sd>         render window view to an image file.</span>
@@ -1138,7 +1138,7 @@ Options:
         <span class=bp>self</span><span class=o>.</span><span class=n>suffix</span> <span class=o>=</span> <span class=n>ext</span>
         <span class=bp>self</span><span class=o>.</span><span class=n>path</span> <span class=o>=</span> <span class=n>Path</span><span class=p>(</span><span class=nb>str</span><span class=p>(</span><span class=n>pth</span><span class=p>))</span><span class=o>.</span><span class=n>with_suffix</span><span class=p>(</span><span class=n>ext</span><span class=p>)</span>
 
-    <span class=k>def</span> <span class=fm>__call__</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>caller</span><span class=p>,</span> <span class=n>ev</span><span class=p>):</span>
+    <span class=k>def</span><span class=w> </span><span class=fm>__call__</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>caller</span><span class=p>,</span> <span class=n>ev</span><span class=p>):</span>
         <span class=k>if</span> <span class=ow>not</span> <span class=bp>self</span><span class=o>.</span><span class=n>path</span><span class=p>:</span>
             <span class=nb>print</span><span class=p>(</span><span class=s2>&quot;A file name is required.&quot;</span><span class=p>)</span>
             <span class=k>return</span>

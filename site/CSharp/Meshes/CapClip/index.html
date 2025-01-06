@@ -93,17 +93,17 @@ function registerListener(event, func) {
 <span class=w>         </span><span class=k>else</span><span class=w> </span><span class=p>{</span>
 <span class=w>            </span><span class=c1>// Create a sphere</span>
 <span class=hll><span class=w>            </span><span class=n>vtkSphereSource</span><span class=w> </span><span class=n>sphereSource</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=n>vtkSphereSource</span><span class=p>.</span><span class=n>New</span><span class=p>();</span>
-</span><span class=w>            </span><span class=n>sphereSource</span><span class=p>.</span><span class=n>SetThetaResolution</span><span class=p>(</span><span class=m>20</span><span class=p>);</span>
-<span class=w>            </span><span class=n>sphereSource</span><span class=p>.</span><span class=n>SetPhiResolution</span><span class=p>(</span><span class=m>11</span><span class=p>);</span>
+</span><span class=w>            </span><span class=n>sphereSource</span><span class=p>.</span><span class=n>SetThetaResolution</span><span class=p>(</span><span class=mi>20</span><span class=p>);</span>
+<span class=w>            </span><span class=n>sphereSource</span><span class=p>.</span><span class=n>SetPhiResolution</span><span class=p>(</span><span class=mi>11</span><span class=p>);</span>
 
 <span class=hll><span class=w>            </span><span class=n>vtkPlane</span><span class=w> </span><span class=n>plane</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=n>vtkPlane</span><span class=p>.</span><span class=n>New</span><span class=p>();</span>
-</span><span class=w>            </span><span class=n>plane</span><span class=p>.</span><span class=n>SetOrigin</span><span class=p>(</span><span class=m>0</span><span class=p>,</span><span class=w> </span><span class=m>0</span><span class=p>,</span><span class=w> </span><span class=m>0</span><span class=p>);</span>
-<span class=w>            </span><span class=n>plane</span><span class=p>.</span><span class=n>SetNormal</span><span class=p>(</span><span class=m>1.0</span><span class=p>,</span><span class=w> </span><span class=o>-</span><span class=m>1.0</span><span class=p>,</span><span class=w> </span><span class=o>-</span><span class=m>1.0</span><span class=p>);</span>
+</span><span class=w>            </span><span class=n>plane</span><span class=p>.</span><span class=n>SetOrigin</span><span class=p>(</span><span class=mi>0</span><span class=p>,</span><span class=w> </span><span class=mi>0</span><span class=p>,</span><span class=w> </span><span class=mi>0</span><span class=p>);</span>
+<span class=w>            </span><span class=n>plane</span><span class=p>.</span><span class=n>SetNormal</span><span class=p>(</span><span class=mf>1.0</span><span class=p>,</span><span class=w> </span><span class=o>-</span><span class=mf>1.0</span><span class=p>,</span><span class=w> </span><span class=o>-</span><span class=mf>1.0</span><span class=p>);</span>
 
 <span class=hll><span class=w>            </span><span class=n>vtkClipPolyData</span><span class=w> </span><span class=n>clipper</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=n>vtkClipPolyData</span><span class=p>.</span><span class=n>New</span><span class=p>();</span>
 </span><span class=w>            </span><span class=n>clipper</span><span class=p>.</span><span class=n>SetInputConnection</span><span class=p>(</span><span class=n>sphereSource</span><span class=p>.</span><span class=n>GetOutputPort</span><span class=p>());</span>
 <span class=w>            </span><span class=n>clipper</span><span class=p>.</span><span class=n>SetClipFunction</span><span class=p>(</span><span class=n>plane</span><span class=p>);</span>
-<span class=w>            </span><span class=n>clipper</span><span class=p>.</span><span class=n>SetValue</span><span class=p>(</span><span class=m>0</span><span class=p>);</span>
+<span class=w>            </span><span class=n>clipper</span><span class=p>.</span><span class=n>SetValue</span><span class=p>(</span><span class=mi>0</span><span class=p>);</span>
 <span class=w>            </span><span class=n>clipper</span><span class=p>.</span><span class=n>Update</span><span class=p>();</span>
 
 <span class=w>            </span><span class=n>polyData</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=n>clipper</span><span class=p>.</span><span class=n>GetOutput</span><span class=p>();</span>
@@ -118,7 +118,7 @@ function registerListener(event, func) {
 
 <span class=hll><span class=w>         </span><span class=n>vtkActor</span><span class=w> </span><span class=n>clipActor</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=n>vtkActor</span><span class=p>.</span><span class=n>New</span><span class=p>();</span>
 </span><span class=w>         </span><span class=n>clipActor</span><span class=p>.</span><span class=n>SetMapper</span><span class=p>(</span><span class=n>clipMapper</span><span class=p>);</span>
-<span class=w>         </span><span class=n>clipActor</span><span class=p>.</span><span class=n>GetProperty</span><span class=p>().</span><span class=n>SetColor</span><span class=p>(</span><span class=m>1.0000</span><span class=p>,</span><span class=w> </span><span class=m>0.3882</span><span class=p>,</span><span class=w> </span><span class=m>0.2784</span><span class=p>);</span>
+<span class=w>         </span><span class=n>clipActor</span><span class=p>.</span><span class=n>GetProperty</span><span class=p>().</span><span class=n>SetColor</span><span class=p>(</span><span class=mf>1.0000</span><span class=p>,</span><span class=w> </span><span class=mf>0.3882</span><span class=p>,</span><span class=w> </span><span class=mf>0.2784</span><span class=p>);</span>
 <span class=w>         </span><span class=n>clipActor</span><span class=p>.</span><span class=n>GetProperty</span><span class=p>().</span><span class=n>SetInterpolationToFlat</span><span class=p>();</span>
 
 <span class=w>         </span><span class=c1>// Now extract feature edges</span>
@@ -151,22 +151,22 @@ function registerListener(event, func) {
 
 <span class=hll><span class=w>         </span><span class=n>vtkActor</span><span class=w> </span><span class=n>boundaryActor</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=n>vtkActor</span><span class=p>.</span><span class=n>New</span><span class=p>();</span>
 </span><span class=w>         </span><span class=n>boundaryActor</span><span class=p>.</span><span class=n>SetMapper</span><span class=p>(</span><span class=n>boundaryMapper</span><span class=p>);</span>
-<span class=w>         </span><span class=n>boundaryActor</span><span class=p>.</span><span class=n>GetProperty</span><span class=p>().</span><span class=n>SetColor</span><span class=p>(</span><span class=m>0.8900</span><span class=p>,</span><span class=w> </span><span class=m>0.8100</span><span class=p>,</span><span class=w> </span><span class=m>0.3400</span><span class=p>);</span>
+<span class=w>         </span><span class=n>boundaryActor</span><span class=p>.</span><span class=n>GetProperty</span><span class=p>().</span><span class=n>SetColor</span><span class=p>(</span><span class=mf>0.8900</span><span class=p>,</span><span class=w> </span><span class=mf>0.8100</span><span class=p>,</span><span class=w> </span><span class=mf>0.3400</span><span class=p>);</span>
 <span class=w>         </span><span class=c1>// get a reference to the renderwindow of our renderWindowControl1</span>
 <span class=hll><span class=w>         </span><span class=n>vtkRenderWindow</span><span class=w> </span><span class=n>renderWindow</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=n>renderWindowControl1</span><span class=p>.</span><span class=n>RenderWindow</span><span class=p>;</span>
 </span><span class=w>         </span><span class=c1>// renderer</span>
 <span class=hll><span class=w>         </span><span class=n>vtkRenderer</span><span class=w> </span><span class=n>renderer</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=n>renderWindow</span><span class=p>.</span><span class=n>GetRenderers</span><span class=p>().</span><span class=n>GetFirstRenderer</span><span class=p>();</span>
 </span><span class=w>         </span><span class=c1>// set background color</span>
-<span class=w>         </span><span class=n>renderer</span><span class=p>.</span><span class=n>SetBackground</span><span class=p>(.</span><span class=m>2</span><span class=p>,</span><span class=w> </span><span class=p>.</span><span class=m>3</span><span class=p>,</span><span class=w> </span><span class=p>.</span><span class=m>4</span><span class=p>);</span>
+<span class=w>         </span><span class=n>renderer</span><span class=p>.</span><span class=n>SetBackground</span><span class=p>(</span><span class=mf>.2</span><span class=p>,</span><span class=w> </span><span class=mf>.3</span><span class=p>,</span><span class=w> </span><span class=mf>.4</span><span class=p>);</span>
 <span class=w>         </span><span class=c1>// add our actor to the renderer</span>
 <span class=w>         </span><span class=n>renderer</span><span class=p>.</span><span class=n>AddActor</span><span class=p>(</span><span class=n>clipActor</span><span class=p>);</span>
 <span class=w>         </span><span class=n>renderer</span><span class=p>.</span><span class=n>AddActor</span><span class=p>(</span><span class=n>boundaryActor</span><span class=p>);</span>
 <span class=w>         </span><span class=c1>// Generate an interesting view</span>
 <span class=w>         </span><span class=c1>//</span>
 <span class=w>         </span><span class=n>renderer</span><span class=p>.</span><span class=n>ResetCamera</span><span class=p>();</span>
-<span class=w>         </span><span class=n>renderer</span><span class=p>.</span><span class=n>GetActiveCamera</span><span class=p>().</span><span class=n>Azimuth</span><span class=p>(</span><span class=m>30</span><span class=p>);</span>
-<span class=w>         </span><span class=n>renderer</span><span class=p>.</span><span class=n>GetActiveCamera</span><span class=p>().</span><span class=n>Elevation</span><span class=p>(</span><span class=m>30</span><span class=p>);</span>
-<span class=w>         </span><span class=n>renderer</span><span class=p>.</span><span class=n>GetActiveCamera</span><span class=p>().</span><span class=n>Dolly</span><span class=p>(</span><span class=m>1.2</span><span class=p>);</span>
+<span class=w>         </span><span class=n>renderer</span><span class=p>.</span><span class=n>GetActiveCamera</span><span class=p>().</span><span class=n>Azimuth</span><span class=p>(</span><span class=mi>30</span><span class=p>);</span>
+<span class=w>         </span><span class=n>renderer</span><span class=p>.</span><span class=n>GetActiveCamera</span><span class=p>().</span><span class=n>Elevation</span><span class=p>(</span><span class=mi>30</span><span class=p>);</span>
+<span class=w>         </span><span class=n>renderer</span><span class=p>.</span><span class=n>GetActiveCamera</span><span class=p>().</span><span class=n>Dolly</span><span class=p>(</span><span class=mf>1.2</span><span class=p>);</span>
 <span class=w>         </span><span class=n>renderer</span><span class=p>.</span><span class=n>ResetCameraClippingRange</span><span class=p>();</span>
 <span class=w>      </span><span class=p>}</span>
 <span class=w>   </span><span class=p>}</span>

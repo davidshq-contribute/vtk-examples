@@ -67,7 +67,7 @@ function registerListener(event, func) {
 <span class=c1># from vtkmodules.vtkIOXML import vtkXMLPolyDataReader</span>
 
 
-<span class=k>def</span> <span class=nf>ReadPolyData</span><span class=p>(</span><span class=n>file_name</span><span class=p>):</span>
+<span class=k>def</span><span class=w> </span><span class=nf>ReadPolyData</span><span class=p>(</span><span class=n>file_name</span><span class=p>):</span>
     <span class=n>valid_suffixes</span> <span class=o>=</span> <span class=p>[</span><span class=s1>&#39;.g&#39;</span><span class=p>,</span> <span class=s1>&#39;.obj&#39;</span><span class=p>,</span> <span class=s1>&#39;.stl&#39;</span><span class=p>,</span> <span class=s1>&#39;.ply&#39;</span><span class=p>,</span> <span class=s1>&#39;.vtk&#39;</span><span class=p>,</span> <span class=s1>&#39;.vtp&#39;</span><span class=p>]</span>
     <span class=n>path</span> <span class=o>=</span> <span class=n>Path</span><span class=p>(</span><span class=n>file_name</span><span class=p>)</span>
     <span class=k>if</span> <span class=n>path</span><span class=o>.</span><span class=n>suffix</span><span class=p>:</span>

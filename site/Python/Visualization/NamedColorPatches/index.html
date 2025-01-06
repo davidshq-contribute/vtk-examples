@@ -68,10 +68,10 @@ function registerListener(event, func) {
 
 <span class=sd>&quot;&quot;&quot;</span>
 
-<span class=hll><span class=kn>from</span> <span class=nn>vtkmodules.vtkCommonColor</span> <span class=kn>import</span> <span class=n>vtkNamedColors</span>
+<span class=hll><span class=kn>from</span><span class=w> </span><span class=nn>vtkmodules.vtkCommonColor</span><span class=w> </span><span class=kn>import</span> <span class=n>vtkNamedColors</span>
 </span>
 
-<span class=k>def</span> <span class=nf>main</span><span class=p>():</span>
+<span class=k>def</span><span class=w> </span><span class=nf>main</span><span class=p>():</span>
     <span class=n>ncp</span> <span class=o>=</span> <span class=n>HTMLTableMaker</span><span class=p>()</span>
     <span class=n>res</span> <span class=o>=</span> <span class=n>ncp</span><span class=o>.</span><span class=n>MakeCombinedColorPage</span><span class=p>()</span>
     <span class=c1># res = ncp.MakeWebColorPage()</span>
@@ -82,10 +82,10 @@ function registerListener(event, func) {
     <span class=n>f</span><span class=o>.</span><span class=n>close</span><span class=p>()</span>
 
 
-<span class=k>class</span> <span class=nc>HTMLToFromRGBAColor</span><span class=p>:</span>
+<span class=k>class</span><span class=w> </span><span class=nc>HTMLToFromRGBAColor</span><span class=p>:</span>
 
     <span class=nd>@staticmethod</span>
-    <span class=k>def</span> <span class=nf>RGBToHTMLColor</span><span class=p>(</span><span class=n>rgb</span><span class=p>):</span>
+    <span class=k>def</span><span class=w> </span><span class=nf>RGBToHTMLColor</span><span class=p>(</span><span class=n>rgb</span><span class=p>):</span>
 <span class=w>        </span><span class=sd>&quot;&quot;&quot;</span>
 <span class=sd>        Convert an [R, G, B] list to #RRGGBB.</span>
 <span class=sd>        :param: rgb - The elements of the array rgb are unsigned chars (0..255).</span>
@@ -95,7 +95,7 @@ function registerListener(event, func) {
         <span class=k>return</span> <span class=n>hexcolor</span>
 
     <span class=nd>@staticmethod</span>
-    <span class=k>def</span> <span class=nf>HTMLColorToRGB</span><span class=p>(</span><span class=n>colorString</span><span class=p>):</span>
+    <span class=k>def</span><span class=w> </span><span class=nf>HTMLColorToRGB</span><span class=p>(</span><span class=n>colorString</span><span class=p>):</span>
 <span class=w>        </span><span class=sd>&quot;&quot;&quot;</span>
 <span class=sd>        Convert #RRGGBB to a [R, G, B] list.</span>
 <span class=sd>        :param: colorString a string in the form: #RRGGBB where RR, GG, BB are hexadecimal.</span>
@@ -112,7 +112,7 @@ function registerListener(event, func) {
         <span class=k>return</span> <span class=p>[</span><span class=n>r</span><span class=p>,</span> <span class=n>g</span><span class=p>,</span> <span class=n>b</span><span class=p>]</span>
 
     <span class=nd>@staticmethod</span>
-    <span class=k>def</span> <span class=nf>RGBToLumaCCIR601</span><span class=p>(</span><span class=n>rgb</span><span class=p>):</span>
+    <span class=k>def</span><span class=w> </span><span class=nf>RGBToLumaCCIR601</span><span class=p>(</span><span class=n>rgb</span><span class=p>):</span>
 <span class=w>        </span><span class=sd>&quot;&quot;&quot;</span>
 <span class=sd>        RGB -&gt; Luma conversion</span>
 <span class=sd>        Digital CCIR601 (gives less weight to the R and B components)</span>
@@ -123,7 +123,7 @@ function registerListener(event, func) {
         <span class=k>return</span> <span class=n>Y</span>
 
     <span class=nd>@staticmethod</span>
-    <span class=k>def</span> <span class=nf>FormatRGBForHTML</span><span class=p>(</span><span class=n>rgb</span><span class=p>):</span>
+    <span class=k>def</span><span class=w> </span><span class=nf>FormatRGBForHTML</span><span class=p>(</span><span class=n>rgb</span><span class=p>):</span>
 <span class=w>        </span><span class=sd>&quot;&quot;&quot;</span>
 <span class=sd>        Format the rgb colors for display on a html table.</span>
 <span class=sd>        :param: rgb - The elements of the array rgb are unsigned chars (0..255).</span>
@@ -135,13 +135,13 @@ function registerListener(event, func) {
         <span class=k>return</span> <span class=n>s</span>
 
 
-<span class=k>class</span> <span class=nc>ColorStructures</span><span class=p>:</span>
+<span class=k>class</span><span class=w> </span><span class=nc>ColorStructures</span><span class=p>:</span>
 <span class=w>    </span><span class=sd>&quot;&quot;&quot;</span>
 <span class=sd>    Holds the color names, grouped by color class, and information about table</span>
 <span class=sd>    layout and ordering.</span>
 <span class=sd>    &quot;&quot;&quot;</span>
 
-    <span class=k>def</span> <span class=fm>__init__</span><span class=p>(</span><span class=bp>self</span><span class=p>):</span>
+    <span class=k>def</span><span class=w> </span><span class=fm>__init__</span><span class=p>(</span><span class=bp>self</span><span class=p>):</span>
         <span class=bp>self</span><span class=o>.</span><span class=n>cn</span> <span class=o>=</span> <span class=p>{</span>
             <span class=s1>&#39;Red&#39;</span><span class=p>:</span> <span class=p>[</span><span class=s1>&#39;IndianRed&#39;</span><span class=p>,</span> <span class=s1>&#39;LightCoral&#39;</span><span class=p>,</span> <span class=s1>&#39;Salmon&#39;</span><span class=p>,</span> <span class=s1>&#39;DarkSalmon&#39;</span><span class=p>,</span>
                     <span class=s1>&#39;LightSalmon&#39;</span><span class=p>,</span> <span class=s1>&#39;Red&#39;</span><span class=p>,</span> <span class=s1>&#39;Crimson&#39;</span><span class=p>,</span> <span class=s1>&#39;FireBrick&#39;</span><span class=p>,</span> <span class=s1>&#39;DarkRed&#39;</span><span class=p>],</span>
@@ -260,19 +260,19 @@ function registerListener(event, func) {
         <span class=bp>self</span><span class=o>.</span><span class=n>vtkcnEndTable</span> <span class=o>=</span> <span class=p>[</span><span class=s1>&#39;Oranges&#39;</span><span class=p>,</span> <span class=s1>&#39;Greens&#39;</span><span class=p>,</span> <span class=s1>&#39;Magentas&#39;</span><span class=p>]</span>
 
 
-<span class=k>class</span> <span class=nc>HTMLTableMaker</span><span class=p>:</span>
+<span class=k>class</span><span class=w> </span><span class=nc>HTMLTableMaker</span><span class=p>:</span>
 <span class=w>    </span><span class=sd>&quot;&quot;&quot;</span>
 <span class=sd>      This class creates HTML Tables displaying all the colors in</span>
 <span class=hll><span class=sd>      the class vtkNamedColors grouped by various categories.</span>
 </span><span class=sd>    &quot;&quot;&quot;</span>
 
-    <span class=k>def</span> <span class=fm>__init__</span><span class=p>(</span><span class=bp>self</span><span class=p>):</span>
+    <span class=k>def</span><span class=w> </span><span class=fm>__init__</span><span class=p>(</span><span class=bp>self</span><span class=p>):</span>
         <span class=bp>self</span><span class=o>.</span><span class=n>cs</span> <span class=o>=</span> <span class=n>ColorStructures</span><span class=p>()</span>
 <span class=hll>        <span class=bp>self</span><span class=o>.</span><span class=n>nc</span> <span class=o>=</span> <span class=n>vtkNamedColors</span><span class=p>()</span>
 </span>        <span class=bp>self</span><span class=o>.</span><span class=n>htmlRGBA</span> <span class=o>=</span> <span class=n>HTMLToFromRGBAColor</span><span class=p>()</span>
 
     <span class=nd>@staticmethod</span>
-    <span class=k>def</span> <span class=nf>MakeHTMLStyle</span><span class=p>():</span>
+    <span class=k>def</span><span class=w> </span><span class=nf>MakeHTMLStyle</span><span class=p>():</span>
         <span class=n>s</span> <span class=o>=</span> <span class=s1>&#39;  &lt;style&gt;</span><span class=se>\n</span><span class=s1>&#39;</span>
         <span class=n>s</span> <span class=o>+=</span> <span class=s1>&#39;  </span><span class=se>\n</span><span class=s1>&#39;</span>
         <span class=n>s</span> <span class=o>+=</span> <span class=s1>&#39;  body {</span><span class=se>\n</span><span class=s1>&#39;</span>
@@ -353,7 +353,7 @@ function registerListener(event, func) {
         <span class=k>return</span> <span class=n>s</span>
 
     <span class=nd>@staticmethod</span>
-    <span class=k>def</span> <span class=nf>MakeHTMLHeader</span><span class=p>():</span>
+    <span class=k>def</span><span class=w> </span><span class=nf>MakeHTMLHeader</span><span class=p>():</span>
         <span class=n>s</span> <span class=o>=</span> <span class=s1>&#39;&lt;!DOCTYPE html&gt;</span><span class=se>\n</span><span class=s1>&#39;</span>
         <span class=n>s</span> <span class=o>+=</span> <span class=s1>&#39;&lt;html lang=&quot;en&quot;&gt;</span><span class=se>\n</span><span class=s1>&#39;</span>
         <span class=n>s</span> <span class=o>+=</span> <span class=s1>&#39;&lt;head&gt;</span><span class=se>\n</span><span class=s1>&#39;</span>
@@ -364,7 +364,7 @@ function registerListener(event, func) {
         <span class=k>return</span> <span class=n>s</span>
 
     <span class=nd>@staticmethod</span>
-    <span class=k>def</span> <span class=nf>MakeHTMLIndex</span><span class=p>():</span>
+    <span class=k>def</span><span class=w> </span><span class=nf>MakeHTMLIndex</span><span class=p>():</span>
         <span class=n>s</span> <span class=o>=</span> <span class=s1>&#39;&lt;h2&gt;Index&lt;/h2&gt;</span><span class=se>\n</span><span class=s1>&#39;</span>
         <span class=n>s</span> <span class=o>+=</span> <span class=s1>&#39;&lt;ul&gt;</span><span class=se>\n</span><span class=s1>&#39;</span>
         <span class=n>s</span> <span class=o>+=</span> <span class=s1>&#39;</span><span class=se>\t</span><span class=s1>&lt;li&gt;&lt;a href=&quot;#WebColorNames&quot;&gt;Web color Names&lt;/a&gt;&#39;</span>
@@ -382,7 +382,7 @@ function registerListener(event, func) {
         <span class=k>return</span> <span class=n>s</span>
 
     <span class=nd>@staticmethod</span>
-    <span class=k>def</span> <span class=nf>MakeTableHeader</span><span class=p>(</span><span class=n>title</span><span class=p>):</span>
+    <span class=k>def</span><span class=w> </span><span class=nf>MakeTableHeader</span><span class=p>(</span><span class=n>title</span><span class=p>):</span>
         <span class=n>s</span> <span class=o>=</span> <span class=s1>&#39;&lt;tr&gt;</span><span class=se>\n</span><span class=s1>&#39;</span>
         <span class=n>s</span> <span class=o>+=</span> <span class=s1>&#39;&lt;th&gt;&#39;</span>
         <span class=n>s</span> <span class=o>+=</span> <span class=n>title</span>
@@ -395,7 +395,7 @@ function registerListener(event, func) {
         <span class=k>return</span> <span class=n>s</span>
 
     <span class=nd>@staticmethod</span>
-    <span class=k>def</span> <span class=nf>MakeTD</span><span class=p>(</span><span class=n>name</span><span class=p>):</span>
+    <span class=k>def</span><span class=w> </span><span class=nf>MakeTD</span><span class=p>(</span><span class=n>name</span><span class=p>):</span>
         <span class=n>s</span> <span class=o>=</span> <span class=s1>&#39;&lt;tr&gt;</span><span class=se>\n</span><span class=s1>&#39;</span>
         <span class=n>s</span> <span class=o>+=</span> <span class=s1>&#39;&lt;td colspan=&quot;2&quot;&gt;&#39;</span>
         <span class=n>s</span> <span class=o>+=</span> <span class=s1>&#39;&lt;b&gt;&#39;</span> <span class=o>+</span> <span class=n>name</span> <span class=o>+</span> <span class=s1>&#39;&lt;/b&gt;&#39;</span>
@@ -403,7 +403,7 @@ function registerListener(event, func) {
         <span class=n>s</span> <span class=o>+=</span> <span class=s1>&#39;&lt;/tr&gt;</span><span class=se>\n</span><span class=s1>&#39;</span>
         <span class=k>return</span> <span class=n>s</span>
 
-    <span class=k>def</span> <span class=nf>MakeTR</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>name</span><span class=p>,</span> <span class=n>rgb</span><span class=p>,</span> <span class=n>textColor</span><span class=p>):</span>
+    <span class=k>def</span><span class=w> </span><span class=nf>MakeTR</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>name</span><span class=p>,</span> <span class=n>rgb</span><span class=p>,</span> <span class=n>textColor</span><span class=p>):</span>
 <span class=w>        </span><span class=sd>&quot;&quot;&quot;</span>
 <span class=sd>          Use when the name is a color name known to the web browser.</span>
 <span class=sd>        &quot;&quot;&quot;</span>
@@ -415,7 +415,7 @@ function registerListener(event, func) {
         <span class=n>s</span> <span class=o>+=</span> <span class=s1>&#39;&lt;/tr&gt;</span><span class=se>\n</span><span class=s1>&#39;</span>
         <span class=k>return</span> <span class=n>s</span>
 
-    <span class=k>def</span> <span class=nf>MakeTR_HTML</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>name</span><span class=p>,</span> <span class=n>htmlColor</span><span class=p>,</span> <span class=n>rgb</span><span class=p>,</span> <span class=n>textColor</span><span class=p>):</span>
+    <span class=k>def</span><span class=w> </span><span class=nf>MakeTR_HTML</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>name</span><span class=p>,</span> <span class=n>htmlColor</span><span class=p>,</span> <span class=n>rgb</span><span class=p>,</span> <span class=n>textColor</span><span class=p>):</span>
 <span class=w>        </span><span class=sd>&quot;&quot;&quot;</span>
 <span class=sd>          Use when the name is not a color name known to the web browser.</span>
 <span class=sd>        &quot;&quot;&quot;</span>
@@ -427,7 +427,7 @@ function registerListener(event, func) {
         <span class=n>s</span> <span class=o>+=</span> <span class=s1>&#39;&lt;/tr&gt;</span><span class=se>\n</span><span class=s1>&#39;</span>
         <span class=k>return</span> <span class=n>s</span>
 
-    <span class=k>def</span> <span class=nf>FindLongestColorName</span><span class=p>(</span><span class=bp>self</span><span class=p>):</span>
+    <span class=k>def</span><span class=w> </span><span class=nf>FindLongestColorName</span><span class=p>(</span><span class=bp>self</span><span class=p>):</span>
 <span class=w>        </span><span class=sd>&quot;&quot;&quot; Find the longest color name. &quot;&quot;&quot;</span>
         <span class=n>maxLength</span> <span class=o>=</span> <span class=o>-</span><span class=mi>1</span>
         <span class=k>for</span> <span class=n>key</span><span class=p>,</span> <span class=n>value</span> <span class=ow>in</span> <span class=bp>self</span><span class=o>.</span><span class=n>cs</span><span class=o>.</span><span class=n>cn</span><span class=o>.</span><span class=n>items</span><span class=p>():</span>
@@ -440,7 +440,7 @@ function registerListener(event, func) {
                     <span class=n>maxLength</span> <span class=o>=</span> <span class=nb>len</span><span class=p>(</span><span class=n>val</span><span class=p>)</span>
         <span class=k>return</span> <span class=n>maxLength</span>
 
-    <span class=k>def</span> <span class=nf>MakeWebColorTables</span><span class=p>(</span><span class=bp>self</span><span class=p>):</span>
+    <span class=k>def</span><span class=w> </span><span class=nf>MakeWebColorTables</span><span class=p>(</span><span class=bp>self</span><span class=p>):</span>
         <span class=n>res</span> <span class=o>=</span> <span class=s1>&#39;&#39;</span>
         <span class=k>for</span> <span class=n>key</span> <span class=ow>in</span> <span class=bp>self</span><span class=o>.</span><span class=n>cs</span><span class=o>.</span><span class=n>cnOrder</span><span class=p>:</span>
             <span class=k>if</span> <span class=n>key</span> <span class=ow>in</span> <span class=bp>self</span><span class=o>.</span><span class=n>cs</span><span class=o>.</span><span class=n>cnStartTable</span><span class=p>:</span>
@@ -465,7 +465,7 @@ function registerListener(event, func) {
                 <span class=n>res</span> <span class=o>+=</span> <span class=s1>&#39;&lt;/td&gt;</span><span class=se>\n</span><span class=s1>&#39;</span>
         <span class=k>return</span> <span class=n>res</span>
 
-    <span class=k>def</span> <span class=nf>MakeVTKColorTables</span><span class=p>(</span><span class=bp>self</span><span class=p>):</span>
+    <span class=k>def</span><span class=w> </span><span class=nf>MakeVTKColorTables</span><span class=p>(</span><span class=bp>self</span><span class=p>):</span>
         <span class=n>res</span> <span class=o>=</span> <span class=s1>&#39;&#39;</span>
         <span class=k>for</span> <span class=n>key</span> <span class=ow>in</span> <span class=bp>self</span><span class=o>.</span><span class=n>cs</span><span class=o>.</span><span class=n>vtkcnOrder</span><span class=p>:</span>
             <span class=k>if</span> <span class=n>key</span> <span class=ow>in</span> <span class=bp>self</span><span class=o>.</span><span class=n>cs</span><span class=o>.</span><span class=n>vtkcnStartTable</span><span class=p>:</span>
@@ -492,7 +492,7 @@ function registerListener(event, func) {
                 <span class=n>res</span> <span class=o>+=</span> <span class=s1>&#39;&lt;/td&gt;</span><span class=se>\n</span><span class=s1>&#39;</span>
         <span class=k>return</span> <span class=n>res</span>
 
-    <span class=k>def</span> <span class=nf>MakeSynonymColorTable</span><span class=p>(</span><span class=bp>self</span><span class=p>):</span>
+    <span class=k>def</span><span class=w> </span><span class=nf>MakeSynonymColorTable</span><span class=p>(</span><span class=bp>self</span><span class=p>):</span>
         <span class=n>syn</span> <span class=o>=</span> <span class=bp>self</span><span class=o>.</span><span class=n>nc</span><span class=o>.</span><span class=n>GetSynonyms</span><span class=p>()</span>
         <span class=c1># Convert to a list where each element is a list of the</span>
         <span class=c1>#  color and its synonyms.</span>
@@ -543,7 +543,7 @@ function registerListener(event, func) {
         <span class=n>res</span> <span class=o>+=</span> <span class=s1>&#39;&lt;/td&gt;</span><span class=se>\n</span><span class=s1>&#39;</span>
         <span class=k>return</span> <span class=n>res</span>
 
-    <span class=k>def</span> <span class=nf>MakeWebColorPage</span><span class=p>(</span><span class=bp>self</span><span class=p>):</span>
+    <span class=k>def</span><span class=w> </span><span class=nf>MakeWebColorPage</span><span class=p>(</span><span class=bp>self</span><span class=p>):</span>
         <span class=n>res</span> <span class=o>=</span> <span class=bp>self</span><span class=o>.</span><span class=n>MakeHTMLHeader</span><span class=p>()</span>
         <span class=n>res</span> <span class=o>+=</span> <span class=s1>&#39;&lt;body&gt;</span><span class=se>\n</span><span class=s1>&#39;</span>
 <span class=hll>        <span class=n>res</span> <span class=o>+=</span> <span class=s1>&#39;&lt;h1&gt;Colors available in vtkNamedColors&lt;/h1&gt;</span><span class=se>\n</span><span class=s1>&#39;</span>
@@ -558,7 +558,7 @@ function registerListener(event, func) {
         <span class=n>res</span> <span class=o>+=</span> <span class=s1>&#39;&lt;/body&gt;</span><span class=se>\n</span><span class=s1>&#39;</span>
         <span class=k>return</span> <span class=n>res</span>
 
-    <span class=k>def</span> <span class=nf>MakeVTKColorPage</span><span class=p>(</span><span class=bp>self</span><span class=p>):</span>
+    <span class=k>def</span><span class=w> </span><span class=nf>MakeVTKColorPage</span><span class=p>(</span><span class=bp>self</span><span class=p>):</span>
         <span class=n>res</span> <span class=o>=</span> <span class=bp>self</span><span class=o>.</span><span class=n>MakeHTMLHeader</span><span class=p>()</span>
         <span class=n>res</span> <span class=o>+=</span> <span class=s1>&#39;&lt;body&gt;</span><span class=se>\n</span><span class=s1>&#39;</span>
 <span class=hll>        <span class=n>res</span> <span class=o>+=</span> <span class=s1>&#39;&lt;h1&gt;Colors available in vtkNamedColors&lt;/h1&gt;</span><span class=se>\n</span><span class=s1>&#39;</span>
@@ -575,7 +575,7 @@ function registerListener(event, func) {
         <span class=n>res</span> <span class=o>+=</span> <span class=s1>&#39;&lt;/body&gt;</span><span class=se>\n</span><span class=s1>&#39;</span>
         <span class=k>return</span> <span class=n>res</span>
 
-    <span class=k>def</span> <span class=nf>MakeSynonymColorPage</span><span class=p>(</span><span class=bp>self</span><span class=p>):</span>
+    <span class=k>def</span><span class=w> </span><span class=nf>MakeSynonymColorPage</span><span class=p>(</span><span class=bp>self</span><span class=p>):</span>
         <span class=n>res</span> <span class=o>=</span> <span class=bp>self</span><span class=o>.</span><span class=n>MakeHTMLHeader</span><span class=p>()</span>
         <span class=n>res</span> <span class=o>+=</span> <span class=s1>&#39;&lt;body&gt;</span><span class=se>\n</span><span class=s1>&#39;</span>
 <span class=hll>        <span class=n>res</span> <span class=o>+=</span> <span class=s1>&#39;&lt;h1&gt;Synonyms in vtkNamedColors&lt;/h1&gt;</span><span class=se>\n</span><span class=s1>&#39;</span>
@@ -590,7 +590,7 @@ function registerListener(event, func) {
         <span class=n>res</span> <span class=o>+=</span> <span class=s1>&#39;&lt;/body&gt;</span><span class=se>\n</span><span class=s1>&#39;</span>
         <span class=k>return</span> <span class=n>res</span>
 
-    <span class=k>def</span> <span class=nf>MakeCombinedColorPage</span><span class=p>(</span><span class=bp>self</span><span class=p>):</span>
+    <span class=k>def</span><span class=w> </span><span class=nf>MakeCombinedColorPage</span><span class=p>(</span><span class=bp>self</span><span class=p>):</span>
         <span class=n>res</span> <span class=o>=</span> <span class=bp>self</span><span class=o>.</span><span class=n>MakeHTMLHeader</span><span class=p>()</span>
         <span class=n>res</span> <span class=o>+=</span> <span class=s1>&#39;&lt;body&gt;</span><span class=se>\n</span><span class=s1>&#39;</span>
 <span class=hll>        <span class=n>res</span> <span class=o>+=</span> <span class=s1>&#39;&lt;h1&gt;Colors available in vtkNamedColors&lt;/h1&gt;</span><span class=se>\n</span><span class=s1>&#39;</span>

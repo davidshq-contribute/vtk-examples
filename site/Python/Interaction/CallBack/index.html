@@ -64,15 +64,15 @@ function registerListener(event, func) {
 <span class=sd>&#39;&#39;&#39;</span>
 
 <span class=c1># noinspection PyUnresolvedReferences</span>
-<span class=kn>import</span> <span class=nn>vtkmodules.vtkInteractionStyle</span>
+<span class=kn>import</span><span class=w> </span><span class=nn>vtkmodules.vtkInteractionStyle</span>
 <span class=c1># noinspection PyUnresolvedReferences</span>
-<span class=kn>import</span> <span class=nn>vtkmodules.vtkRenderingOpenGL2</span>
-<span class=hll><span class=kn>from</span> <span class=nn>vtkmodules.vtkCommonColor</span> <span class=kn>import</span> <span class=n>vtkNamedColors</span>
-</span><span class=hll><span class=kn>from</span> <span class=nn>vtkmodules.vtkFiltersModeling</span> <span class=kn>import</span> <span class=n>vtkOutlineFilter</span>
-</span><span class=hll><span class=kn>from</span> <span class=nn>vtkmodules.vtkFiltersSources</span> <span class=kn>import</span> <span class=n>vtkConeSource</span>
-</span><span class=hll><span class=kn>from</span> <span class=nn>vtkmodules.vtkInteractionWidgets</span> <span class=kn>import</span> <span class=n>vtkOrientationMarkerWidget</span>
-</span><span class=hll><span class=kn>from</span> <span class=nn>vtkmodules.vtkRenderingAnnotation</span> <span class=kn>import</span> <span class=n>vtkAxesActor</span>
-</span><span class=kn>from</span> <span class=nn>vtkmodules.vtkRenderingCore</span> <span class=kn>import</span> <span class=p>(</span>
+<span class=kn>import</span><span class=w> </span><span class=nn>vtkmodules.vtkRenderingOpenGL2</span>
+<span class=hll><span class=kn>from</span><span class=w> </span><span class=nn>vtkmodules.vtkCommonColor</span><span class=w> </span><span class=kn>import</span> <span class=n>vtkNamedColors</span>
+</span><span class=hll><span class=kn>from</span><span class=w> </span><span class=nn>vtkmodules.vtkFiltersModeling</span><span class=w> </span><span class=kn>import</span> <span class=n>vtkOutlineFilter</span>
+</span><span class=hll><span class=kn>from</span><span class=w> </span><span class=nn>vtkmodules.vtkFiltersSources</span><span class=w> </span><span class=kn>import</span> <span class=n>vtkConeSource</span>
+</span><span class=hll><span class=kn>from</span><span class=w> </span><span class=nn>vtkmodules.vtkInteractionWidgets</span><span class=w> </span><span class=kn>import</span> <span class=n>vtkOrientationMarkerWidget</span>
+</span><span class=hll><span class=kn>from</span><span class=w> </span><span class=nn>vtkmodules.vtkRenderingAnnotation</span><span class=w> </span><span class=kn>import</span> <span class=n>vtkAxesActor</span>
+</span><span class=kn>from</span><span class=w> </span><span class=nn>vtkmodules.vtkRenderingCore</span><span class=w> </span><span class=kn>import</span> <span class=p>(</span>
 <span class=hll>    <span class=n>vtkActor</span><span class=p>,</span>
 </span><span class=hll>    <span class=n>vtkCamera</span><span class=p>,</span>
 </span><span class=hll>    <span class=n>vtkPolyDataMapper</span><span class=p>,</span>
@@ -82,7 +82,7 @@ function registerListener(event, func) {
 </span><span class=p>)</span>
 
 
-<span class=k>def</span> <span class=nf>main</span><span class=p>():</span>
+<span class=k>def</span><span class=w> </span><span class=nf>main</span><span class=p>():</span>
     <span class=c1>#  Decide what approach to use.</span>
     <span class=n>use_function_callback</span> <span class=o>=</span> <span class=kc>True</span>
 
@@ -168,7 +168,7 @@ function registerListener(event, func) {
     <span class=n>iren</span><span class=o>.</span><span class=n>Start</span><span class=p>()</span>
 
 
-<span class=k>def</span> <span class=nf>GetOrientation</span><span class=p>(</span><span class=n>caller</span><span class=p>,</span> <span class=n>ev</span><span class=p>):</span>
+<span class=k>def</span><span class=w> </span><span class=nf>GetOrientation</span><span class=p>(</span><span class=n>caller</span><span class=p>,</span> <span class=n>ev</span><span class=p>):</span>
 <span class=w>    </span><span class=sd>&#39;&#39;&#39;</span>
 <span class=sd>    Print out the orientation.</span>
 
@@ -185,18 +185,18 @@ function registerListener(event, func) {
     <span class=n>CameraOrientation</span><span class=p>(</span><span class=n>GetOrientation</span><span class=o>.</span><span class=n>cam</span><span class=p>)</span>
 
 
-<span class=k>class</span> <span class=nc>OrientationObserver</span><span class=p>(</span><span class=nb>object</span><span class=p>):</span>
-    <span class=k>def</span> <span class=fm>__init__</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>cam</span><span class=p>):</span>
+<span class=k>class</span><span class=w> </span><span class=nc>OrientationObserver</span><span class=p>(</span><span class=nb>object</span><span class=p>):</span>
+    <span class=k>def</span><span class=w> </span><span class=fm>__init__</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>cam</span><span class=p>):</span>
         <span class=bp>self</span><span class=o>.</span><span class=n>cam</span> <span class=o>=</span> <span class=n>cam</span>
 
-    <span class=k>def</span> <span class=fm>__call__</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>caller</span><span class=p>,</span> <span class=n>ev</span><span class=p>):</span>
+    <span class=k>def</span><span class=w> </span><span class=fm>__call__</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>caller</span><span class=p>,</span> <span class=n>ev</span><span class=p>):</span>
         <span class=c1># Just do this to demonstrate who called callback and the event that triggered it.</span>
         <span class=nb>print</span><span class=p>(</span><span class=n>caller</span><span class=o>.</span><span class=n>GetClassName</span><span class=p>(),</span> <span class=s1>&#39;Event Id:&#39;</span><span class=p>,</span> <span class=n>ev</span><span class=p>)</span>
         <span class=c1># Now print the camera orientation.</span>
         <span class=n>CameraOrientation</span><span class=p>(</span><span class=bp>self</span><span class=o>.</span><span class=n>cam</span><span class=p>)</span>
 
 
-<span class=k>def</span> <span class=nf>CameraOrientation</span><span class=p>(</span><span class=n>cam</span><span class=p>):</span>
+<span class=k>def</span><span class=w> </span><span class=nf>CameraOrientation</span><span class=p>(</span><span class=n>cam</span><span class=p>):</span>
     <span class=n>fmt1</span> <span class=o>=</span> <span class=s1>&#39;</span><span class=si>{:&gt;15s}</span><span class=s1>&#39;</span>
     <span class=n>fmt2</span> <span class=o>=</span> <span class=s1>&#39;</span><span class=si>{:9.6g}</span><span class=s1>&#39;</span>
     <span class=nb>print</span><span class=p>(</span><span class=n>fmt1</span><span class=o>.</span><span class=n>format</span><span class=p>(</span><span class=s1>&#39;Position:&#39;</span><span class=p>),</span> <span class=s1>&#39;, &#39;</span><span class=o>.</span><span class=n>join</span><span class=p>(</span><span class=nb>map</span><span class=p>(</span><span class=n>fmt2</span><span class=o>.</span><span class=n>format</span><span class=p>,</span> <span class=n>cam</span><span class=o>.</span><span class=n>GetPosition</span><span class=p>())))</span>
@@ -206,7 +206,7 @@ function registerListener(event, func) {
     <span class=nb>print</span><span class=p>(</span><span class=n>fmt1</span><span class=o>.</span><span class=n>format</span><span class=p>(</span><span class=s1>&#39;Distance:&#39;</span><span class=p>),</span> <span class=n>fmt2</span><span class=o>.</span><span class=n>format</span><span class=p>(</span><span class=n>cam</span><span class=o>.</span><span class=n>GetDistance</span><span class=p>()))</span>
 
 
-<span class=k>def</span> <span class=nf>MakeAxesActor</span><span class=p>():</span>
+<span class=k>def</span><span class=w> </span><span class=nf>MakeAxesActor</span><span class=p>():</span>
 <span class=hll>    <span class=n>axes</span> <span class=o>=</span> <span class=n>vtkAxesActor</span><span class=p>()</span>
 </span>    <span class=n>axes</span><span class=o>.</span><span class=n>SetShaftTypeToCylinder</span><span class=p>()</span>
     <span class=n>axes</span><span class=o>.</span><span class=n>SetXAxisLabelText</span><span class=p>(</span><span class=s1>&#39;X&#39;</span><span class=p>)</span>

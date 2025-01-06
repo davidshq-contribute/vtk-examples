@@ -59,21 +59,21 @@ function registerListener(event, func) {
 
 <span class=c1># Translated from dispPlot.tcl</span>
 
-<span class=kn>from</span> <span class=nn>dataclasses</span> <span class=kn>import</span> <span class=n>dataclass</span>
+<span class=kn>from</span><span class=w> </span><span class=nn>dataclasses</span><span class=w> </span><span class=kn>import</span> <span class=n>dataclass</span>
 
 <span class=c1># noinspection PyUnresolvedReferences</span>
-<span class=kn>import</span> <span class=nn>vtkmodules.vtkInteractionStyle</span>
+<span class=kn>import</span><span class=w> </span><span class=nn>vtkmodules.vtkInteractionStyle</span>
 <span class=c1># noinspection PyUnresolvedReferences</span>
-<span class=kn>import</span> <span class=nn>vtkmodules.vtkRenderingOpenGL2</span>
-<span class=hll><span class=kn>from</span> <span class=nn>vtkmodules.vtkCommonColor</span> <span class=kn>import</span> <span class=n>vtkNamedColors</span>
-</span><span class=hll><span class=kn>from</span> <span class=nn>vtkmodules.vtkCommonCore</span> <span class=kn>import</span> <span class=n>vtkLookupTable</span>
-</span><span class=kn>from</span> <span class=nn>vtkmodules.vtkFiltersCore</span> <span class=kn>import</span> <span class=p>(</span>
+<span class=kn>import</span><span class=w> </span><span class=nn>vtkmodules.vtkRenderingOpenGL2</span>
+<span class=hll><span class=kn>from</span><span class=w> </span><span class=nn>vtkmodules.vtkCommonColor</span><span class=w> </span><span class=kn>import</span> <span class=n>vtkNamedColors</span>
+</span><span class=hll><span class=kn>from</span><span class=w> </span><span class=nn>vtkmodules.vtkCommonCore</span><span class=w> </span><span class=kn>import</span> <span class=n>vtkLookupTable</span>
+</span><span class=kn>from</span><span class=w> </span><span class=nn>vtkmodules.vtkFiltersCore</span><span class=w> </span><span class=kn>import</span> <span class=p>(</span>
 <span class=hll>    <span class=n>vtkPolyDataNormals</span><span class=p>,</span>
 </span><span class=hll>    <span class=n>vtkVectorDot</span>
 </span><span class=p>)</span>
-<span class=hll><span class=kn>from</span> <span class=nn>vtkmodules.vtkFiltersGeneral</span> <span class=kn>import</span> <span class=n>vtkWarpVector</span>
-</span><span class=hll><span class=kn>from</span> <span class=nn>vtkmodules.vtkIOLegacy</span> <span class=kn>import</span> <span class=n>vtkPolyDataReader</span>
-</span><span class=kn>from</span> <span class=nn>vtkmodules.vtkRenderingCore</span> <span class=kn>import</span> <span class=p>(</span>
+<span class=hll><span class=kn>from</span><span class=w> </span><span class=nn>vtkmodules.vtkFiltersGeneral</span><span class=w> </span><span class=kn>import</span> <span class=n>vtkWarpVector</span>
+</span><span class=hll><span class=kn>from</span><span class=w> </span><span class=nn>vtkmodules.vtkIOLegacy</span><span class=w> </span><span class=kn>import</span> <span class=n>vtkPolyDataReader</span>
+</span><span class=kn>from</span><span class=w> </span><span class=nn>vtkmodules.vtkRenderingCore</span><span class=w> </span><span class=kn>import</span> <span class=p>(</span>
 <span class=hll>    <span class=n>vtkActor</span><span class=p>,</span>
 </span><span class=hll>    <span class=n>vtkColorTransferFunction</span><span class=p>,</span>
 </span><span class=hll>    <span class=n>vtkDataSetMapper</span><span class=p>,</span>
@@ -83,8 +83,8 @@ function registerListener(event, func) {
 </span><span class=p>)</span>
 
 
-<span class=k>def</span> <span class=nf>get_program_parameters</span><span class=p>():</span>
-    <span class=kn>import</span> <span class=nn>argparse</span>
+<span class=k>def</span><span class=w> </span><span class=nf>get_program_parameters</span><span class=p>():</span>
+    <span class=kn>import</span><span class=w> </span><span class=nn>argparse</span>
     <span class=n>description</span> <span class=o>=</span> <span class=s1>&#39;Produce figure 6–15(b) from the VTK Textbook.&#39;</span>
     <span class=n>epilogue</span> <span class=o>=</span> <span class=s1>&#39;&#39;&#39;</span>
 <span class=s1>        Produce figure 6–15(b) from the VTK Textbook.</span>
@@ -103,7 +103,7 @@ function registerListener(event, func) {
     <span class=k>return</span> <span class=n>args</span><span class=o>.</span><span class=n>filename</span><span class=p>,</span> <span class=n>args</span><span class=o>.</span><span class=n>color_scheme</span>
 
 
-<span class=k>def</span> <span class=nf>main</span><span class=p>():</span>
+<span class=k>def</span><span class=w> </span><span class=nf>main</span><span class=p>():</span>
     <span class=n>file_name</span><span class=p>,</span> <span class=n>color_scheme</span> <span class=o>=</span> <span class=n>get_program_parameters</span><span class=p>()</span>
 
     <span class=n>color_scheme</span> <span class=o>=</span> <span class=nb>abs</span><span class=p>(</span><span class=n>color_scheme</span><span class=p>)</span>
@@ -151,7 +151,7 @@ function registerListener(event, func) {
     <span class=n>iren</span><span class=o>.</span><span class=n>Start</span><span class=p>()</span>
 
 
-<span class=k>def</span> <span class=nf>make_lut</span><span class=p>(</span><span class=n>color_scheme</span><span class=p>,</span> <span class=n>lut</span><span class=p>):</span>
+<span class=k>def</span><span class=w> </span><span class=nf>make_lut</span><span class=p>(</span><span class=n>color_scheme</span><span class=p>,</span> <span class=n>lut</span><span class=p>):</span>
     <span class=c1># See: [Diverging Color Maps for Scientific Visualization]</span>
     <span class=c1>#      (http:#www.kennethmoreland.com/color-maps/)</span>
     <span class=n>nc</span> <span class=o>=</span> <span class=mi>256</span>
@@ -197,9 +197,9 @@ function registerListener(event, func) {
 
 
 <span class=nd>@dataclass</span><span class=p>(</span><span class=n>frozen</span><span class=o>=</span><span class=kc>True</span><span class=p>)</span>
-<span class=k>class</span> <span class=nc>ColorTransferFunction</span><span class=p>:</span>
+<span class=k>class</span><span class=w> </span><span class=nc>ColorTransferFunction</span><span class=p>:</span>
     <span class=nd>@dataclass</span><span class=p>(</span><span class=n>frozen</span><span class=o>=</span><span class=kc>True</span><span class=p>)</span>
-    <span class=k>class</span> <span class=nc>ColorSpace</span><span class=p>:</span>
+    <span class=k>class</span><span class=w> </span><span class=nc>ColorSpace</span><span class=p>:</span>
         <span class=n>VTK_CTF_RGB</span><span class=p>:</span> <span class=nb>int</span> <span class=o>=</span> <span class=mi>0</span>
         <span class=n>VTK_CTF_HSV</span><span class=p>:</span> <span class=nb>int</span> <span class=o>=</span> <span class=mi>1</span>
         <span class=n>VTK_CTF_LAB</span><span class=p>:</span> <span class=nb>int</span> <span class=o>=</span> <span class=mi>2</span>
@@ -208,7 +208,7 @@ function registerListener(event, func) {
         <span class=n>VTK_CTF_STEP</span><span class=p>:</span> <span class=nb>int</span> <span class=o>=</span> <span class=mi>5</span>
 
     <span class=nd>@dataclass</span><span class=p>(</span><span class=n>frozen</span><span class=o>=</span><span class=kc>True</span><span class=p>)</span>
-    <span class=k>class</span> <span class=nc>Scale</span><span class=p>:</span>
+    <span class=k>class</span><span class=w> </span><span class=nc>Scale</span><span class=p>:</span>
         <span class=n>VTK_CTF_LINEAR</span><span class=p>:</span> <span class=nb>int</span> <span class=o>=</span> <span class=mi>0</span>
         <span class=n>VTK_CTF_LOG10</span><span class=p>:</span> <span class=nb>int</span> <span class=o>=</span> <span class=mi>1</span>
 

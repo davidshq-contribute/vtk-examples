@@ -64,7 +64,7 @@ function registerListener(event, func) {
 <span class=c1># from vtkmodules.vtkRenderingCore import vtkCoordinate</span>
 
 
-<span class=k>def</span> <span class=nf>draw_viewport_border</span><span class=p>(</span><span class=n>renderer</span><span class=p>,</span> <span class=n>border</span><span class=p>,</span> <span class=n>color</span><span class=o>=</span><span class=p>(</span><span class=mi>0</span><span class=p>,</span> <span class=mi>0</span><span class=p>,</span> <span class=mi>0</span><span class=p>),</span> <span class=n>line_width</span><span class=o>=</span><span class=mi>2</span><span class=p>):</span>
+<span class=k>def</span><span class=w> </span><span class=nf>draw_viewport_border</span><span class=p>(</span><span class=n>renderer</span><span class=p>,</span> <span class=n>border</span><span class=p>,</span> <span class=n>color</span><span class=o>=</span><span class=p>(</span><span class=mi>0</span><span class=p>,</span> <span class=mi>0</span><span class=p>,</span> <span class=mi>0</span><span class=p>),</span> <span class=n>line_width</span><span class=o>=</span><span class=mi>2</span><span class=p>):</span>
 <span class=w>    </span><span class=sd>&quot;&quot;&quot;</span>
 <span class=sd>    Draw a border around the viewport of a renderer.</span>
 
@@ -75,7 +75,7 @@ function registerListener(event, func) {
 <span class=sd>    :return:</span>
 <span class=sd>    &quot;&quot;&quot;</span>
 
-    <span class=k>def</span> <span class=nf>generate_border_lines</span><span class=p>(</span><span class=n>border_type</span><span class=p>):</span>
+    <span class=k>def</span><span class=w> </span><span class=nf>generate_border_lines</span><span class=p>(</span><span class=n>border_type</span><span class=p>):</span>
 <span class=w>        </span><span class=sd>&quot;&quot;&quot;</span>
 <span class=sd>        Generate the lines for the border.</span>
 
@@ -154,9 +154,9 @@ function registerListener(event, func) {
 
 
 <span class=nd>@dataclass</span><span class=p>(</span><span class=n>frozen</span><span class=o>=</span><span class=kc>True</span><span class=p>)</span>
-<span class=k>class</span> <span class=nc>Coordinate</span><span class=p>:</span>
+<span class=k>class</span><span class=w> </span><span class=nc>Coordinate</span><span class=p>:</span>
     <span class=nd>@dataclass</span><span class=p>(</span><span class=n>frozen</span><span class=o>=</span><span class=kc>True</span><span class=p>)</span>
-    <span class=k>class</span> <span class=nc>CoordinateSystem</span><span class=p>:</span>
+    <span class=k>class</span><span class=w> </span><span class=nc>CoordinateSystem</span><span class=p>:</span>
         <span class=n>VTK_DISPLAY</span><span class=p>:</span> <span class=nb>int</span> <span class=o>=</span> <span class=mi>0</span>
         <span class=n>VTK_NORMALIZED_DISPLAY</span><span class=p>:</span> <span class=nb>int</span> <span class=o>=</span> <span class=mi>1</span>
         <span class=n>VTK_VIEWPORT</span><span class=p>:</span> <span class=nb>int</span> <span class=o>=</span> <span class=mi>2</span>
@@ -168,9 +168,9 @@ function registerListener(event, func) {
 
 
 <span class=nd>@dataclass</span><span class=p>(</span><span class=n>frozen</span><span class=o>=</span><span class=kc>True</span><span class=p>)</span>
-<span class=k>class</span> <span class=nc>ViewPort</span><span class=p>:</span>
+<span class=k>class</span><span class=w> </span><span class=nc>ViewPort</span><span class=p>:</span>
     <span class=nd>@dataclass</span><span class=p>(</span><span class=n>frozen</span><span class=o>=</span><span class=kc>True</span><span class=p>)</span>
-    <span class=k>class</span> <span class=nc>Border</span><span class=p>:</span>
+    <span class=k>class</span><span class=w> </span><span class=nc>Border</span><span class=p>:</span>
         <span class=n>TOP</span><span class=p>:</span> <span class=nb>int</span> <span class=o>=</span> <span class=mi>0</span>
         <span class=n>LEFT</span><span class=p>:</span> <span class=nb>int</span> <span class=o>=</span> <span class=mi>1</span>
         <span class=n>BOTTOM</span><span class=p>:</span> <span class=nb>int</span> <span class=o>=</span> <span class=mi>2</span>

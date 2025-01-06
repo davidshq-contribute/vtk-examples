@@ -59,23 +59,23 @@ function registerListener(event, func) {
 <span class=c1># -*- coding: utf-8 -*-</span>
 
 <span class=c1># noinspection PyUnresolvedReferences</span>
-<span class=kn>import</span> <span class=nn>vtkmodules.vtkInteractionStyle</span>
+<span class=kn>import</span><span class=w> </span><span class=nn>vtkmodules.vtkInteractionStyle</span>
 <span class=c1># noinspection PyUnresolvedReferences</span>
-<span class=kn>import</span> <span class=nn>vtkmodules.vtkRenderingOpenGL2</span>
-<span class=kn>from</span> <span class=nn>vtkmodules.vtkCommonColor</span> <span class=kn>import</span> <span class=p>(</span>
+<span class=kn>import</span><span class=w> </span><span class=nn>vtkmodules.vtkRenderingOpenGL2</span>
+<span class=kn>from</span><span class=w> </span><span class=nn>vtkmodules.vtkCommonColor</span><span class=w> </span><span class=kn>import</span> <span class=p>(</span>
 <span class=hll>    <span class=n>vtkColorSeries</span><span class=p>,</span>
 </span><span class=hll>    <span class=n>vtkNamedColors</span>
 </span><span class=p>)</span>
-<span class=kn>from</span> <span class=nn>vtkmodules.vtkCommonComputationalGeometry</span> <span class=kn>import</span> <span class=p>(</span>
+<span class=kn>from</span><span class=w> </span><span class=nn>vtkmodules.vtkCommonComputationalGeometry</span><span class=w> </span><span class=kn>import</span> <span class=p>(</span>
 <span class=hll>    <span class=n>vtkParametricBoy</span><span class=p>,</span>
 </span><span class=hll>    <span class=n>vtkParametricEllipsoid</span><span class=p>,</span>
 </span><span class=hll>    <span class=n>vtkParametricMobius</span><span class=p>,</span>
 </span><span class=hll>    <span class=n>vtkParametricRandomHills</span><span class=p>,</span>
 </span><span class=hll>    <span class=n>vtkParametricTorus</span>
 </span><span class=p>)</span>
-<span class=hll><span class=kn>from</span> <span class=nn>vtkmodules.vtkCommonCore</span> <span class=kn>import</span> <span class=n>vtkVersion</span>
-</span><span class=hll><span class=kn>from</span> <span class=nn>vtkmodules.vtkCommonDataModel</span> <span class=kn>import</span> <span class=n>vtkColor3ub</span>
-</span><span class=kn>from</span> <span class=nn>vtkmodules.vtkFiltersCore</span> <span class=kn>import</span> <span class=p>(</span>
+<span class=hll><span class=kn>from</span><span class=w> </span><span class=nn>vtkmodules.vtkCommonCore</span><span class=w> </span><span class=kn>import</span> <span class=n>vtkVersion</span>
+</span><span class=hll><span class=kn>from</span><span class=w> </span><span class=nn>vtkmodules.vtkCommonDataModel</span><span class=w> </span><span class=kn>import</span> <span class=n>vtkColor3ub</span>
+</span><span class=kn>from</span><span class=w> </span><span class=nn>vtkmodules.vtkFiltersCore</span><span class=w> </span><span class=kn>import</span> <span class=p>(</span>
 <span class=hll>    <span class=n>vtkCleanPolyData</span><span class=p>,</span>
 </span><span class=hll>    <span class=n>vtkElevationFilter</span><span class=p>,</span>
 </span><span class=hll>    <span class=n>vtkGlyph3D</span><span class=p>,</span>
@@ -83,22 +83,22 @@ function registerListener(event, func) {
 </span><span class=hll>    <span class=n>vtkPolyDataNormals</span><span class=p>,</span>
 </span><span class=hll>    <span class=n>vtkTriangleFilter</span>
 </span><span class=p>)</span>
-<span class=hll><span class=kn>from</span> <span class=nn>vtkmodules.vtkFiltersHybrid</span> <span class=kn>import</span> <span class=n>vtkRenderLargeImage</span>
-</span><span class=kn>from</span> <span class=nn>vtkmodules.vtkFiltersModeling</span> <span class=kn>import</span> <span class=p>(</span>
+<span class=hll><span class=kn>from</span><span class=w> </span><span class=nn>vtkmodules.vtkFiltersHybrid</span><span class=w> </span><span class=kn>import</span> <span class=n>vtkRenderLargeImage</span>
+</span><span class=kn>from</span><span class=w> </span><span class=nn>vtkmodules.vtkFiltersModeling</span><span class=w> </span><span class=kn>import</span> <span class=p>(</span>
 <span class=hll>    <span class=n>vtkButterflySubdivisionFilter</span><span class=p>,</span>
 </span><span class=hll>    <span class=n>vtkLinearSubdivisionFilter</span>
 </span><span class=p>)</span>
-<span class=kn>from</span> <span class=nn>vtkmodules.vtkFiltersSources</span> <span class=kn>import</span> <span class=p>(</span>
+<span class=kn>from</span><span class=w> </span><span class=nn>vtkmodules.vtkFiltersSources</span><span class=w> </span><span class=kn>import</span> <span class=p>(</span>
 <span class=hll>    <span class=n>vtkArrowSource</span><span class=p>,</span>
 </span><span class=hll>    <span class=n>vtkConeSource</span><span class=p>,</span>
 </span><span class=hll>    <span class=n>vtkParametricFunctionSource</span><span class=p>,</span>
 </span><span class=hll>    <span class=n>vtkSphereSource</span><span class=p>,</span>
 </span><span class=hll>    <span class=n>vtkSuperquadricSource</span>
 </span><span class=p>)</span>
-<span class=hll><span class=kn>from</span> <span class=nn>vtkmodules.vtkIOImage</span> <span class=kn>import</span> <span class=n>vtkPNGWriter</span>
-</span><span class=hll><span class=kn>from</span> <span class=nn>vtkmodules.vtkInteractionWidgets</span> <span class=kn>import</span> <span class=n>vtkOrientationMarkerWidget</span>
-</span><span class=hll><span class=kn>from</span> <span class=nn>vtkmodules.vtkRenderingAnnotation</span> <span class=kn>import</span> <span class=n>vtkAxesActor</span>
-</span><span class=kn>from</span> <span class=nn>vtkmodules.vtkRenderingCore</span> <span class=kn>import</span> <span class=p>(</span>
+<span class=hll><span class=kn>from</span><span class=w> </span><span class=nn>vtkmodules.vtkIOImage</span><span class=w> </span><span class=kn>import</span> <span class=n>vtkPNGWriter</span>
+</span><span class=hll><span class=kn>from</span><span class=w> </span><span class=nn>vtkmodules.vtkInteractionWidgets</span><span class=w> </span><span class=kn>import</span> <span class=n>vtkOrientationMarkerWidget</span>
+</span><span class=hll><span class=kn>from</span><span class=w> </span><span class=nn>vtkmodules.vtkRenderingAnnotation</span><span class=w> </span><span class=kn>import</span> <span class=n>vtkAxesActor</span>
+</span><span class=kn>from</span><span class=w> </span><span class=nn>vtkmodules.vtkRenderingCore</span><span class=w> </span><span class=kn>import</span> <span class=p>(</span>
 <span class=hll>    <span class=n>vtkActor</span><span class=p>,</span>
 </span><span class=hll>    <span class=n>vtkActor2D</span><span class=p>,</span>
 </span><span class=hll>    <span class=n>vtkColorTransferFunction</span><span class=p>,</span>
@@ -114,8 +114,8 @@ function registerListener(event, func) {
 <span class=hll><span class=n>nc</span> <span class=o>=</span> <span class=n>vtkNamedColors</span><span class=p>()</span>
 </span>
 
-<span class=k>def</span> <span class=nf>GetProgramParameters</span><span class=p>():</span>
-    <span class=kn>import</span> <span class=nn>argparse</span>
+<span class=k>def</span><span class=w> </span><span class=nf>GetProgramParameters</span><span class=p>():</span>
+    <span class=kn>import</span><span class=w> </span><span class=nn>argparse</span>
     <span class=n>description</span> <span class=o>=</span> <span class=s1>&#39;Demonstrates point data subdivision with the glyphing of normals on the surface.&#39;</span>
     <span class=n>epilogue</span> <span class=o>=</span> <span class=s1>&#39;&#39;&#39;</span>
 <span class=s1>        This program takes a surface and displays three surfaces.</span>
@@ -138,7 +138,7 @@ function registerListener(event, func) {
     <span class=k>return</span> <span class=n>args</span><span class=o>.</span><span class=n>sourceToUse</span><span class=p>,</span> <span class=n>args</span><span class=o>.</span><span class=n>displayNormals</span><span class=p>,</span> <span class=n>args</span><span class=o>.</span><span class=n>gouraudInterpolation</span><span class=p>,</span> <span class=n>args</span><span class=o>.</span><span class=n>glyphPoints</span>
 
 
-<span class=k>class</span> <span class=nc>Sources</span><span class=p>(</span><span class=nb>object</span><span class=p>):</span>
+<span class=k>class</span><span class=w> </span><span class=nc>Sources</span><span class=p>(</span><span class=nb>object</span><span class=p>):</span>
 <span class=w>    </span><span class=sd>&quot;&quot;&quot;</span>
 <span class=sd>    This class acts as a storage vehicle for the various sources.</span>
 
@@ -152,7 +152,7 @@ function registerListener(event, func) {
 <span class=sd>    Use the representative sources provided here as templates.</span>
 <span class=sd>    &quot;&quot;&quot;</span>
 
-    <span class=k>def</span> <span class=fm>__init__</span><span class=p>(</span><span class=bp>self</span><span class=p>):</span>
+    <span class=k>def</span><span class=w> </span><span class=fm>__init__</span><span class=p>(</span><span class=bp>self</span><span class=p>):</span>
         <span class=c1># If you add more sources update this dictionary.</span>
         <span class=bp>self</span><span class=o>.</span><span class=n>sources</span> <span class=o>=</span> <span class=p>{</span><span class=s1>&#39;ParametricTorus&#39;</span><span class=p>:</span> <span class=bp>self</span><span class=o>.</span><span class=n>ParametricTorusSource</span><span class=p>(),</span> <span class=s1>&#39;ParametricEllipsoid&#39;</span><span class=p>:</span> <span class=bp>self</span><span class=o>.</span><span class=n>EllipsoidSource</span><span class=p>(),</span>
                         <span class=s1>&#39;Boy&#39;</span><span class=p>:</span> <span class=bp>self</span><span class=o>.</span><span class=n>BoySource</span><span class=p>(),</span> <span class=s1>&#39;Sphere&#39;</span><span class=p>:</span> <span class=bp>self</span><span class=o>.</span><span class=n>SphereSource</span><span class=p>(),</span> <span class=s1>&#39;Mobius&#39;</span><span class=p>:</span> <span class=bp>self</span><span class=o>.</span><span class=n>MobiusSource</span><span class=p>(),</span>
@@ -160,7 +160,7 @@ function registerListener(event, func) {
                         <span class=s1>&#39;Superquadric&#39;</span><span class=p>:</span> <span class=bp>self</span><span class=o>.</span><span class=n>SuperquadricSource</span><span class=p>()}</span>
 
     <span class=nd>@staticmethod</span>
-    <span class=k>def</span> <span class=nf>ParametricTorusSource</span><span class=p>():</span>
+    <span class=k>def</span><span class=w> </span><span class=nf>ParametricTorusSource</span><span class=p>():</span>
 <span class=hll>        <span class=n>torus</span> <span class=o>=</span> <span class=n>vtkParametricTorus</span><span class=p>()</span>
 </span>        <span class=n>torus</span><span class=o>.</span><span class=n>JoinUOff</span><span class=p>()</span>
         <span class=n>torus</span><span class=o>.</span><span class=n>JoinVOff</span><span class=p>()</span>
@@ -170,7 +170,7 @@ function registerListener(event, func) {
         <span class=k>return</span> <span class=n>torusSource</span>
 
     <span class=nd>@staticmethod</span>
-    <span class=k>def</span> <span class=nf>EllipsoidSource</span><span class=p>():</span>
+    <span class=k>def</span><span class=w> </span><span class=nf>EllipsoidSource</span><span class=p>():</span>
 <span class=hll>        <span class=n>ellipsoid</span> <span class=o>=</span> <span class=n>vtkParametricEllipsoid</span><span class=p>()</span>
 </span>        <span class=n>ellipsoid</span><span class=o>.</span><span class=n>SetXRadius</span><span class=p>(</span><span class=mf>0.5</span><span class=p>)</span>
         <span class=n>ellipsoid</span><span class=o>.</span><span class=n>SetYRadius</span><span class=p>(</span><span class=mf>1.0</span><span class=p>)</span>
@@ -183,7 +183,7 @@ function registerListener(event, func) {
         <span class=k>return</span> <span class=n>ellipsoidSource</span>
 
     <span class=nd>@staticmethod</span>
-    <span class=k>def</span> <span class=nf>BoySource</span><span class=p>():</span>
+    <span class=k>def</span><span class=w> </span><span class=nf>BoySource</span><span class=p>():</span>
 <span class=hll>        <span class=n>boy</span> <span class=o>=</span> <span class=n>vtkParametricBoy</span><span class=p>()</span>
 </span>        <span class=n>boy</span><span class=o>.</span><span class=n>JoinUOff</span><span class=p>()</span>
         <span class=c1># boy.JoinVOff()</span>
@@ -193,7 +193,7 @@ function registerListener(event, func) {
         <span class=k>return</span> <span class=n>boySource</span>
 
     <span class=nd>@staticmethod</span>
-    <span class=k>def</span> <span class=nf>MobiusSource</span><span class=p>():</span>
+    <span class=k>def</span><span class=w> </span><span class=nf>MobiusSource</span><span class=p>():</span>
 <span class=hll>        <span class=n>mobius</span> <span class=o>=</span> <span class=n>vtkParametricMobius</span><span class=p>()</span>
 </span>        <span class=n>mobius</span><span class=o>.</span><span class=n>SetRadius</span><span class=p>(</span><span class=mi>2</span><span class=p>)</span>
         <span class=n>mobius</span><span class=o>.</span><span class=n>SetMinimumV</span><span class=p>(</span><span class=o>-</span><span class=mf>0.5</span><span class=p>)</span>
@@ -205,7 +205,7 @@ function registerListener(event, func) {
         <span class=k>return</span> <span class=n>mobiusSource</span>
 
     <span class=nd>@staticmethod</span>
-    <span class=k>def</span> <span class=nf>ParametricRandomHills</span><span class=p>():</span>
+    <span class=k>def</span><span class=w> </span><span class=nf>ParametricRandomHills</span><span class=p>():</span>
 <span class=hll>        <span class=n>randomHills</span> <span class=o>=</span> <span class=n>vtkParametricRandomHills</span><span class=p>()</span>
 </span>        <span class=c1># randomHills.AllowRandomGenerationOff()</span>
         <span class=n>randomHills</span><span class=o>.</span><span class=n>SetRandomSeed</span><span class=p>(</span><span class=mi>1</span><span class=p>)</span>
@@ -218,7 +218,7 @@ function registerListener(event, func) {
         <span class=k>return</span> <span class=n>randomHillsSource</span>
 
     <span class=nd>@staticmethod</span>
-    <span class=k>def</span> <span class=nf>SphereSource</span><span class=p>():</span>
+    <span class=k>def</span><span class=w> </span><span class=nf>SphereSource</span><span class=p>():</span>
 <span class=hll>        <span class=n>sphere</span> <span class=o>=</span> <span class=n>vtkSphereSource</span><span class=p>()</span>
 </span>        <span class=n>sphere</span><span class=o>.</span><span class=n>SetPhiResolution</span><span class=p>(</span><span class=mi>11</span><span class=p>)</span>
         <span class=n>sphere</span><span class=o>.</span><span class=n>SetThetaResolution</span><span class=p>(</span><span class=mi>11</span><span class=p>)</span>
@@ -233,7 +233,7 @@ function registerListener(event, func) {
         <span class=k>return</span> <span class=n>elev</span>
 
     <span class=nd>@staticmethod</span>
-    <span class=k>def</span> <span class=nf>SuperquadricSource</span><span class=p>():</span>
+    <span class=k>def</span><span class=w> </span><span class=nf>SuperquadricSource</span><span class=p>():</span>
 <span class=w>        </span><span class=sd>&quot;&quot;&quot;</span>
 <span class=sd>        Make a torus as the source.</span>
 <span class=sd>        &quot;&quot;&quot;</span>
@@ -269,7 +269,7 @@ function registerListener(event, func) {
         <span class=k>return</span> <span class=n>elev</span>
 
     <span class=nd>@staticmethod</span>
-    <span class=k>def</span> <span class=nf>ConeSource</span><span class=p>():</span>
+    <span class=k>def</span><span class=w> </span><span class=nf>ConeSource</span><span class=p>():</span>
 <span class=hll>        <span class=n>cone</span> <span class=o>=</span> <span class=n>vtkConeSource</span><span class=p>()</span>
 </span>        <span class=n>cone</span><span class=o>.</span><span class=n>SetResolution</span><span class=p>(</span><span class=mi>6</span><span class=p>)</span>
         <span class=n>cone</span><span class=o>.</span><span class=n>CappingOn</span><span class=p>()</span>
@@ -291,7 +291,7 @@ function registerListener(event, func) {
         <span class=k>return</span> <span class=n>tf</span>
 
 
-<span class=k>def</span> <span class=nf>MakeLUT</span><span class=p>(</span><span class=n>scalarRange</span><span class=p>):</span>
+<span class=k>def</span><span class=w> </span><span class=nf>MakeLUT</span><span class=p>(</span><span class=n>scalarRange</span><span class=p>):</span>
 <span class=w>    </span><span class=sd>&quot;&quot;&quot;</span>
 <span class=sd>    Make a lookup table using a predefined color series.</span>
 
@@ -320,7 +320,7 @@ function registerListener(event, func) {
     <span class=k>return</span> <span class=n>lut</span>
 
 
-<span class=k>def</span> <span class=nf>GlyphActor</span><span class=p>(</span><span class=n>source</span><span class=p>,</span> <span class=n>glyphPoints</span><span class=p>,</span> <span class=n>scalarRange</span><span class=p>,</span> <span class=n>scaleFactor</span><span class=p>,</span> <span class=n>lut</span><span class=p>):</span>
+<span class=k>def</span><span class=w> </span><span class=nf>GlyphActor</span><span class=p>(</span><span class=n>source</span><span class=p>,</span> <span class=n>glyphPoints</span><span class=p>,</span> <span class=n>scalarRange</span><span class=p>,</span> <span class=n>scaleFactor</span><span class=p>,</span> <span class=n>lut</span><span class=p>):</span>
 <span class=w>    </span><span class=sd>&quot;&quot;&quot;</span>
 <span class=sd>    Create the actor for glyphing the normals.</span>
 
@@ -362,7 +362,7 @@ function registerListener(event, func) {
     <span class=k>return</span> <span class=n>glyphActor</span>
 
 
-<span class=k>def</span> <span class=nf>MakeSurfaceActor</span><span class=p>(</span><span class=n>surface</span><span class=p>,</span> <span class=n>scalarRange</span><span class=p>,</span> <span class=n>lut</span><span class=p>):</span>
+<span class=k>def</span><span class=w> </span><span class=nf>MakeSurfaceActor</span><span class=p>(</span><span class=n>surface</span><span class=p>,</span> <span class=n>scalarRange</span><span class=p>,</span> <span class=n>lut</span><span class=p>):</span>
 <span class=w>    </span><span class=sd>&quot;&quot;&quot;</span>
 <span class=sd>    Create the actor for a surface.</span>
 
@@ -383,7 +383,7 @@ function registerListener(event, func) {
     <span class=k>return</span> <span class=n>actor</span>
 
 
-<span class=k>def</span> <span class=nf>MakeLabel</span><span class=p>(</span><span class=n>textLabel</span><span class=p>,</span> <span class=n>renWinSize</span><span class=p>):</span>
+<span class=k>def</span><span class=w> </span><span class=nf>MakeLabel</span><span class=p>(</span><span class=n>textLabel</span><span class=p>,</span> <span class=n>renWinSize</span><span class=p>):</span>
 <span class=w>    </span><span class=sd>&quot;&quot;&quot;</span>
 <span class=sd>    Create a label.</span>
 
@@ -408,7 +408,7 @@ function registerListener(event, func) {
     <span class=k>return</span> <span class=n>actor</span>
 
 
-<span class=k>def</span> <span class=nf>MakeAxesActor</span><span class=p>():</span>
+<span class=k>def</span><span class=w> </span><span class=nf>MakeAxesActor</span><span class=p>():</span>
 <span class=w>    </span><span class=sd>&quot;&quot;&quot;</span>
 <span class=sd>    Make an axis actor.</span>
 
@@ -432,7 +432,7 @@ function registerListener(event, func) {
     <span class=k>return</span> <span class=n>axes</span>
 
 
-<span class=k>def</span> <span class=nf>MakeOrientationMarker</span><span class=p>(</span><span class=n>renderer</span><span class=p>,</span> <span class=n>iren</span><span class=p>):</span>
+<span class=k>def</span><span class=w> </span><span class=nf>MakeOrientationMarker</span><span class=p>(</span><span class=n>renderer</span><span class=p>,</span> <span class=n>iren</span><span class=p>):</span>
 <span class=w>    </span><span class=sd>&quot;&quot;&quot;</span>
 <span class=sd>    Create an orientation marker for a given renderer.</span>
 
@@ -453,7 +453,7 @@ function registerListener(event, func) {
     <span class=k>return</span> <span class=n>om</span>
 
 
-<span class=k>def</span> <span class=nf>WritePNG</span><span class=p>(</span><span class=n>ren</span><span class=p>,</span> <span class=n>fn</span><span class=p>,</span> <span class=n>magnification</span><span class=o>=</span><span class=mi>1</span><span class=p>):</span>
+<span class=k>def</span><span class=w> </span><span class=nf>WritePNG</span><span class=p>(</span><span class=n>ren</span><span class=p>,</span> <span class=n>fn</span><span class=p>,</span> <span class=n>magnification</span><span class=o>=</span><span class=mi>1</span><span class=p>):</span>
 <span class=w>    </span><span class=sd>&quot;&quot;&quot;</span>
 <span class=sd>    Save the image as a PNG</span>
 <span class=sd>    :param: ren - the renderer.</span>
@@ -469,13 +469,13 @@ function registerListener(event, func) {
     <span class=n>imgWriter</span><span class=o>.</span><span class=n>Write</span><span class=p>()</span>
 
 
-<span class=k>def</span> <span class=nf>main</span><span class=p>():</span>
-    <span class=k>def</span> <span class=nf>FlatInterpolation</span><span class=p>():</span>
+<span class=k>def</span><span class=w> </span><span class=nf>main</span><span class=p>():</span>
+    <span class=k>def</span><span class=w> </span><span class=nf>FlatInterpolation</span><span class=p>():</span>
         <span class=k>for</span> <span class=n>actor</span> <span class=ow>in</span> <span class=n>actors</span><span class=p>:</span>
             <span class=n>actor</span><span class=o>.</span><span class=n>GetProperty</span><span class=p>()</span><span class=o>.</span><span class=n>SetInterpolationToFlat</span><span class=p>()</span>
         <span class=n>renWin</span><span class=o>.</span><span class=n>Render</span><span class=p>()</span>
 
-    <span class=k>def</span> <span class=nf>GouraudInterpolation</span><span class=p>():</span>
+    <span class=k>def</span><span class=w> </span><span class=nf>GouraudInterpolation</span><span class=p>():</span>
         <span class=k>for</span> <span class=n>actor</span> <span class=ow>in</span> <span class=n>actors</span><span class=p>:</span>
             <span class=n>actor</span><span class=o>.</span><span class=n>GetProperty</span><span class=p>()</span><span class=o>.</span><span class=n>SetInterpolationToGouraud</span><span class=p>()</span>
         <span class=n>renWin</span><span class=o>.</span><span class=n>Render</span><span class=p>()</span>

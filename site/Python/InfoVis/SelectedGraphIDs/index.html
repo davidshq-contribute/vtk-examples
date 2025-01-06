@@ -62,18 +62,18 @@ function registerListener(event, func) {
 <span class=c1># of a selection from a vtkGraphLayoutView</span>
 
 <span class=c1># noinspection PyUnresolvedReferences</span>
-<span class=kn>import</span> <span class=nn>vtkmodules.vtkInteractionStyle</span>
+<span class=kn>import</span><span class=w> </span><span class=nn>vtkmodules.vtkInteractionStyle</span>
 <span class=c1># noinspection PyUnresolvedReferences</span>
-<span class=kn>import</span> <span class=nn>vtkmodules.vtkRenderingOpenGL2</span>
-<span class=hll><span class=kn>from</span> <span class=nn>vtkmodules.vtkCommonColor</span> <span class=kn>import</span> <span class=n>vtkNamedColors</span>
-</span><span class=hll><span class=kn>from</span> <span class=nn>vtkmodules.vtkFiltersGeneral</span> <span class=kn>import</span> <span class=n>vtkAnnotationLink</span>
-</span><span class=hll><span class=kn>from</span> <span class=nn>vtkmodules.vtkInfovisCore</span> <span class=kn>import</span> <span class=n>vtkRandomGraphSource</span>
-</span><span class=hll><span class=kn>from</span> <span class=nn>vtkmodules.vtkInfovisLayout</span> <span class=kn>import</span> <span class=n>vtkSimple2DLayoutStrategy</span>
-</span><span class=hll><span class=kn>from</span> <span class=nn>vtkmodules.vtkViewsCore</span> <span class=kn>import</span> <span class=n>vtkViewTheme</span>
-</span><span class=hll><span class=kn>from</span> <span class=nn>vtkmodules.vtkViewsInfovis</span> <span class=kn>import</span> <span class=n>vtkGraphLayoutView</span>
+<span class=kn>import</span><span class=w> </span><span class=nn>vtkmodules.vtkRenderingOpenGL2</span>
+<span class=hll><span class=kn>from</span><span class=w> </span><span class=nn>vtkmodules.vtkCommonColor</span><span class=w> </span><span class=kn>import</span> <span class=n>vtkNamedColors</span>
+</span><span class=hll><span class=kn>from</span><span class=w> </span><span class=nn>vtkmodules.vtkFiltersGeneral</span><span class=w> </span><span class=kn>import</span> <span class=n>vtkAnnotationLink</span>
+</span><span class=hll><span class=kn>from</span><span class=w> </span><span class=nn>vtkmodules.vtkInfovisCore</span><span class=w> </span><span class=kn>import</span> <span class=n>vtkRandomGraphSource</span>
+</span><span class=hll><span class=kn>from</span><span class=w> </span><span class=nn>vtkmodules.vtkInfovisLayout</span><span class=w> </span><span class=kn>import</span> <span class=n>vtkSimple2DLayoutStrategy</span>
+</span><span class=hll><span class=kn>from</span><span class=w> </span><span class=nn>vtkmodules.vtkViewsCore</span><span class=w> </span><span class=kn>import</span> <span class=n>vtkViewTheme</span>
+</span><span class=hll><span class=kn>from</span><span class=w> </span><span class=nn>vtkmodules.vtkViewsInfovis</span><span class=w> </span><span class=kn>import</span> <span class=n>vtkGraphLayoutView</span>
 </span>
 
-<span class=k>def</span> <span class=nf>main</span><span class=p>():</span>
+<span class=k>def</span><span class=w> </span><span class=nf>main</span><span class=p>():</span>
 <span class=hll>    <span class=n>colors</span> <span class=o>=</span> <span class=n>vtkNamedColors</span><span class=p>()</span>
 </span>
 <span class=hll>    <span class=n>source</span> <span class=o>=</span> <span class=n>vtkRandomGraphSource</span><span class=p>()</span>
@@ -106,7 +106,7 @@ function registerListener(event, func) {
 <span class=hll>    <span class=n>annotationLink</span> <span class=o>=</span> <span class=n>vtkAnnotationLink</span><span class=p>()</span>
 </span>    <span class=n>view</span><span class=o>.</span><span class=n>GetRepresentation</span><span class=p>(</span><span class=mi>0</span><span class=p>)</span><span class=o>.</span><span class=n>SetAnnotationLink</span><span class=p>(</span><span class=n>annotationLink</span><span class=p>)</span>
 
-    <span class=k>def</span> <span class=nf>select_callback</span><span class=p>(</span><span class=n>caller</span><span class=p>,</span> <span class=n>event</span><span class=p>):</span>
+    <span class=k>def</span><span class=w> </span><span class=nf>select_callback</span><span class=p>(</span><span class=n>caller</span><span class=p>,</span> <span class=n>event</span><span class=p>):</span>
 <span class=w>        </span><span class=sd>&#39;&#39;&#39;</span>
 <span class=sd>        In this particular data representation the current selection in the</span>
 <span class=sd>         annotation link should always contain two nodes: one for the edges and</span>

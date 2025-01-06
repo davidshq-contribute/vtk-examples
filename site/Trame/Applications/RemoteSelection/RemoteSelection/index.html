@@ -61,26 +61,26 @@ function registerListener(event, func) {
 <span class=sd>Delta v1..v2          - https://github.com/Kitware/trame/commit/03f28bb0084490acabf218264b96a1dbb3a17f19</span>
 <span class=sd>&quot;&quot;&quot;</span>
 
-<span class=kn>import</span> <span class=nn>pandas</span> <span class=k>as</span> <span class=nn>pd</span>
+<span class=kn>import</span><span class=w> </span><span class=nn>pandas</span><span class=w> </span><span class=k>as</span><span class=w> </span><span class=nn>pd</span>
 
 <span class=c1># Plotly/chart imports</span>
-<span class=kn>import</span> <span class=nn>plotly.graph_objects</span> <span class=k>as</span> <span class=nn>go</span>
-<span class=kn>import</span> <span class=nn>plotly.express</span> <span class=k>as</span> <span class=nn>px</span>
+<span class=kn>import</span><span class=w> </span><span class=nn>plotly.graph_objects</span><span class=w> </span><span class=k>as</span><span class=w> </span><span class=nn>go</span>
+<span class=kn>import</span><span class=w> </span><span class=nn>plotly.express</span><span class=w> </span><span class=k>as</span><span class=w> </span><span class=nn>px</span>
 
 <span class=c1># Trame imports</span>
-<span class=kn>from</span> <span class=nn>trame.app</span> <span class=kn>import</span> <span class=n>get_server</span>
-<span class=kn>from</span> <span class=nn>trame.assets.remote</span> <span class=kn>import</span> <span class=n>HttpFile</span>
-<span class=kn>from</span> <span class=nn>trame.ui.vuetify</span> <span class=kn>import</span> <span class=n>SinglePageLayout</span>
-<span class=kn>from</span> <span class=nn>trame.widgets</span> <span class=kn>import</span> <span class=n>vuetify</span><span class=p>,</span> <span class=n>plotly</span><span class=p>,</span> <span class=n>vtk</span><span class=p>,</span> <span class=n>trame</span>
+<span class=kn>from</span><span class=w> </span><span class=nn>trame.app</span><span class=w> </span><span class=kn>import</span> <span class=n>get_server</span>
+<span class=kn>from</span><span class=w> </span><span class=nn>trame.assets.remote</span><span class=w> </span><span class=kn>import</span> <span class=n>HttpFile</span>
+<span class=kn>from</span><span class=w> </span><span class=nn>trame.ui.vuetify</span><span class=w> </span><span class=kn>import</span> <span class=n>SinglePageLayout</span>
+<span class=kn>from</span><span class=w> </span><span class=nn>trame.widgets</span><span class=w> </span><span class=kn>import</span> <span class=n>vuetify</span><span class=p>,</span> <span class=n>plotly</span><span class=p>,</span> <span class=n>vtk</span><span class=p>,</span> <span class=n>trame</span>
 
 <span class=c1># VTK imports</span>
-<span class=hll><span class=kn>from</span> <span class=nn>vtkmodules.vtkIOXML</span> <span class=kn>import</span> <span class=n>vtkXMLUnstructuredGridReader</span>
-</span><span class=kn>from</span> <span class=nn>vtkmodules.numpy_interface</span> <span class=kn>import</span> <span class=n>dataset_adapter</span> <span class=k>as</span> <span class=n>dsa</span>
-<span class=hll><span class=kn>from</span> <span class=nn>vtkmodules.vtkCommonDataModel</span> <span class=kn>import</span> <span class=n>vtkSelection</span><span class=p>,</span> <span class=n>vtkSelectionNode</span><span class=p>,</span> <span class=n>vtkDataObject</span>
-</span><span class=hll><span class=kn>from</span> <span class=nn>vtkmodules.vtkCommonCore</span> <span class=kn>import</span> <span class=n>vtkIdTypeArray</span>
-</span><span class=hll><span class=kn>from</span> <span class=nn>vtkmodules.vtkFiltersExtraction</span> <span class=kn>import</span> <span class=n>vtkExtractSelection</span>
-</span><span class=hll><span class=kn>from</span> <span class=nn>vtkmodules.vtkFiltersGeometry</span> <span class=kn>import</span> <span class=n>vtkGeometryFilter</span>
-</span><span class=kn>from</span> <span class=nn>vtkmodules.vtkRenderingCore</span> <span class=kn>import</span> <span class=p>(</span>
+<span class=hll><span class=kn>from</span><span class=w> </span><span class=nn>vtkmodules.vtkIOXML</span><span class=w> </span><span class=kn>import</span> <span class=n>vtkXMLUnstructuredGridReader</span>
+</span><span class=kn>from</span><span class=w> </span><span class=nn>vtkmodules.numpy_interface</span><span class=w> </span><span class=kn>import</span> <span class=n>dataset_adapter</span> <span class=k>as</span> <span class=n>dsa</span>
+<span class=hll><span class=kn>from</span><span class=w> </span><span class=nn>vtkmodules.vtkCommonDataModel</span><span class=w> </span><span class=kn>import</span> <span class=n>vtkSelection</span><span class=p>,</span> <span class=n>vtkSelectionNode</span><span class=p>,</span> <span class=n>vtkDataObject</span>
+</span><span class=hll><span class=kn>from</span><span class=w> </span><span class=nn>vtkmodules.vtkCommonCore</span><span class=w> </span><span class=kn>import</span> <span class=n>vtkIdTypeArray</span>
+</span><span class=hll><span class=kn>from</span><span class=w> </span><span class=nn>vtkmodules.vtkFiltersExtraction</span><span class=w> </span><span class=kn>import</span> <span class=n>vtkExtractSelection</span>
+</span><span class=hll><span class=kn>from</span><span class=w> </span><span class=nn>vtkmodules.vtkFiltersGeometry</span><span class=w> </span><span class=kn>import</span> <span class=n>vtkGeometryFilter</span>
+</span><span class=kn>from</span><span class=w> </span><span class=nn>vtkmodules.vtkRenderingCore</span><span class=w> </span><span class=kn>import</span> <span class=p>(</span>
 <span class=hll>    <span class=n>vtkActor</span><span class=p>,</span>
 </span><span class=hll>    <span class=n>vtkDataSetMapper</span><span class=p>,</span>
 </span><span class=hll>    <span class=n>vtkRenderer</span><span class=p>,</span>
@@ -90,13 +90,13 @@ function registerListener(event, func) {
 </span><span class=hll>    <span class=n>vtkRenderedAreaPicker</span><span class=p>,</span>
 </span><span class=p>)</span>
 
-<span class=kn>from</span> <span class=nn>vtkmodules.vtkInteractionStyle</span> <span class=kn>import</span> <span class=p>(</span>
+<span class=kn>from</span><span class=w> </span><span class=nn>vtkmodules.vtkInteractionStyle</span><span class=w> </span><span class=kn>import</span> <span class=p>(</span>
 <span class=hll>    <span class=n>vtkInteractorStyleRubberBandPick</span><span class=p>,</span>
 </span><span class=hll>    <span class=n>vtkInteractorStyleSwitch</span><span class=p>,</span>
 </span><span class=p>)</span>  <span class=c1># noqa</span>
-<span class=kn>import</span> <span class=nn>vtkmodules.vtkRenderingOpenGL2</span>  <span class=c1># noqa</span>
+<span class=kn>import</span><span class=w> </span><span class=nn>vtkmodules.vtkRenderingOpenGL2</span>  <span class=c1># noqa</span>
 
-<span class=hll><span class=kn>from</span> <span class=nn>vtkmodules.vtkInteractionStyle</span> <span class=kn>import</span> <span class=n>vtkInteractorStyleRubberBandPick</span>
+<span class=hll><span class=kn>from</span><span class=w> </span><span class=nn>vtkmodules.vtkInteractionStyle</span><span class=w> </span><span class=kn>import</span> <span class=n>vtkInteractorStyleRubberBandPick</span>
 </span>
 <span class=c1># -----------------------------------------------------------------------------</span>
 <span class=c1># Data file information</span>
@@ -189,7 +189,7 @@ function registerListener(event, func) {
 
 
 <span class=nd>@state</span><span class=o>.</span><span class=n>change</span><span class=p>(</span><span class=s2>&quot;figure_size&quot;</span><span class=p>,</span> <span class=s2>&quot;scatter_x&quot;</span><span class=p>,</span> <span class=s2>&quot;scatter_y&quot;</span><span class=p>)</span>
-<span class=k>def</span> <span class=nf>update_figure</span><span class=p>(</span><span class=n>figure_size</span><span class=p>,</span> <span class=n>scatter_x</span><span class=p>,</span> <span class=n>scatter_y</span><span class=p>,</span> <span class=o>**</span><span class=n>kwargs</span><span class=p>):</span>
+<span class=k>def</span><span class=w> </span><span class=nf>update_figure</span><span class=p>(</span><span class=n>figure_size</span><span class=p>,</span> <span class=n>scatter_x</span><span class=p>,</span> <span class=n>scatter_y</span><span class=p>,</span> <span class=o>**</span><span class=n>kwargs</span><span class=p>):</span>
     <span class=k>if</span> <span class=n>figure_size</span> <span class=ow>is</span> <span class=kc>None</span><span class=p>:</span>
         <span class=k>return</span>
 
@@ -218,7 +218,7 @@ function registerListener(event, func) {
 
 
 <span class=nd>@state</span><span class=o>.</span><span class=n>change</span><span class=p>(</span><span class=s2>&quot;vtk_selection&quot;</span><span class=p>)</span>
-<span class=k>def</span> <span class=nf>update_interactor</span><span class=p>(</span><span class=n>vtk_selection</span><span class=p>,</span> <span class=o>**</span><span class=n>kwargs</span><span class=p>):</span>
+<span class=k>def</span><span class=w> </span><span class=nf>update_interactor</span><span class=p>(</span><span class=n>vtk_selection</span><span class=p>,</span> <span class=o>**</span><span class=n>kwargs</span><span class=p>):</span>
     <span class=k>if</span> <span class=n>vtk_selection</span><span class=p>:</span>
         <span class=n>rw_interactor</span><span class=o>.</span><span class=n>SetInteractorStyle</span><span class=p>(</span><span class=n>interactor_selection</span><span class=p>)</span>
         <span class=n>interactor_selection</span><span class=o>.</span><span class=n>StartSelect</span><span class=p>()</span>
@@ -229,7 +229,7 @@ function registerListener(event, func) {
 <span class=c1># -----------------------------------------------------------------------------</span>
 
 
-<span class=k>def</span> <span class=nf>on_chart_selection</span><span class=p>(</span><span class=n>selected_point_idxs</span><span class=p>):</span>
+<span class=k>def</span><span class=w> </span><span class=nf>on_chart_selection</span><span class=p>(</span><span class=n>selected_point_idxs</span><span class=p>):</span>
     <span class=k>global</span> <span class=n>SELECTED_IDX</span>
     <span class=n>SELECTED_IDX</span> <span class=o>=</span> <span class=n>selected_point_idxs</span> <span class=k>if</span> <span class=n>selected_point_idxs</span> <span class=k>else</span> <span class=p>[]</span>
     <span class=n>npts</span> <span class=o>=</span> <span class=nb>len</span><span class=p>(</span><span class=n>SELECTED_IDX</span><span class=p>)</span>
@@ -258,7 +258,7 @@ function registerListener(event, func) {
     <span class=n>ctrl</span><span class=o>.</span><span class=n>view_update</span><span class=p>()</span>
 
 
-<span class=k>def</span> <span class=nf>on_box_selection_change</span><span class=p>(</span><span class=n>selection</span><span class=p>):</span>
+<span class=k>def</span><span class=w> </span><span class=nf>on_box_selection_change</span><span class=p>(</span><span class=n>selection</span><span class=p>):</span>
     <span class=k>global</span> <span class=n>SELECTED_IDX</span>
 
     <span class=n>actor</span><span class=o>.</span><span class=n>GetProperty</span><span class=p>()</span><span class=o>.</span><span class=n>SetOpacity</span><span class=p>(</span><span class=mi>1</span><span class=p>)</span>

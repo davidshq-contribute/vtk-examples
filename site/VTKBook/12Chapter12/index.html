@@ -256,7 +256,7 @@ function registerListener(event, func) {
     <span class=n>writer</span><span class=o>.</span><span class=n>SetFileName</span><span class=p>(</span><span class=n>NAME</span> <span class=o>+</span> <span class=s1>&#39;.vtk&#39;</span><span class=p>)</span>
 </code></pre></div> <p><strong>Execute the Pipeline</strong></p> <p>If you have gotten this far in the book, you know that the <em>Visualization Toolkit</em> uses a demand-driven pipeline architecture and so far we have not demanded anything. We have just specified the pipeline topology and the parameters for each pipeline element. So we need to trigger the updating of the pipeline.</p> <p>If you are displaying the image then:</p> <div class=codehilite><pre><span></span><code>    <span class=n>render_window</span><span class=o>.</span><span class=n>Render</span><span class=p>()</span>
 </code></pre></div> <p>If you are just writing to a file:</p> <div class=codehilite><pre><span></span><code>    <span class=n>writer</span><span class=o>.</span><span class=n>Update</span><span class=p>()</span>
-</code></pre></div> <p>causes the pipeline to execute. In practice we do a bit more than just Update the last element of the pipeline. We explicitly Update each element so that we can time the individual steps.</p> <p><strong>Specifying Parameters for the Pipeline</strong></p> <p>All of the variables mentioned above must be defined for each tissue to be processed. The parameters fall into two general categories. Some are specific to the particular study while some are specific to each tissue. For the frog, we collected the study-specific parameters in a function that contains:</p> <div class=codehilite><pre><span></span><code><span class=k>def</span> <span class=nf>frog</span><span class=p>():</span>
+</code></pre></div> <p>causes the pipeline to execute. In practice we do a bit more than just Update the last element of the pipeline. We explicitly Update each element so that we can time the individual steps.</p> <p><strong>Specifying Parameters for the Pipeline</strong></p> <p>All of the variables mentioned above must be defined for each tissue to be processed. The parameters fall into two general categories. Some are specific to the particular study while some are specific to each tissue. For the frog, we collected the study-specific parameters in a function that contains:</p> <div class=codehilite><pre><span></span><code><span class=k>def</span><span class=w> </span><span class=nf>frog</span><span class=p>():</span>
     <span class=n>p</span> <span class=o>=</span> <span class=n>default_parameters</span><span class=p>()</span>
     <span class=n>p</span><span class=p>[</span><span class=s1>&#39;ROWS&#39;</span><span class=p>]</span> <span class=o>=</span> <span class=mi>470</span>
     <span class=n>p</span><span class=p>[</span><span class=s1>&#39;COLUMNS&#39;</span><span class=p>]</span> <span class=o>=</span> <span class=mi>500</span>
@@ -274,7 +274,7 @@ function registerListener(event, func) {
     <span class=n>p</span><span class=p>[</span><span class=s1>&#39;SMOOTH_ITERATIONS&#39;</span><span class=p>]</span> <span class=o>=</span> <span class=mi>0</span>
     <span class=n>p</span><span class=p>[</span><span class=s1>&#39;SMOOTH_FACTOR&#39;</span><span class=p>]</span> <span class=o>=</span> <span class=mf>0.1</span>
     <span class=k>return</span> <span class=n>p</span>
-</code></pre></div> <p>There is a specific function for each tissue type. This tissue-specific function reads in the frog-specific parameters, sets the tissue-specific parameters. For example, liver()) contains:</p> <div class=codehilite><pre><span></span><code><span class=k>def</span> <span class=nf>liver</span><span class=p>():</span>
+</code></pre></div> <p>There is a specific function for each tissue type. This tissue-specific function reads in the frog-specific parameters, sets the tissue-specific parameters. For example, liver()) contains:</p> <div class=codehilite><pre><span></span><code><span class=k>def</span><span class=w> </span><span class=nf>liver</span><span class=p>():</span>
     <span class=n>p</span> <span class=o>=</span> <span class=n>frog</span><span class=p>()</span>
     <span class=n>p</span><span class=p>[</span><span class=s1>&#39;NAME&#39;</span><span class=p>]</span> <span class=o>=</span> <span class=s1>&#39;liver&#39;</span>
     <span class=n>p</span><span class=p>[</span><span class=s1>&#39;TISSUE&#39;</span><span class=p>]</span> <span class=o>=</span> <span class=mi>10</span>
@@ -282,7 +282,7 @@ function registerListener(event, func) {
     <span class=n>p</span><span class=p>[</span><span class=s1>&#39;END_SLICE&#39;</span><span class=p>]</span> <span class=o>=</span> <span class=mi>126</span>
     <span class=n>p</span><span class=p>[</span><span class=s1>&#39;VOI&#39;</span><span class=p>]</span> <span class=o>=</span> <span class=p>[</span><span class=mi>167</span><span class=p>,</span> <span class=mi>297</span><span class=p>,</span> <span class=mi>154</span><span class=p>,</span> <span class=mi>304</span><span class=p>,</span> <span class=n>p</span><span class=p>[</span><span class=s1>&#39;START_SLICE&#39;</span><span class=p>],</span> <span class=n>p</span><span class=p>[</span><span class=s1>&#39;END_SLICE&#39;</span><span class=p>]]</span>
     <span class=k>return</span> <span class=n>p</span>
-</code></pre></div> <p>Parameters in the function <code>frog()</code> can also be overridden. For example, <code>skeleton()</code> overrides the standard deviation for the Gaussian filter.</p> <div class=codehilite><pre><span></span><code><span class=k>def</span> <span class=nf>skeleton</span><span class=p>():</span>
+</code></pre></div> <p>Parameters in the function <code>frog()</code> can also be overridden. For example, <code>skeleton()</code> overrides the standard deviation for the Gaussian filter.</p> <div class=codehilite><pre><span></span><code><span class=k>def</span><span class=w> </span><span class=nf>skeleton</span><span class=p>():</span>
     <span class=n>p</span> <span class=o>=</span> <span class=n>frog</span><span class=p>()</span>
     <span class=n>p</span><span class=p>[</span><span class=s1>&#39;STUDY&#39;</span><span class=p>]</span> <span class=o>=</span> <span class=s1>&#39;frogTissue&#39;</span>
     <span class=n>p</span><span class=p>[</span><span class=s1>&#39;NAME&#39;</span><span class=p>]</span> <span class=o>=</span> <span class=s1>&#39;skeleton&#39;</span>
@@ -355,10 +355,10 @@ LOOKUP_TABLE default
 1247.2
 1745.4
 </code></pre></div> <p>Now that we have generated the VTK data file, we can start the process of creating a visualization for the stock data. To do this, we wrote a Tcl script to be used with the Tcl-based VTK executable. At a high level the script reads in the stock data, sends it through a tube filter, creates a label for it, and then creates an outline around the resulting dataset. Ideally, we would like to display multiple stocks in the same window. To facilitate this, we designed the Tcl script to use a procedure to perform operations on a per stock basis. The resulting script is listed below.</p> <div class=codehilite><pre><span></span><code><span class=ch>#!/usr/bin/env python</span>
-<span class=kn>import</span> <span class=nn>os</span>
-<span class=kn>import</span> <span class=nn>vtk</span>
+<span class=kn>import</span><span class=w> </span><span class=nn>os</span>
+<span class=kn>import</span><span class=w> </span><span class=nn>vtk</span>
 
-<span class=k>def</span> <span class=nf>main</span><span class=p>():</span>
+<span class=k>def</span><span class=w> </span><span class=nf>main</span><span class=p>():</span>
     <span class=n>colors</span> <span class=o>=</span> <span class=n>vtk</span><span class=o>.</span><span class=n>vtkNamedColors</span><span class=p>()</span>
     <span class=n>fileNames</span> <span class=o>=</span> <span class=p>[</span><span class=s1>&#39;GE.vtk&#39;</span><span class=p>,</span> <span class=s1>&#39;GM.vtk&#39;</span><span class=p>,</span> <span class=s1>&#39;IBM.vtk&#39;</span><span class=p>,</span> <span class=s1>&#39;DEC.vtk&#39;</span><span class=p>]</span>
     <span class=c1># Set up the stocks</span>
@@ -412,7 +412,7 @@ LOOKUP_TABLE default
     <span class=n>renderWindowInteractor</span><span class=o>.</span><span class=n>Start</span><span class=p>()</span>
 
 
-<span class=k>def</span> <span class=nf>AddStock</span><span class=p>(</span><span class=n>renderers</span><span class=p>,</span> <span class=n>apf</span><span class=p>,</span> <span class=n>filename</span><span class=p>,</span> <span class=n>name</span><span class=p>,</span> <span class=n>zPosition</span><span class=p>):</span>
+<span class=k>def</span><span class=w> </span><span class=nf>AddStock</span><span class=p>(</span><span class=n>renderers</span><span class=p>,</span> <span class=n>apf</span><span class=p>,</span> <span class=n>filename</span><span class=p>,</span> <span class=n>name</span><span class=p>,</span> <span class=n>zPosition</span><span class=p>):</span>
     <span class=c1># Read the data</span>
     <span class=n>PolyDataRead</span> <span class=o>=</span> <span class=n>vtk</span><span class=o>.</span><span class=n>vtkPolyDataReader</span><span class=p>()</span>
     <span class=n>PolyDataRead</span><span class=o>.</span><span class=n>SetFileName</span><span class=p>(</span><span class=n>filename</span><span class=p>)</span>

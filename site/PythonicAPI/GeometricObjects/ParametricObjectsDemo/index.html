@@ -63,18 +63,18 @@ function registerListener(event, func) {
 <span class=sd>    Demonstrate all the parametric objects.</span>
 <span class=sd>&quot;&quot;&quot;</span>
 
-<span class=kn>from</span> <span class=nn>collections</span> <span class=kn>import</span> <span class=n>OrderedDict</span>
-<span class=kn>from</span> <span class=nn>dataclasses</span> <span class=kn>import</span> <span class=n>dataclass</span>
-<span class=kn>from</span> <span class=nn>pathlib</span> <span class=kn>import</span> <span class=n>Path</span>
+<span class=kn>from</span><span class=w> </span><span class=nn>collections</span><span class=w> </span><span class=kn>import</span> <span class=n>OrderedDict</span>
+<span class=kn>from</span><span class=w> </span><span class=nn>dataclasses</span><span class=w> </span><span class=kn>import</span> <span class=n>dataclass</span>
+<span class=kn>from</span><span class=w> </span><span class=nn>pathlib</span><span class=w> </span><span class=kn>import</span> <span class=n>Path</span>
 
 <span class=c1># noinspection PyUnresolvedReferences</span>
-<span class=kn>import</span> <span class=nn>vtkmodules.vtkInteractionStyle</span>
+<span class=kn>import</span><span class=w> </span><span class=nn>vtkmodules.vtkInteractionStyle</span>
 <span class=c1># noinspection PyUnresolvedReferences</span>
-<span class=kn>import</span> <span class=nn>vtkmodules.vtkRenderingFreeType</span>
+<span class=kn>import</span><span class=w> </span><span class=nn>vtkmodules.vtkRenderingFreeType</span>
 <span class=c1># noinspection PyUnresolvedReferences</span>
-<span class=kn>import</span> <span class=nn>vtkmodules.vtkRenderingOpenGL2</span>
-<span class=hll><span class=kn>from</span> <span class=nn>vtkmodules.vtkCommonColor</span> <span class=kn>import</span> <span class=n>vtkNamedColors</span>
-</span><span class=kn>from</span> <span class=nn>vtkmodules.vtkCommonComputationalGeometry</span> <span class=kn>import</span> <span class=p>(</span>
+<span class=kn>import</span><span class=w> </span><span class=nn>vtkmodules.vtkRenderingOpenGL2</span>
+<span class=hll><span class=kn>from</span><span class=w> </span><span class=nn>vtkmodules.vtkCommonColor</span><span class=w> </span><span class=kn>import</span> <span class=n>vtkNamedColors</span>
+</span><span class=kn>from</span><span class=w> </span><span class=nn>vtkmodules.vtkCommonComputationalGeometry</span><span class=w> </span><span class=kn>import</span> <span class=p>(</span>
 <span class=hll>    <span class=n>vtkParametricBohemianDome</span><span class=p>,</span>
 </span><span class=hll>    <span class=n>vtkParametricBour</span><span class=p>,</span>
 </span><span class=hll>    <span class=n>vtkParametricBoy</span><span class=p>,</span>
@@ -98,27 +98,27 @@ function registerListener(event, func) {
 </span><span class=hll>    <span class=n>vtkParametricSuperToroid</span><span class=p>,</span>
 </span><span class=hll>    <span class=n>vtkParametricTorus</span>
 </span><span class=p>)</span>
-<span class=kn>from</span> <span class=nn>vtkmodules.vtkCommonCore</span> <span class=kn>import</span> <span class=p>(</span>
+<span class=kn>from</span><span class=w> </span><span class=nn>vtkmodules.vtkCommonCore</span><span class=w> </span><span class=kn>import</span> <span class=p>(</span>
 <span class=hll>    <span class=n>vtkMinimalStandardRandomSequence</span><span class=p>,</span>
 </span><span class=hll>    <span class=n>vtkPoints</span>
 </span><span class=p>)</span>
-<span class=kn>from</span> <span class=nn>vtkmodules.vtkFiltersCore</span> <span class=kn>import</span> <span class=p>(</span>
+<span class=kn>from</span><span class=w> </span><span class=nn>vtkmodules.vtkFiltersCore</span><span class=w> </span><span class=kn>import</span> <span class=p>(</span>
 <span class=hll>    <span class=n>vtkGlyph3D</span><span class=p>,</span>
 </span><span class=hll>    <span class=n>vtkMaskPoints</span>
 </span><span class=p>)</span>
-<span class=kn>from</span> <span class=nn>vtkmodules.vtkFiltersSources</span> <span class=kn>import</span> <span class=p>(</span>
+<span class=kn>from</span><span class=w> </span><span class=nn>vtkmodules.vtkFiltersSources</span><span class=w> </span><span class=kn>import</span> <span class=p>(</span>
 <span class=hll>    <span class=n>vtkArrowSource</span><span class=p>,</span>
 </span><span class=hll>    <span class=n>vtkParametricFunctionSource</span>
 </span><span class=p>)</span>
-<span class=kn>from</span> <span class=nn>vtkmodules.vtkIOImage</span> <span class=kn>import</span> <span class=p>(</span>
+<span class=kn>from</span><span class=w> </span><span class=nn>vtkmodules.vtkIOImage</span><span class=w> </span><span class=kn>import</span> <span class=p>(</span>
 <span class=hll>    <span class=n>vtkPNGWriter</span>
 </span><span class=p>)</span>
-<span class=hll><span class=kn>from</span> <span class=nn>vtkmodules.vtkInteractionStyle</span> <span class=kn>import</span> <span class=n>vtkInteractorStyleTrackballCamera</span>
-</span><span class=kn>from</span> <span class=nn>vtkmodules.vtkInteractionWidgets</span> <span class=kn>import</span> <span class=p>(</span>
+<span class=hll><span class=kn>from</span><span class=w> </span><span class=nn>vtkmodules.vtkInteractionStyle</span><span class=w> </span><span class=kn>import</span> <span class=n>vtkInteractorStyleTrackballCamera</span>
+</span><span class=kn>from</span><span class=w> </span><span class=nn>vtkmodules.vtkInteractionWidgets</span><span class=w> </span><span class=kn>import</span> <span class=p>(</span>
 <span class=hll>    <span class=n>vtkTextRepresentation</span><span class=p>,</span>
 </span><span class=hll>    <span class=n>vtkTextWidget</span>
 </span><span class=p>)</span>
-<span class=kn>from</span> <span class=nn>vtkmodules.vtkRenderingCore</span> <span class=kn>import</span> <span class=p>(</span>
+<span class=kn>from</span><span class=w> </span><span class=nn>vtkmodules.vtkRenderingCore</span><span class=w> </span><span class=kn>import</span> <span class=p>(</span>
 <span class=hll>    <span class=n>vtkActor</span><span class=p>,</span>
 </span><span class=hll>    <span class=n>vtkPolyDataMapper</span><span class=p>,</span>
 </span><span class=hll>    <span class=n>vtkProperty</span><span class=p>,</span>
@@ -131,8 +131,8 @@ function registerListener(event, func) {
 </span><span class=p>)</span>
 
 
-<span class=k>def</span> <span class=nf>get_program_parameters</span><span class=p>():</span>
-    <span class=kn>import</span> <span class=nn>argparse</span>
+<span class=k>def</span><span class=w> </span><span class=nf>get_program_parameters</span><span class=p>():</span>
+    <span class=kn>import</span><span class=w> </span><span class=nn>argparse</span>
     <span class=n>description</span> <span class=o>=</span> <span class=s1>&#39;Display the parametric surfaces.&#39;</span>
     <span class=n>epilogue</span> <span class=o>=</span> <span class=s1>&#39;&#39;&#39;</span>
 <span class=s1>   &#39;&#39;&#39;</span>
@@ -146,7 +146,7 @@ function registerListener(event, func) {
     <span class=k>return</span> <span class=n>args</span><span class=o>.</span><span class=n>surface_name</span><span class=p>,</span> <span class=n>args</span><span class=o>.</span><span class=n>back_face</span><span class=p>,</span> <span class=n>args</span><span class=o>.</span><span class=n>normals</span><span class=p>,</span> <span class=n>args</span><span class=o>.</span><span class=n>limits</span>
 
 
-<span class=k>def</span> <span class=nf>main</span><span class=p>():</span>
+<span class=k>def</span><span class=w> </span><span class=nf>main</span><span class=p>():</span>
     <span class=n>surface_name</span><span class=p>,</span> <span class=n>back_face</span><span class=p>,</span> <span class=n>normals</span><span class=p>,</span> <span class=n>limits</span> <span class=o>=</span> <span class=n>get_program_parameters</span><span class=p>()</span>
 
     <span class=c1># Get the parametric functions and build the pipeline.</span>
@@ -314,7 +314,7 @@ function registerListener(event, func) {
     <span class=n>iren</span><span class=o>.</span><span class=n>Start</span><span class=p>()</span>
 
 
-<span class=k>def</span> <span class=nf>get_parametric_functions</span><span class=p>():</span>
+<span class=k>def</span><span class=w> </span><span class=nf>get_parametric_functions</span><span class=p>():</span>
 <span class=w>    </span><span class=sd>&quot;&quot;&quot;</span>
 <span class=sd>    Create an ordered dictionary of the parametric functions and set some parameters.</span>
 
@@ -368,7 +368,7 @@ function registerListener(event, func) {
     <span class=k>return</span> <span class=n>ordered_pfn</span>
 
 
-<span class=k>def</span> <span class=nf>get_centre</span><span class=p>(</span><span class=n>bounds</span><span class=p>):</span>
+<span class=k>def</span><span class=w> </span><span class=nf>get_centre</span><span class=p>(</span><span class=n>bounds</span><span class=p>):</span>
 <span class=w>    </span><span class=sd>&quot;&quot;&quot;</span>
 <span class=sd>    Get the centre of the object from the bounding box.</span>
 
@@ -380,7 +380,7 @@ function registerListener(event, func) {
     <span class=k>return</span> <span class=p>[</span><span class=n>bounds</span><span class=p>[</span><span class=n>i</span><span class=p>]</span> <span class=o>-</span> <span class=p>(</span><span class=n>bounds</span><span class=p>[</span><span class=n>i</span><span class=p>]</span> <span class=o>-</span> <span class=n>bounds</span><span class=p>[</span><span class=n>i</span> <span class=o>-</span> <span class=mi>1</span><span class=p>])</span> <span class=o>/</span> <span class=mf>2.0</span> <span class=k>for</span> <span class=n>i</span> <span class=ow>in</span> <span class=nb>range</span><span class=p>(</span><span class=mi>1</span><span class=p>,</span> <span class=nb>len</span><span class=p>(</span><span class=n>bounds</span><span class=p>),</span> <span class=mi>2</span><span class=p>)]</span>
 
 
-<span class=k>def</span> <span class=nf>get_maximum_length</span><span class=p>(</span><span class=n>bounds</span><span class=p>):</span>
+<span class=k>def</span><span class=w> </span><span class=nf>get_maximum_length</span><span class=p>(</span><span class=n>bounds</span><span class=p>):</span>
 <span class=w>    </span><span class=sd>&quot;&quot;&quot;</span>
 <span class=sd>    Calculate the maximum length of the side bounding box.</span>
 
@@ -392,7 +392,7 @@ function registerListener(event, func) {
     <span class=k>return</span> <span class=nb>max</span><span class=p>([</span><span class=n>bounds</span><span class=p>[</span><span class=n>i</span><span class=p>]</span> <span class=o>-</span> <span class=n>bounds</span><span class=p>[</span><span class=n>i</span> <span class=o>-</span> <span class=mi>1</span><span class=p>]</span> <span class=k>for</span> <span class=n>i</span> <span class=ow>in</span> <span class=nb>range</span><span class=p>(</span><span class=mi>1</span><span class=p>,</span> <span class=nb>len</span><span class=p>(</span><span class=n>bounds</span><span class=p>),</span> <span class=mi>2</span><span class=p>)])</span>
 
 
-<span class=k>def</span> <span class=nf>display_bounding_box_and_center</span><span class=p>(</span><span class=n>name</span><span class=p>,</span> <span class=n>bounds</span><span class=p>):</span>
+<span class=k>def</span><span class=w> </span><span class=nf>display_bounding_box_and_center</span><span class=p>(</span><span class=n>name</span><span class=p>,</span> <span class=n>bounds</span><span class=p>):</span>
 <span class=w>    </span><span class=sd>&quot;&quot;&quot;</span>
 <span class=sd>    Display the dimensions of the bounding box, maximum diagonal length</span>
 <span class=sd>     and coordinates of the centre.</span>
@@ -417,8 +417,8 @@ function registerListener(event, func) {
     <span class=nb>print</span><span class=p>(</span><span class=n>s</span><span class=p>)</span>
 
 
-<span class=k>class</span> <span class=nc>PrintCallback</span><span class=p>:</span>
-    <span class=k>def</span> <span class=fm>__init__</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>caller</span><span class=p>,</span> <span class=n>file_name</span><span class=p>,</span> <span class=n>image_quality</span><span class=o>=</span><span class=mi>1</span><span class=p>,</span> <span class=n>rgba</span><span class=o>=</span><span class=kc>True</span><span class=p>):</span>
+<span class=k>class</span><span class=w> </span><span class=nc>PrintCallback</span><span class=p>:</span>
+    <span class=k>def</span><span class=w> </span><span class=fm>__init__</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>caller</span><span class=p>,</span> <span class=n>file_name</span><span class=p>,</span> <span class=n>image_quality</span><span class=o>=</span><span class=mi>1</span><span class=p>,</span> <span class=n>rgba</span><span class=o>=</span><span class=kc>True</span><span class=p>):</span>
         <span class=bp>self</span><span class=o>.</span><span class=n>caller</span> <span class=o>=</span> <span class=n>caller</span>
         <span class=bp>self</span><span class=o>.</span><span class=n>image_quality</span> <span class=o>=</span> <span class=n>image_quality</span>
         <span class=c1># rgba is the buffer type,</span>
@@ -428,7 +428,7 @@ function registerListener(event, func) {
         <span class=n>pth</span> <span class=o>=</span> <span class=n>Path</span><span class=p>(</span><span class=n>parent</span><span class=p>)</span> <span class=o>/</span> <span class=n>file_name</span>
         <span class=bp>self</span><span class=o>.</span><span class=n>path</span> <span class=o>=</span> <span class=n>Path</span><span class=p>(</span><span class=nb>str</span><span class=p>(</span><span class=n>pth</span><span class=p>))</span><span class=o>.</span><span class=n>with_suffix</span><span class=p>(</span><span class=s1>&#39;.png&#39;</span><span class=p>)</span>
 
-    <span class=k>def</span> <span class=fm>__call__</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>caller</span><span class=p>,</span> <span class=n>ev</span><span class=p>):</span>
+    <span class=k>def</span><span class=w> </span><span class=fm>__call__</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>caller</span><span class=p>,</span> <span class=n>ev</span><span class=p>):</span>
         <span class=c1># Save the screenshot.</span>
         <span class=k>if</span> <span class=n>caller</span><span class=o>.</span><span class=n>GetKeyCode</span><span class=p>()</span> <span class=o>==</span> <span class=s2>&quot;k&quot;</span><span class=p>:</span>
 <span class=hll>            <span class=n>w2if</span> <span class=o>=</span> <span class=n>vtkWindowToImageFilter</span><span class=p>(</span><span class=nb>input</span><span class=o>=</span><span class=n>caller</span><span class=o>.</span><span class=n>GetRenderWindow</span><span class=p>(),</span> <span class=n>read_front_buffer</span><span class=o>=</span><span class=kc>True</span><span class=p>,</span>
@@ -443,7 +443,7 @@ function registerListener(event, func) {
             <span class=nb>print</span><span class=p>(</span><span class=s1>&#39;Screenshot saved to:&#39;</span><span class=p>,</span> <span class=bp>self</span><span class=o>.</span><span class=n>path</span><span class=o>.</span><span class=n>name</span><span class=p>)</span>
 
 
-<span class=k>def</span> <span class=nf>get_text_positions</span><span class=p>(</span><span class=n>names</span><span class=p>,</span> <span class=n>justification</span><span class=o>=</span><span class=mi>0</span><span class=p>,</span> <span class=n>vertical_justification</span><span class=o>=</span><span class=mi>0</span><span class=p>,</span> <span class=n>width</span><span class=o>=</span><span class=mf>0.96</span><span class=p>,</span> <span class=n>height</span><span class=o>=</span><span class=mf>0.1</span><span class=p>):</span>
+<span class=k>def</span><span class=w> </span><span class=nf>get_text_positions</span><span class=p>(</span><span class=n>names</span><span class=p>,</span> <span class=n>justification</span><span class=o>=</span><span class=mi>0</span><span class=p>,</span> <span class=n>vertical_justification</span><span class=o>=</span><span class=mi>0</span><span class=p>,</span> <span class=n>width</span><span class=o>=</span><span class=mf>0.96</span><span class=p>,</span> <span class=n>height</span><span class=o>=</span><span class=mf>0.1</span><span class=p>):</span>
 <span class=w>    </span><span class=sd>&quot;&quot;&quot;</span>
 <span class=sd>    Get viewport positioning information for a list of names.</span>
 
@@ -508,15 +508,15 @@ function registerListener(event, func) {
 
 
 <span class=nd>@dataclass</span><span class=p>(</span><span class=n>frozen</span><span class=o>=</span><span class=kc>True</span><span class=p>)</span>
-<span class=k>class</span> <span class=nc>TextProperty</span><span class=p>:</span>
+<span class=k>class</span><span class=w> </span><span class=nc>TextProperty</span><span class=p>:</span>
     <span class=nd>@dataclass</span><span class=p>(</span><span class=n>frozen</span><span class=o>=</span><span class=kc>True</span><span class=p>)</span>
-    <span class=k>class</span> <span class=nc>Justification</span><span class=p>:</span>
+    <span class=k>class</span><span class=w> </span><span class=nc>Justification</span><span class=p>:</span>
         <span class=n>VTK_TEXT_LEFT</span><span class=p>:</span> <span class=nb>int</span> <span class=o>=</span> <span class=mi>0</span>
         <span class=n>VTK_TEXT_CENTERED</span><span class=p>:</span> <span class=nb>int</span> <span class=o>=</span> <span class=mi>1</span>
         <span class=n>VTK_TEXT_RIGHT</span><span class=p>:</span> <span class=nb>int</span> <span class=o>=</span> <span class=mi>2</span>
 
     <span class=nd>@dataclass</span><span class=p>(</span><span class=n>frozen</span><span class=o>=</span><span class=kc>True</span><span class=p>)</span>
-    <span class=k>class</span> <span class=nc>VerticalJustification</span><span class=p>:</span>
+    <span class=k>class</span><span class=w> </span><span class=nc>VerticalJustification</span><span class=p>:</span>
         <span class=n>VTK_TEXT_BOTTOM</span><span class=p>:</span> <span class=nb>int</span> <span class=o>=</span> <span class=mi>0</span>
         <span class=n>VTK_TEXT_CENTERED</span><span class=p>:</span> <span class=nb>int</span> <span class=o>=</span> <span class=mi>1</span>
         <span class=n>VTK_TEXT_TOP</span><span class=p>:</span> <span class=nb>int</span> <span class=o>=</span> <span class=mi>2</span>

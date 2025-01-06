@@ -98,10 +98,10 @@ function registerListener(event, func) {
 <span class=w>         </span><span class=c1>// Specify the scalar function to extract. If ==(-1), then no scalar function is extracted. </span>
 <span class=w>         </span><span class=kt>int</span><span class=w> </span><span class=n>scalarFctNo</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=n>reader</span><span class=p>.</span><span class=n>GetScalarFunctionNumber</span><span class=p>();</span>
 <span class=w>         </span><span class=kt>int</span><span class=w> </span><span class=n>vectorFctNo</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=n>reader</span><span class=p>.</span><span class=n>GetVectorFunctionNumber</span><span class=p>();</span>
-<span class=w>         </span><span class=k>if</span><span class=p>(</span><span class=n>scalarFctNo</span><span class=w> </span><span class=o>!=</span><span class=w> </span><span class=o>-</span><span class=m>1</span><span class=p>)</span>
+<span class=w>         </span><span class=k>if</span><span class=p>(</span><span class=n>scalarFctNo</span><span class=w> </span><span class=o>!=</span><span class=w> </span><span class=o>-</span><span class=mi>1</span><span class=p>)</span>
 <span class=w>            </span><span class=n>reader</span><span class=p>.</span><span class=n>SetScalarFunctionNumber</span><span class=p>(</span><span class=n>scalarFctNo</span><span class=p>);</span>
 <span class=w>         </span><span class=c1>// Specify the vector function to extract. If ==(-1), then no vector function is extracted. </span>
-<span class=w>         </span><span class=k>if</span><span class=p>(</span><span class=n>vectorFctNo</span><span class=w> </span><span class=o>!=</span><span class=w> </span><span class=o>-</span><span class=m>1</span><span class=p>)</span>
+<span class=w>         </span><span class=k>if</span><span class=p>(</span><span class=n>vectorFctNo</span><span class=w> </span><span class=o>!=</span><span class=w> </span><span class=o>-</span><span class=mi>1</span><span class=p>)</span>
 <span class=w>            </span><span class=n>reader</span><span class=p>.</span><span class=n>SetVectorFunctionNumber</span><span class=p>(</span><span class=n>vectorFctNo</span><span class=p>);</span>
 <span class=w>         </span><span class=n>reader</span><span class=p>.</span><span class=n>Update</span><span class=p>();</span>
 
@@ -113,7 +113,7 @@ function registerListener(event, func) {
 <span class=w>         </span><span class=c1>//geom1.SetInputConnection(0, reader.GetOutputPort(0));</span>
 
 <span class=hll><span class=w>         </span><span class=n>vtkStructuredGridGeometryFilter</span><span class=w> </span><span class=n>geometryFilter</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=n>vtkStructuredGridGeometryFilter</span><span class=p>.</span><span class=n>New</span><span class=p>();</span>
-</span><span class=w>         </span><span class=n>geometryFilter</span><span class=p>.</span><span class=n>SetInput</span><span class=p>(</span><span class=n>reader</span><span class=p>.</span><span class=n>GetOutput</span><span class=p>().</span><span class=n>GetBlock</span><span class=p>(</span><span class=m>0</span><span class=p>));</span>
+</span><span class=w>         </span><span class=n>geometryFilter</span><span class=p>.</span><span class=n>SetInput</span><span class=p>(</span><span class=n>reader</span><span class=p>.</span><span class=n>GetOutput</span><span class=p>().</span><span class=n>GetBlock</span><span class=p>(</span><span class=mi>0</span><span class=p>));</span>
 <span class=w>         </span><span class=c1>//geometryFilter.SetInputConnection(geom1.GetOutputPort(0));</span>
 <span class=w>         </span><span class=n>geometryFilter</span><span class=p>.</span><span class=n>Update</span><span class=p>();</span>
 
@@ -129,7 +129,7 @@ function registerListener(event, func) {
 </span><span class=w>         </span><span class=c1>// renderer</span>
 <span class=hll><span class=w>         </span><span class=n>vtkRenderer</span><span class=w> </span><span class=n>renderer</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=n>renderWindow</span><span class=p>.</span><span class=n>GetRenderers</span><span class=p>().</span><span class=n>GetFirstRenderer</span><span class=p>();</span>
 </span><span class=w>         </span><span class=c1>// set background color</span>
-<span class=w>         </span><span class=n>renderer</span><span class=p>.</span><span class=n>SetBackground</span><span class=p>(</span><span class=m>0.2</span><span class=p>,</span><span class=w> </span><span class=m>0.3</span><span class=p>,</span><span class=w> </span><span class=m>0.4</span><span class=p>);</span>
+<span class=w>         </span><span class=n>renderer</span><span class=p>.</span><span class=n>SetBackground</span><span class=p>(</span><span class=mf>0.2</span><span class=p>,</span><span class=w> </span><span class=mf>0.3</span><span class=p>,</span><span class=w> </span><span class=mf>0.4</span><span class=p>);</span>
 <span class=w>         </span><span class=c1>// add our actor to the renderer</span>
 <span class=w>         </span><span class=n>renderer</span><span class=p>.</span><span class=n>AddActor</span><span class=p>(</span><span class=n>actor</span><span class=p>);</span>
 <span class=w>      </span><span class=p>}</span>

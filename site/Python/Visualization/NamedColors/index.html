@@ -63,15 +63,15 @@ function registerListener(event, func) {
 <span class=sd>&quot;&quot;&quot;</span>
 
 <span class=c1># noinspection PyUnresolvedReferences</span>
-<span class=kn>import</span> <span class=nn>vtkmodules.vtkInteractionStyle</span>
+<span class=kn>import</span><span class=w> </span><span class=nn>vtkmodules.vtkInteractionStyle</span>
 <span class=c1># noinspection PyUnresolvedReferences</span>
-<span class=kn>import</span> <span class=nn>vtkmodules.vtkRenderingOpenGL2</span>
-<span class=hll><span class=kn>from</span> <span class=nn>vtkmodules.vtkCommonColor</span> <span class=kn>import</span> <span class=n>vtkNamedColors</span>
-</span><span class=hll><span class=kn>from</span> <span class=nn>vtkmodules.vtkCommonCore</span> <span class=kn>import</span> <span class=n>vtkLookupTable</span>
-</span><span class=hll><span class=kn>from</span> <span class=nn>vtkmodules.vtkFiltersCore</span> <span class=kn>import</span> <span class=n>vtkElevationFilter</span>
-</span><span class=hll><span class=kn>from</span> <span class=nn>vtkmodules.vtkFiltersModeling</span> <span class=kn>import</span> <span class=n>vtkBandedPolyDataContourFilter</span>
-</span><span class=hll><span class=kn>from</span> <span class=nn>vtkmodules.vtkFiltersSources</span> <span class=kn>import</span> <span class=n>vtkConeSource</span>
-</span><span class=kn>from</span> <span class=nn>vtkmodules.vtkRenderingCore</span> <span class=kn>import</span> <span class=p>(</span>
+<span class=kn>import</span><span class=w> </span><span class=nn>vtkmodules.vtkRenderingOpenGL2</span>
+<span class=hll><span class=kn>from</span><span class=w> </span><span class=nn>vtkmodules.vtkCommonColor</span><span class=w> </span><span class=kn>import</span> <span class=n>vtkNamedColors</span>
+</span><span class=hll><span class=kn>from</span><span class=w> </span><span class=nn>vtkmodules.vtkCommonCore</span><span class=w> </span><span class=kn>import</span> <span class=n>vtkLookupTable</span>
+</span><span class=hll><span class=kn>from</span><span class=w> </span><span class=nn>vtkmodules.vtkFiltersCore</span><span class=w> </span><span class=kn>import</span> <span class=n>vtkElevationFilter</span>
+</span><span class=hll><span class=kn>from</span><span class=w> </span><span class=nn>vtkmodules.vtkFiltersModeling</span><span class=w> </span><span class=kn>import</span> <span class=n>vtkBandedPolyDataContourFilter</span>
+</span><span class=hll><span class=kn>from</span><span class=w> </span><span class=nn>vtkmodules.vtkFiltersSources</span><span class=w> </span><span class=kn>import</span> <span class=n>vtkConeSource</span>
+</span><span class=kn>from</span><span class=w> </span><span class=nn>vtkmodules.vtkRenderingCore</span><span class=w> </span><span class=kn>import</span> <span class=p>(</span>
 <span class=hll>    <span class=n>vtkActor</span><span class=p>,</span>
 </span><span class=hll>    <span class=n>vtkPolyDataMapper</span><span class=p>,</span>
 </span><span class=hll>    <span class=n>vtkRenderWindow</span><span class=p>,</span>
@@ -80,7 +80,7 @@ function registerListener(event, func) {
 </span><span class=p>)</span>
 
 
-<span class=k>def</span> <span class=nf>main</span><span class=p>():</span>
+<span class=k>def</span><span class=w> </span><span class=nf>main</span><span class=p>():</span>
 <span class=hll>    <span class=n>nc</span> <span class=o>=</span> <span class=n>vtkNamedColors</span><span class=p>()</span>
 </span>    <span class=c1># We can print out the variables.</span>
     <span class=c1># The color name and RGBA values are displayed.</span>
@@ -184,7 +184,7 @@ function registerListener(event, func) {
     <span class=n>renderWindowInteractor</span><span class=o>.</span><span class=n>Start</span><span class=p>()</span>
 
 
-<span class=k>def</span> <span class=nf>FindSynonyms</span><span class=p>(</span><span class=n>nc</span><span class=p>,</span> <span class=n>colorName</span><span class=p>):</span>
+<span class=k>def</span><span class=w> </span><span class=nf>FindSynonyms</span><span class=p>(</span><span class=n>nc</span><span class=p>,</span> <span class=n>colorName</span><span class=p>):</span>
 <span class=w>    </span><span class=sd>&quot;&quot;&quot;</span>
 <span class=sd>    Find any synonyms for a specified color.</span>
 <span class=sd>    :param: nc: The vtkNamedColor class</span>
@@ -206,7 +206,7 @@ function registerListener(event, func) {
     <span class=k>return</span> <span class=n>synonyms</span>
 
 
-<span class=k>def</span> <span class=nf>PrintColors</span><span class=p>(</span><span class=n>nc</span><span class=p>):</span>
+<span class=k>def</span><span class=w> </span><span class=nf>PrintColors</span><span class=p>(</span><span class=n>nc</span><span class=p>):</span>
     <span class=n>colorNames</span> <span class=o>=</span> <span class=n>nc</span><span class=o>.</span><span class=n>GetColorNames</span><span class=p>()</span><span class=o>.</span><span class=n>split</span><span class=p>(</span><span class=s1>&#39;</span><span class=se>\n</span><span class=s1>&#39;</span><span class=p>)</span>
     <span class=nb>print</span><span class=p>(</span><span class=s2>&quot;There are&quot;</span><span class=p>,</span> <span class=nb>len</span><span class=p>(</span><span class=n>colorNames</span><span class=p>),</span> <span class=s2>&quot;colors:&quot;</span><span class=p>)</span>
     <span class=n>max_str_len</span> <span class=o>=</span> <span class=nb>len</span><span class=p>(</span><span class=nb>max</span><span class=p>(</span><span class=n>colorNames</span><span class=p>,</span> <span class=n>key</span><span class=o>=</span><span class=nb>len</span><span class=p>))</span>
@@ -222,7 +222,7 @@ function registerListener(event, func) {
     <span class=nb>print</span><span class=p>(</span><span class=n>s</span><span class=p>)</span>
 
 
-<span class=k>def</span> <span class=nf>PrintSynonyms</span><span class=p>(</span><span class=n>nc</span><span class=p>):</span>
+<span class=k>def</span><span class=w> </span><span class=nf>PrintSynonyms</span><span class=p>(</span><span class=n>nc</span><span class=p>):</span>
     <span class=n>syn</span> <span class=o>=</span> <span class=n>nc</span><span class=o>.</span><span class=n>GetSynonyms</span><span class=p>()</span><span class=o>.</span><span class=n>split</span><span class=p>(</span><span class=s1>&#39;</span><span class=se>\n\n</span><span class=s1>&#39;</span><span class=p>)</span>
     <span class=nb>print</span><span class=p>(</span><span class=s2>&quot;There are&quot;</span><span class=p>,</span> <span class=nb>len</span><span class=p>(</span><span class=n>syn</span><span class=p>),</span> <span class=s2>&quot;synonyms:&quot;</span><span class=p>)</span>
     <span class=n>synonyms</span> <span class=o>=</span> <span class=p>[]</span>

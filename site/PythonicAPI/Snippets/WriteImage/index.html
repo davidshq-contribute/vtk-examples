@@ -69,7 +69,7 @@ function registerListener(event, func) {
 <span class=c1># from vtkmodules.vtkRenderingCore import vtkWindowToImageFilter</span>
 
 
-<span class=k>def</span> <span class=nf>write_image</span><span class=p>(</span><span class=n>file_name</span><span class=p>,</span> <span class=n>ren_win</span><span class=p>,</span> <span class=n>rgba</span><span class=o>=</span><span class=kc>True</span><span class=p>):</span>
+<span class=k>def</span><span class=w> </span><span class=nf>write_image</span><span class=p>(</span><span class=n>file_name</span><span class=p>,</span> <span class=n>ren_win</span><span class=p>,</span> <span class=n>rgba</span><span class=o>=</span><span class=kc>True</span><span class=p>):</span>
 <span class=w>    </span><span class=sd>&quot;&quot;&quot;</span>
 <span class=sd>    Write the render window view to an image file.</span>
 
@@ -130,9 +130,9 @@ function registerListener(event, func) {
 
 
 <span class=nd>@dataclass</span><span class=p>(</span><span class=n>frozen</span><span class=o>=</span><span class=kc>True</span><span class=p>)</span>
-<span class=k>class</span> <span class=nc>WindowToImageFilter</span><span class=p>:</span>
+<span class=k>class</span><span class=w> </span><span class=nc>WindowToImageFilter</span><span class=p>:</span>
     <span class=nd>@dataclass</span><span class=p>(</span><span class=n>frozen</span><span class=o>=</span><span class=kc>True</span><span class=p>)</span>
-    <span class=k>class</span> <span class=nc>InputBufferType</span><span class=p>:</span>
+    <span class=k>class</span><span class=w> </span><span class=nc>InputBufferType</span><span class=p>:</span>
         <span class=n>VTK_RGB</span><span class=p>:</span> <span class=nb>int</span> <span class=o>=</span> <span class=mi>3</span>
         <span class=n>VTK_RGBA</span><span class=p>:</span> <span class=nb>int</span> <span class=o>=</span> <span class=mi>4</span>
         <span class=n>VTK_ZBUFFER</span><span class=p>:</span> <span class=nb>int</span> <span class=o>=</span> <span class=mi>5</span>

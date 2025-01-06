@@ -59,19 +59,19 @@ function registerListener(event, func) {
 <span class=c1># -*- coding: utf-8 -*-</span>
 
 <span class=c1># noinspection PyUnresolvedReferences</span>
-<span class=kn>import</span> <span class=nn>vtkmodules.vtkInteractionStyle</span>
+<span class=kn>import</span><span class=w> </span><span class=nn>vtkmodules.vtkInteractionStyle</span>
 <span class=c1># noinspection PyUnresolvedReferences</span>
-<span class=kn>import</span> <span class=nn>vtkmodules.vtkRenderingOpenGL2</span>
-<span class=hll><span class=kn>from</span> <span class=nn>vtkmodules.vtkCommonColor</span> <span class=kn>import</span> <span class=n>vtkNamedColors</span>
-</span><span class=hll><span class=kn>from</span> <span class=nn>vtkmodules.vtkCommonDataModel</span> <span class=kn>import</span> <span class=n>vtkQuadric</span>
-</span><span class=kn>from</span> <span class=nn>vtkmodules.vtkFiltersCore</span> <span class=kn>import</span> <span class=p>(</span>
+<span class=kn>import</span><span class=w> </span><span class=nn>vtkmodules.vtkRenderingOpenGL2</span>
+<span class=hll><span class=kn>from</span><span class=w> </span><span class=nn>vtkmodules.vtkCommonColor</span><span class=w> </span><span class=kn>import</span> <span class=n>vtkNamedColors</span>
+</span><span class=hll><span class=kn>from</span><span class=w> </span><span class=nn>vtkmodules.vtkCommonDataModel</span><span class=w> </span><span class=kn>import</span> <span class=n>vtkQuadric</span>
+</span><span class=kn>from</span><span class=w> </span><span class=nn>vtkmodules.vtkFiltersCore</span><span class=w> </span><span class=kn>import</span> <span class=p>(</span>
 <span class=hll>    <span class=n>vtkAppendFilter</span><span class=p>,</span>
 </span><span class=hll>    <span class=n>vtkContourFilter</span>
 </span><span class=p>)</span>
-<span class=hll><span class=kn>from</span> <span class=nn>vtkmodules.vtkFiltersModeling</span> <span class=kn>import</span> <span class=n>vtkOutlineFilter</span>
-</span><span class=hll><span class=kn>from</span> <span class=nn>vtkmodules.vtkImagingCore</span> <span class=kn>import</span> <span class=n>vtkExtractVOI</span>
-</span><span class=hll><span class=kn>from</span> <span class=nn>vtkmodules.vtkImagingHybrid</span> <span class=kn>import</span> <span class=n>vtkSampleFunction</span>
-</span><span class=kn>from</span> <span class=nn>vtkmodules.vtkRenderingCore</span> <span class=kn>import</span> <span class=p>(</span>
+<span class=hll><span class=kn>from</span><span class=w> </span><span class=nn>vtkmodules.vtkFiltersModeling</span><span class=w> </span><span class=kn>import</span> <span class=n>vtkOutlineFilter</span>
+</span><span class=hll><span class=kn>from</span><span class=w> </span><span class=nn>vtkmodules.vtkImagingCore</span><span class=w> </span><span class=kn>import</span> <span class=n>vtkExtractVOI</span>
+</span><span class=hll><span class=kn>from</span><span class=w> </span><span class=nn>vtkmodules.vtkImagingHybrid</span><span class=w> </span><span class=kn>import</span> <span class=n>vtkSampleFunction</span>
+</span><span class=kn>from</span><span class=w> </span><span class=nn>vtkmodules.vtkRenderingCore</span><span class=w> </span><span class=kn>import</span> <span class=p>(</span>
 <span class=hll>    <span class=n>vtkActor</span><span class=p>,</span>
 </span><span class=hll>    <span class=n>vtkDataSetMapper</span><span class=p>,</span>
 </span><span class=hll>    <span class=n>vtkPolyDataMapper</span><span class=p>,</span>
@@ -81,7 +81,7 @@ function registerListener(event, func) {
 </span><span class=p>)</span>
 
 
-<span class=k>def</span> <span class=nf>main</span><span class=p>():</span>
+<span class=k>def</span><span class=w> </span><span class=nf>main</span><span class=p>():</span>
 <span class=hll>    <span class=n>colors</span> <span class=o>=</span> <span class=n>vtkNamedColors</span><span class=p>()</span>
 </span>
 <span class=hll>    <span class=n>renderer</span> <span class=o>=</span> <span class=n>vtkRenderer</span><span class=p>()</span>
@@ -154,7 +154,7 @@ function registerListener(event, func) {
     <span class=n>interactor</span><span class=o>.</span><span class=n>Start</span><span class=p>()</span>
 
 
-<span class=k>def</span> <span class=nf>CreateIsosurface</span><span class=p>(</span><span class=n>func</span><span class=p>,</span> <span class=n>actor</span><span class=p>,</span> <span class=n>numberOfContours</span><span class=o>=</span><span class=mi>5</span><span class=p>):</span>
+<span class=k>def</span><span class=w> </span><span class=nf>CreateIsosurface</span><span class=p>(</span><span class=n>func</span><span class=p>,</span> <span class=n>actor</span><span class=p>,</span> <span class=n>numberOfContours</span><span class=o>=</span><span class=mi>5</span><span class=p>):</span>
     <span class=c1># Generate implicit surface.</span>
 <span class=hll>    <span class=n>contour</span> <span class=o>=</span> <span class=n>vtkContourFilter</span><span class=p>()</span>
 </span>    <span class=n>contour</span><span class=o>.</span><span class=n>SetInputConnection</span><span class=p>(</span><span class=n>func</span><span class=o>.</span><span class=n>GetOutputPort</span><span class=p>())</span>
@@ -170,7 +170,7 @@ function registerListener(event, func) {
     <span class=k>return</span>
 
 
-<span class=k>def</span> <span class=nf>CreatePlanes</span><span class=p>(</span><span class=n>func</span><span class=p>,</span> <span class=n>actor</span><span class=p>,</span> <span class=n>numberOfPlanes</span><span class=p>):</span>
+<span class=k>def</span><span class=w> </span><span class=nf>CreatePlanes</span><span class=p>(</span><span class=n>func</span><span class=p>,</span> <span class=n>actor</span><span class=p>,</span> <span class=n>numberOfPlanes</span><span class=p>):</span>
     <span class=c1>#</span>
     <span class=c1># Extract planes from implicit function.</span>
     <span class=c1>#</span>
@@ -200,7 +200,7 @@ function registerListener(event, func) {
     <span class=k>return</span>
 
 
-<span class=k>def</span> <span class=nf>CreateContours</span><span class=p>(</span><span class=n>func</span><span class=p>,</span> <span class=n>actor</span><span class=p>,</span> <span class=n>numberOfPlanes</span><span class=p>,</span> <span class=n>numberOfContours</span><span class=p>):</span>
+<span class=k>def</span><span class=w> </span><span class=nf>CreateContours</span><span class=p>(</span><span class=n>func</span><span class=p>,</span> <span class=n>actor</span><span class=p>,</span> <span class=n>numberOfPlanes</span><span class=p>,</span> <span class=n>numberOfContours</span><span class=p>):</span>
     <span class=c1>#</span>
     <span class=c1># Extract planes from implicit function</span>
     <span class=c1>#</span>
@@ -235,7 +235,7 @@ function registerListener(event, func) {
     <span class=k>return</span>
 
 
-<span class=k>def</span> <span class=nf>CreateOutline</span><span class=p>(</span><span class=n>source</span><span class=p>,</span> <span class=n>actor</span><span class=p>):</span>
+<span class=k>def</span><span class=w> </span><span class=nf>CreateOutline</span><span class=p>(</span><span class=n>source</span><span class=p>,</span> <span class=n>actor</span><span class=p>):</span>
 <span class=hll>    <span class=n>outline</span> <span class=o>=</span> <span class=n>vtkOutlineFilter</span><span class=p>()</span>
 </span>    <span class=n>outline</span><span class=o>.</span><span class=n>SetInputConnection</span><span class=p>(</span><span class=n>source</span><span class=o>.</span><span class=n>GetOutputPort</span><span class=p>())</span>
 <span class=hll>    <span class=n>mapper</span> <span class=o>=</span> <span class=n>vtkPolyDataMapper</span><span class=p>()</span>

@@ -59,21 +59,21 @@ function registerListener(event, func) {
 </code></pre></div> <p>if ExtractLargest is omitted or 1, the largest isosurface is extracted</p> <p>if ExtractLargest is 0 (or -a in Python), all of the isosurfaces are extracted</p> <p>Try</p> <p>ExtractLargestIsosurface test.vtk 50</p> <p>and compare the results to</p> <p>ExtractLargestIsosurface test.vtk 50 0</p> <div class="admonition tip"> <p class=admonition-title>Other languages</p> <p>See (<a href=../../../Cxx/Modelling/ExtractLargestIsosurface>Cxx</a>), (<a href=../../../PythonicAPI/Modelling/ExtractLargestIsosurface>PythonicAPI</a>), (<a href=../../../CSharp/Modelling/ExtractLargestIsosurface>CSharp</a>)</p> </div> <div class="admonition question"> <p class=admonition-title>Question</p> <p>If you have a question about this example, please use the <a href=https://discourse.vtk.org/ >VTK Discourse Forum</a></p> </div> <h3 id=code>Code<a class=headerlink href=#code title="Permanent link">&para;</a></h3> <p><strong>ExtractLargestIsosurface.py</strong></p> <div class=codehilite><pre><span></span><code><span class=ch>#!/usr/bin/env python</span>
 
 <span class=c1># noinspection PyUnresolvedReferences</span>
-<span class=kn>import</span> <span class=nn>vtkmodules.vtkInteractionStyle</span>
+<span class=kn>import</span><span class=w> </span><span class=nn>vtkmodules.vtkInteractionStyle</span>
 <span class=c1># noinspection PyUnresolvedReferences</span>
-<span class=kn>import</span> <span class=nn>vtkmodules.vtkRenderingOpenGL2</span>
-<span class=hll><span class=kn>from</span> <span class=nn>vtkmodules.vtkCommonColor</span> <span class=kn>import</span> <span class=n>vtkNamedColors</span>
-</span><span class=kn>from</span> <span class=nn>vtkmodules.vtkCommonCore</span> <span class=kn>import</span> <span class=p>(</span>
+<span class=kn>import</span><span class=w> </span><span class=nn>vtkmodules.vtkRenderingOpenGL2</span>
+<span class=hll><span class=kn>from</span><span class=w> </span><span class=nn>vtkmodules.vtkCommonColor</span><span class=w> </span><span class=kn>import</span> <span class=n>vtkNamedColors</span>
+</span><span class=kn>from</span><span class=w> </span><span class=nn>vtkmodules.vtkCommonCore</span><span class=w> </span><span class=kn>import</span> <span class=p>(</span>
     <span class=n>VTK_VERSION_NUMBER</span><span class=p>,</span>
 <span class=hll>    <span class=n>vtkVersion</span>
 </span><span class=p>)</span>
-<span class=kn>from</span> <span class=nn>vtkmodules.vtkFiltersCore</span> <span class=kn>import</span> <span class=p>(</span>
+<span class=kn>from</span><span class=w> </span><span class=nn>vtkmodules.vtkFiltersCore</span><span class=w> </span><span class=kn>import</span> <span class=p>(</span>
 <span class=hll>    <span class=n>vtkFlyingEdges3D</span><span class=p>,</span>
 </span><span class=hll>    <span class=n>vtkMarchingCubes</span><span class=p>,</span>
 </span><span class=hll>    <span class=n>vtkPolyDataConnectivityFilter</span>
 </span><span class=p>)</span>
-<span class=hll><span class=kn>from</span> <span class=nn>vtkmodules.vtkIOLegacy</span> <span class=kn>import</span> <span class=n>vtkStructuredPointsReader</span>
-</span><span class=kn>from</span> <span class=nn>vtkmodules.vtkRenderingCore</span> <span class=kn>import</span> <span class=p>(</span>
+<span class=hll><span class=kn>from</span><span class=w> </span><span class=nn>vtkmodules.vtkIOLegacy</span><span class=w> </span><span class=kn>import</span> <span class=n>vtkStructuredPointsReader</span>
+</span><span class=kn>from</span><span class=w> </span><span class=nn>vtkmodules.vtkRenderingCore</span><span class=w> </span><span class=kn>import</span> <span class=p>(</span>
 <span class=hll>    <span class=n>vtkActor</span><span class=p>,</span>
 </span><span class=hll>    <span class=n>vtkPolyDataMapper</span><span class=p>,</span>
 </span><span class=hll>    <span class=n>vtkProperty</span><span class=p>,</span>
@@ -83,7 +83,7 @@ function registerListener(event, func) {
 </span><span class=p>)</span>
 
 
-<span class=k>def</span> <span class=nf>main</span><span class=p>():</span>
+<span class=k>def</span><span class=w> </span><span class=nf>main</span><span class=p>():</span>
     <span class=c1># vtkFlyingEdges3D was introduced in VTK &gt;= 8.2</span>
     <span class=n>use_flying_edges</span> <span class=o>=</span> <span class=n>vtk_version_ok</span><span class=p>(</span><span class=mi>8</span><span class=p>,</span> <span class=mi>2</span><span class=p>,</span> <span class=mi>0</span><span class=p>)</span>
 
@@ -155,8 +155,8 @@ function registerListener(event, func) {
     <span class=n>iren</span><span class=o>.</span><span class=n>Start</span><span class=p>()</span>
 
 
-<span class=k>def</span> <span class=nf>get_program_parameters</span><span class=p>():</span>
-    <span class=kn>import</span> <span class=nn>argparse</span>
+<span class=k>def</span><span class=w> </span><span class=nf>get_program_parameters</span><span class=p>():</span>
+    <span class=kn>import</span><span class=w> </span><span class=nn>argparse</span>
     <span class=n>description</span> <span class=o>=</span> <span class=s1>&#39;Reads a structured points dataset stored in a .vtk file and constructs a 3D model.&#39;</span>
     <span class=n>epilogue</span> <span class=o>=</span> <span class=s1>&#39;&#39;&#39;</span>
 <span class=s1>    &#39;&#39;&#39;</span>
@@ -169,7 +169,7 @@ function registerListener(event, func) {
     <span class=k>return</span> <span class=n>args</span><span class=o>.</span><span class=n>filename</span><span class=p>,</span> <span class=n>args</span><span class=o>.</span><span class=n>threshold</span><span class=p>,</span> <span class=n>args</span><span class=o>.</span><span class=n>a</span>
 
 
-<span class=k>def</span> <span class=nf>vtk_version_ok</span><span class=p>(</span><span class=n>major</span><span class=p>,</span> <span class=n>minor</span><span class=p>,</span> <span class=n>build</span><span class=p>):</span>
+<span class=k>def</span><span class=w> </span><span class=nf>vtk_version_ok</span><span class=p>(</span><span class=n>major</span><span class=p>,</span> <span class=n>minor</span><span class=p>,</span> <span class=n>build</span><span class=p>):</span>
 <span class=w>    </span><span class=sd>&quot;&quot;&quot;</span>
 <span class=sd>    Check the VTK version.</span>
 

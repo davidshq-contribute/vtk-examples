@@ -73,14 +73,14 @@ ScalarVisibilityFlag ... show/hide the found depth values as scalars
 </code></pre></div> <p>Using higher PHI/THETA resolutions shows how depth sorting reduces the frame rate.</p> <div class="admonition tip"> <p class=admonition-title>Other languages</p> <p>See (<a href=../../../Cxx/Visualization/DepthSortPolyData>Cxx</a>)</p> </div> <div class="admonition question"> <p class=admonition-title>Question</p> <p>If you have a question about this example, please use the <a href=https://discourse.vtk.org/ >VTK Discourse Forum</a></p> </div> <h3 id=code>Code<a class=headerlink href=#code title="Permanent link">&para;</a></h3> <p><strong>DepthSortPolyData.py</strong></p> <div class=codehilite><pre><span></span><code><span class=ch>#!/usr/bin/env python3</span>
 
 <span class=c1># noinspection PyUnresolvedReferences</span>
-<span class=kn>import</span> <span class=nn>vtkmodules.vtkInteractionStyle</span>
+<span class=kn>import</span><span class=w> </span><span class=nn>vtkmodules.vtkInteractionStyle</span>
 <span class=c1># noinspection PyUnresolvedReferences</span>
-<span class=kn>import</span> <span class=nn>vtkmodules.vtkRenderingOpenGL2</span>
-<span class=hll><span class=kn>from</span> <span class=nn>vtkmodules.vtkCommonColor</span> <span class=kn>import</span> <span class=n>vtkNamedColors</span>
-</span><span class=hll><span class=kn>from</span> <span class=nn>vtkmodules.vtkFiltersCore</span> <span class=kn>import</span> <span class=n>vtkAppendPolyData</span>
-</span><span class=hll><span class=kn>from</span> <span class=nn>vtkmodules.vtkFiltersHybrid</span> <span class=kn>import</span> <span class=n>vtkDepthSortPolyData</span>
-</span><span class=hll><span class=kn>from</span> <span class=nn>vtkmodules.vtkFiltersSources</span> <span class=kn>import</span> <span class=n>vtkSphereSource</span>
-</span><span class=kn>from</span> <span class=nn>vtkmodules.vtkRenderingCore</span> <span class=kn>import</span> <span class=p>(</span>
+<span class=kn>import</span><span class=w> </span><span class=nn>vtkmodules.vtkRenderingOpenGL2</span>
+<span class=hll><span class=kn>from</span><span class=w> </span><span class=nn>vtkmodules.vtkCommonColor</span><span class=w> </span><span class=kn>import</span> <span class=n>vtkNamedColors</span>
+</span><span class=hll><span class=kn>from</span><span class=w> </span><span class=nn>vtkmodules.vtkFiltersCore</span><span class=w> </span><span class=kn>import</span> <span class=n>vtkAppendPolyData</span>
+</span><span class=hll><span class=kn>from</span><span class=w> </span><span class=nn>vtkmodules.vtkFiltersHybrid</span><span class=w> </span><span class=kn>import</span> <span class=n>vtkDepthSortPolyData</span>
+</span><span class=hll><span class=kn>from</span><span class=w> </span><span class=nn>vtkmodules.vtkFiltersSources</span><span class=w> </span><span class=kn>import</span> <span class=n>vtkSphereSource</span>
+</span><span class=kn>from</span><span class=w> </span><span class=nn>vtkmodules.vtkRenderingCore</span><span class=w> </span><span class=kn>import</span> <span class=p>(</span>
 <span class=hll>    <span class=n>vtkActor</span><span class=p>,</span>
 </span><span class=hll>    <span class=n>vtkPolyDataMapper</span><span class=p>,</span>
 </span><span class=hll>    <span class=n>vtkRenderer</span><span class=p>,</span>
@@ -89,8 +89,8 @@ ScalarVisibilityFlag ... show/hide the found depth values as scalars
 </span><span class=p>)</span>
 
 
-<span class=k>def</span> <span class=nf>get_program_parameters</span><span class=p>():</span>
-    <span class=kn>import</span> <span class=nn>argparse</span>
+<span class=k>def</span><span class=w> </span><span class=nf>get_program_parameters</span><span class=p>():</span>
+    <span class=kn>import</span><span class=w> </span><span class=nn>argparse</span>
     <span class=n>description</span> <span class=o>=</span> <span class=s1>&#39;Correctly render translucent geometry.&#39;</span>
     <span class=n>epilogue</span> <span class=o>=</span> <span class=s1>&#39;&#39;&#39;</span>
 <span class=s1>    &#39;&#39;&#39;</span>
@@ -109,7 +109,7 @@ ScalarVisibilityFlag ... show/hide the found depth values as scalars
     <span class=k>return</span> <span class=n>args</span><span class=o>.</span><span class=n>theta</span><span class=p>,</span> <span class=n>args</span><span class=o>.</span><span class=n>phi</span><span class=p>,</span> <span class=n>args</span><span class=o>.</span><span class=n>depth_sort_flag</span><span class=p>,</span> <span class=n>args</span><span class=o>.</span><span class=n>scalar_visibility_flag</span>
 
 
-<span class=k>def</span> <span class=nf>main</span><span class=p>():</span>
+<span class=k>def</span><span class=w> </span><span class=nf>main</span><span class=p>():</span>
     <span class=n>theta</span><span class=p>,</span> <span class=n>phi</span><span class=p>,</span> <span class=n>do_depth_sort</span><span class=p>,</span> <span class=n>scalar_visibility</span> <span class=o>=</span> <span class=n>get_program_parameters</span><span class=p>()</span>
 
 <span class=hll>    <span class=n>colors</span> <span class=o>=</span> <span class=n>vtkNamedColors</span><span class=p>()</span>
@@ -161,7 +161,7 @@ ScalarVisibilityFlag ... show/hide the found depth values as scalars
     <span class=n>render_window_interactor</span><span class=o>.</span><span class=n>Start</span><span class=p>()</span>
 
 
-<span class=k>def</span> <span class=nf>generate_overlapping_bunch_of_spheres</span><span class=p>(</span><span class=n>theta</span><span class=p>,</span> <span class=n>phi</span><span class=p>):</span>
+<span class=k>def</span><span class=w> </span><span class=nf>generate_overlapping_bunch_of_spheres</span><span class=p>(</span><span class=n>theta</span><span class=p>,</span> <span class=n>phi</span><span class=p>):</span>
 <span class=w>    </span><span class=sd>&quot;&quot;&quot;</span>
 <span class=sd>    Generate a bunch of overlapping spheres within one poly data set:</span>
 <span class=sd>     one big sphere evenly surrounded by four small spheres that intersect the</span>
@@ -209,7 +209,7 @@ ScalarVisibilityFlag ... show/hide the found depth values as scalars
     <span class=k>return</span> <span class=n>append_data</span>
 
 
-<span class=k>def</span> <span class=nf>setup_environment_for_depth_peeling</span><span class=p>(</span><span class=n>render_window</span><span class=p>,</span> <span class=n>renderer</span><span class=p>,</span> <span class=n>max_no_of_peels</span><span class=p>,</span> <span class=n>occlusion_ratio</span><span class=p>):</span>
+<span class=k>def</span><span class=w> </span><span class=nf>setup_environment_for_depth_peeling</span><span class=p>(</span><span class=n>render_window</span><span class=p>,</span> <span class=n>renderer</span><span class=p>,</span> <span class=n>max_no_of_peels</span><span class=p>,</span> <span class=n>occlusion_ratio</span><span class=p>):</span>
 <span class=w>    </span><span class=sd>&quot;&quot;&quot;</span>
 <span class=sd>    Setup the rendering environment for depth peeling (general depth peeling support is requested).</span>
 <span class=sd>     See is_depth_peeling_supported()</span>
@@ -243,7 +243,7 @@ ScalarVisibilityFlag ... show/hide the found depth values as scalars
     <span class=k>return</span> <span class=kc>True</span>
 
 
-<span class=k>def</span> <span class=nf>is_depth_peeling_supported</span><span class=p>(</span><span class=n>render_window</span><span class=p>,</span> <span class=n>renderer</span><span class=p>,</span> <span class=n>do_it_off_screen</span><span class=p>):</span>
+<span class=k>def</span><span class=w> </span><span class=nf>is_depth_peeling_supported</span><span class=p>(</span><span class=n>render_window</span><span class=p>,</span> <span class=n>renderer</span><span class=p>,</span> <span class=n>do_it_off_screen</span><span class=p>):</span>
 <span class=w>    </span><span class=sd>&quot;&quot;&quot;</span>
 <span class=sd>    Find out whether this box supports depth peeling. Depth peeling requires a variety of openGL extensions and appropriate drivers.</span>
 

@@ -65,20 +65,20 @@ function registerListener(event, func) {
 <span class=sd>&quot;&quot;&quot;</span>
 
 <span class=c1># noinspection PyUnresolvedReferences</span>
-<span class=kn>import</span> <span class=nn>vtkmodules.vtkInteractionStyle</span>
+<span class=kn>import</span><span class=w> </span><span class=nn>vtkmodules.vtkInteractionStyle</span>
 <span class=c1># noinspection PyUnresolvedReferences</span>
-<span class=kn>import</span> <span class=nn>vtkmodules.vtkRenderingOpenGL2</span>
-<span class=hll><span class=kn>from</span> <span class=nn>vtkmodules.vtkCommonColor</span> <span class=kn>import</span> <span class=n>vtkNamedColors</span>
-</span><span class=hll><span class=kn>from</span> <span class=nn>vtkmodules.vtkCommonTransforms</span> <span class=kn>import</span> <span class=n>vtkTransform</span>
-</span><span class=hll><span class=kn>from</span> <span class=nn>vtkmodules.vtkFiltersGeneral</span> <span class=kn>import</span> <span class=n>vtkTransformPolyDataFilter</span>
-</span><span class=hll><span class=kn>from</span> <span class=nn>vtkmodules.vtkFiltersSources</span> <span class=kn>import</span> <span class=n>vtkPlaneSource</span>
-</span><span class=hll><span class=kn>from</span> <span class=nn>vtkmodules.vtkIOXML</span> <span class=kn>import</span> <span class=n>vtkXMLPolyDataReader</span>
-</span><span class=hll><span class=kn>from</span> <span class=nn>vtkmodules.vtkInteractionWidgets</span> <span class=kn>import</span> <span class=n>vtkOrientationMarkerWidget</span>
-</span><span class=kn>from</span> <span class=nn>vtkmodules.vtkRenderingAnnotation</span> <span class=kn>import</span> <span class=p>(</span>
+<span class=kn>import</span><span class=w> </span><span class=nn>vtkmodules.vtkRenderingOpenGL2</span>
+<span class=hll><span class=kn>from</span><span class=w> </span><span class=nn>vtkmodules.vtkCommonColor</span><span class=w> </span><span class=kn>import</span> <span class=n>vtkNamedColors</span>
+</span><span class=hll><span class=kn>from</span><span class=w> </span><span class=nn>vtkmodules.vtkCommonTransforms</span><span class=w> </span><span class=kn>import</span> <span class=n>vtkTransform</span>
+</span><span class=hll><span class=kn>from</span><span class=w> </span><span class=nn>vtkmodules.vtkFiltersGeneral</span><span class=w> </span><span class=kn>import</span> <span class=n>vtkTransformPolyDataFilter</span>
+</span><span class=hll><span class=kn>from</span><span class=w> </span><span class=nn>vtkmodules.vtkFiltersSources</span><span class=w> </span><span class=kn>import</span> <span class=n>vtkPlaneSource</span>
+</span><span class=hll><span class=kn>from</span><span class=w> </span><span class=nn>vtkmodules.vtkIOXML</span><span class=w> </span><span class=kn>import</span> <span class=n>vtkXMLPolyDataReader</span>
+</span><span class=hll><span class=kn>from</span><span class=w> </span><span class=nn>vtkmodules.vtkInteractionWidgets</span><span class=w> </span><span class=kn>import</span> <span class=n>vtkOrientationMarkerWidget</span>
+</span><span class=kn>from</span><span class=w> </span><span class=nn>vtkmodules.vtkRenderingAnnotation</span><span class=w> </span><span class=kn>import</span> <span class=p>(</span>
 <span class=hll>    <span class=n>vtkAnnotatedCubeActor</span><span class=p>,</span>
 </span><span class=hll>    <span class=n>vtkAxesActor</span>
 </span><span class=p>)</span>
-<span class=kn>from</span> <span class=nn>vtkmodules.vtkRenderingCore</span> <span class=kn>import</span> <span class=p>(</span>
+<span class=kn>from</span><span class=w> </span><span class=nn>vtkmodules.vtkRenderingCore</span><span class=w> </span><span class=kn>import</span> <span class=p>(</span>
 <span class=hll>    <span class=n>vtkActor</span><span class=p>,</span>
 </span><span class=hll>    <span class=n>vtkPolyDataMapper</span><span class=p>,</span>
 </span><span class=hll>    <span class=n>vtkPropAssembly</span><span class=p>,</span>
@@ -86,10 +86,10 @@ function registerListener(event, func) {
 </span><span class=hll>    <span class=n>vtkRenderWindowInteractor</span><span class=p>,</span>
 </span><span class=hll>    <span class=n>vtkRenderer</span>
 </span><span class=p>)</span>
-<span class=hll><span class=kn>from</span> <span class=nn>vtkmodules.vtkRenderingFreeType</span> <span class=kn>import</span> <span class=n>vtkVectorText</span>
+<span class=hll><span class=kn>from</span><span class=w> </span><span class=nn>vtkmodules.vtkRenderingFreeType</span><span class=w> </span><span class=kn>import</span> <span class=n>vtkVectorText</span>
 </span>
 
-<span class=k>def</span> <span class=nf>main</span><span class=p>():</span>
+<span class=k>def</span><span class=w> </span><span class=nf>main</span><span class=p>():</span>
 <span class=hll>    <span class=n>colors</span> <span class=o>=</span> <span class=n>vtkNamedColors</span><span class=p>()</span>
 </span>
     <span class=n>fileName</span> <span class=o>=</span> <span class=n>get_program_parameters</span><span class=p>()</span>
@@ -194,8 +194,8 @@ function registerListener(event, func) {
     <span class=n>iren</span><span class=o>.</span><span class=n>Start</span><span class=p>()</span>
 
 
-<span class=k>def</span> <span class=nf>get_program_parameters</span><span class=p>():</span>
-    <span class=kn>import</span> <span class=nn>argparse</span>
+<span class=k>def</span><span class=w> </span><span class=nf>get_program_parameters</span><span class=p>():</span>
+    <span class=kn>import</span><span class=w> </span><span class=nn>argparse</span>
     <span class=n>description</span> <span class=o>=</span> <span class=s1>&#39;Show a labelled set of anatomical planes transecting a human figure.&#39;</span>
     <span class=n>epilogue</span> <span class=o>=</span> <span class=s1>&#39;&#39;&#39;</span>
 <span class=s1>    Show a labelled set of anatomical planes transecting a human figure.</span>
@@ -208,7 +208,7 @@ function registerListener(event, func) {
     <span class=k>return</span> <span class=n>args</span><span class=o>.</span><span class=n>filename</span>
 
 
-<span class=k>def</span> <span class=nf>MakeAxesActor</span><span class=p>(</span><span class=n>scale</span><span class=p>,</span> <span class=n>xyzLabels</span><span class=p>):</span>
+<span class=k>def</span><span class=w> </span><span class=nf>MakeAxesActor</span><span class=p>(</span><span class=n>scale</span><span class=p>,</span> <span class=n>xyzLabels</span><span class=p>):</span>
 <span class=w>    </span><span class=sd>&quot;&quot;&quot;</span>
 <span class=sd>    :param scale: Sets the scale and direction of the axes.</span>
 <span class=sd>    :param xyzLabels: Labels for the axes.</span>
@@ -233,7 +233,7 @@ function registerListener(event, func) {
     <span class=k>return</span> <span class=n>axes</span>
 
 
-<span class=k>def</span> <span class=nf>MakeAnnotatedCubeActor</span><span class=p>(</span><span class=n>colors</span><span class=p>):</span>
+<span class=k>def</span><span class=w> </span><span class=nf>MakeAnnotatedCubeActor</span><span class=p>(</span><span class=n>colors</span><span class=p>):</span>
 <span class=w>    </span><span class=sd>&quot;&quot;&quot;</span>
 <span class=sd>    :param colors: Used to determine the cube color.</span>
 <span class=sd>    :return: The annotated cube actor.</span>
@@ -261,7 +261,7 @@ function registerListener(event, func) {
     <span class=k>return</span> <span class=n>cube</span>
 
 
-<span class=k>def</span> <span class=nf>MakeCubeActor</span><span class=p>(</span><span class=n>scale</span><span class=p>,</span> <span class=n>xyzLabels</span><span class=p>,</span> <span class=n>colors</span><span class=p>):</span>
+<span class=k>def</span><span class=w> </span><span class=nf>MakeCubeActor</span><span class=p>(</span><span class=n>scale</span><span class=p>,</span> <span class=n>xyzLabels</span><span class=p>,</span> <span class=n>colors</span><span class=p>):</span>
 <span class=w>    </span><span class=sd>&quot;&quot;&quot;</span>
 <span class=sd>    :param scale: Sets the scale and direction of the axes.</span>
 <span class=sd>    :param xyzLabels: Labels for the axes.</span>
@@ -280,7 +280,7 @@ function registerListener(event, func) {
     <span class=k>return</span> <span class=n>assembly</span>
 
 
-<span class=k>def</span> <span class=nf>MakePlane</span><span class=p>(</span><span class=n>resolution</span><span class=p>,</span> <span class=n>origin</span><span class=p>,</span> <span class=n>point1</span><span class=p>,</span> <span class=n>point2</span><span class=p>,</span> <span class=n>wxyz</span><span class=p>,</span> <span class=n>translate</span><span class=p>):</span>
+<span class=k>def</span><span class=w> </span><span class=nf>MakePlane</span><span class=p>(</span><span class=n>resolution</span><span class=p>,</span> <span class=n>origin</span><span class=p>,</span> <span class=n>point1</span><span class=p>,</span> <span class=n>point2</span><span class=p>,</span> <span class=n>wxyz</span><span class=p>,</span> <span class=n>translate</span><span class=p>):</span>
 <span class=hll>    <span class=n>plane</span> <span class=o>=</span> <span class=n>vtkPlaneSource</span><span class=p>()</span>
 </span>    <span class=n>plane</span><span class=o>.</span><span class=n>SetResolution</span><span class=p>(</span><span class=o>*</span><span class=n>resolution</span><span class=p>)</span>
     <span class=n>plane</span><span class=o>.</span><span class=n>SetOrigin</span><span class=p>(</span><span class=n>origin</span><span class=p>)</span>
@@ -295,7 +295,7 @@ function registerListener(event, func) {
     <span class=k>return</span> <span class=n>tpdPlane</span>
 
 
-<span class=k>def</span> <span class=nf>MakePlanesActors</span><span class=p>(</span><span class=n>colors</span><span class=p>):</span>
+<span class=k>def</span><span class=w> </span><span class=nf>MakePlanesActors</span><span class=p>(</span><span class=n>colors</span><span class=p>):</span>
 <span class=w>    </span><span class=sd>&quot;&quot;&quot;</span>
 <span class=sd>    Make the traverse, coronal and saggital planes.</span>
 <span class=sd>    :param colors: Used to set the color of the planes.</span>
@@ -327,7 +327,7 @@ function registerListener(event, func) {
     <span class=k>return</span> <span class=n>actors</span>
 
 
-<span class=k>def</span> <span class=nf>AddTextToPlanes</span><span class=p>():</span>
+<span class=k>def</span><span class=w> </span><span class=nf>AddTextToPlanes</span><span class=p>():</span>
 <span class=w>    </span><span class=sd>&quot;&quot;&quot;</span>
 <span class=sd>    Generate text to place on the planes.</span>
 <span class=sd>    Careful placement is needed here.</span>

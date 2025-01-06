@@ -87,16 +87,16 @@ function registerListener(event, func) {
 <span class=sd>&quot;&quot;&quot;</span>
 
 <span class=c1># noinspection PyUnresolvedReferences</span>
-<span class=kn>import</span> <span class=nn>vtkmodules.vtkInteractionStyle</span>
+<span class=kn>import</span><span class=w> </span><span class=nn>vtkmodules.vtkInteractionStyle</span>
 <span class=c1># noinspection PyUnresolvedReferences</span>
-<span class=kn>import</span> <span class=nn>vtkmodules.vtkRenderingOpenGL2</span>
-<span class=hll><span class=kn>from</span> <span class=nn>vtkmodules.vtkCommonColor</span> <span class=kn>import</span> <span class=n>vtkNamedColors</span>
-</span><span class=hll><span class=kn>from</span> <span class=nn>vtkmodules.vtkCommonSystem</span> <span class=kn>import</span> <span class=n>vtkTimerLog</span>
-</span><span class=hll><span class=kn>from</span> <span class=nn>vtkmodules.vtkCommonTransforms</span> <span class=kn>import</span> <span class=n>vtkTransform</span>
-</span><span class=hll><span class=kn>from</span> <span class=nn>vtkmodules.vtkFiltersCore</span> <span class=kn>import</span> <span class=n>vtkAppendPolyData</span>
-</span><span class=hll><span class=kn>from</span> <span class=nn>vtkmodules.vtkFiltersHybrid</span> <span class=kn>import</span> <span class=n>vtkDepthSortPolyData</span>
-</span><span class=hll><span class=kn>from</span> <span class=nn>vtkmodules.vtkFiltersSources</span> <span class=kn>import</span> <span class=n>vtkSphereSource</span>
-</span><span class=kn>from</span> <span class=nn>vtkmodules.vtkRenderingCore</span> <span class=kn>import</span> <span class=p>(</span>
+<span class=kn>import</span><span class=w> </span><span class=nn>vtkmodules.vtkRenderingOpenGL2</span>
+<span class=hll><span class=kn>from</span><span class=w> </span><span class=nn>vtkmodules.vtkCommonColor</span><span class=w> </span><span class=kn>import</span> <span class=n>vtkNamedColors</span>
+</span><span class=hll><span class=kn>from</span><span class=w> </span><span class=nn>vtkmodules.vtkCommonSystem</span><span class=w> </span><span class=kn>import</span> <span class=n>vtkTimerLog</span>
+</span><span class=hll><span class=kn>from</span><span class=w> </span><span class=nn>vtkmodules.vtkCommonTransforms</span><span class=w> </span><span class=kn>import</span> <span class=n>vtkTransform</span>
+</span><span class=hll><span class=kn>from</span><span class=w> </span><span class=nn>vtkmodules.vtkFiltersCore</span><span class=w> </span><span class=kn>import</span> <span class=n>vtkAppendPolyData</span>
+</span><span class=hll><span class=kn>from</span><span class=w> </span><span class=nn>vtkmodules.vtkFiltersHybrid</span><span class=w> </span><span class=kn>import</span> <span class=n>vtkDepthSortPolyData</span>
+</span><span class=hll><span class=kn>from</span><span class=w> </span><span class=nn>vtkmodules.vtkFiltersSources</span><span class=w> </span><span class=kn>import</span> <span class=n>vtkSphereSource</span>
+</span><span class=kn>from</span><span class=w> </span><span class=nn>vtkmodules.vtkRenderingCore</span><span class=w> </span><span class=kn>import</span> <span class=p>(</span>
 <span class=hll>    <span class=n>vtkActor</span><span class=p>,</span>
 </span><span class=hll>    <span class=n>vtkPolyDataMapper</span><span class=p>,</span>
 </span><span class=hll>    <span class=n>vtkRenderer</span><span class=p>,</span>
@@ -105,8 +105,8 @@ function registerListener(event, func) {
 </span><span class=p>)</span>
 
 
-<span class=k>def</span> <span class=nf>get_program_parameters</span><span class=p>():</span>
-    <span class=kn>import</span> <span class=nn>argparse</span>
+<span class=k>def</span><span class=w> </span><span class=nf>get_program_parameters</span><span class=p>():</span>
+    <span class=kn>import</span><span class=w> </span><span class=nn>argparse</span>
     <span class=n>description</span> <span class=o>=</span> <span class=s1>&#39;Correctly render translucent geometry.&#39;</span>
     <span class=n>epilogue</span> <span class=o>=</span> <span class=s1>&#39;&#39;&#39;</span>
 <span class=s1>    &#39;&#39;&#39;</span>
@@ -129,7 +129,7 @@ function registerListener(event, func) {
     <span class=k>return</span> <span class=n>args</span><span class=o>.</span><span class=n>theta</span><span class=p>,</span> <span class=n>args</span><span class=o>.</span><span class=n>phi</span><span class=p>,</span> <span class=n>args</span><span class=o>.</span><span class=n>maximum_peels</span><span class=p>,</span> <span class=n>args</span><span class=o>.</span><span class=n>occlusion_ratio</span><span class=p>,</span> <span class=n>args</span><span class=o>.</span><span class=n>force_depth_sorting_flag</span><span class=p>,</span> <span class=n>args</span><span class=o>.</span><span class=n>do_not_use_any_depth_related_algorithm_flag</span>
 
 
-<span class=k>def</span> <span class=nf>main</span><span class=p>():</span>
+<span class=k>def</span><span class=w> </span><span class=nf>main</span><span class=p>():</span>
     <span class=n>theta</span><span class=p>,</span> <span class=n>phi</span><span class=p>,</span> <span class=n>max_peels</span><span class=p>,</span> <span class=n>occulusion_ratio</span><span class=p>,</span> <span class=n>force_depth_sort</span><span class=p>,</span> <span class=n>without_any_depth_things</span> <span class=o>=</span> <span class=n>get_program_parameters</span><span class=p>()</span>
 
 <span class=hll>    <span class=n>colors</span> <span class=o>=</span> <span class=n>vtkNamedColors</span><span class=p>()</span>
@@ -223,7 +223,7 @@ function registerListener(event, func) {
     <span class=n>render_window_interactor</span><span class=o>.</span><span class=n>Start</span><span class=p>()</span>
 
 
-<span class=k>def</span> <span class=nf>generate_overlapping_bunch_of_spheres</span><span class=p>(</span><span class=n>theta</span><span class=p>,</span> <span class=n>phi</span><span class=p>):</span>
+<span class=k>def</span><span class=w> </span><span class=nf>generate_overlapping_bunch_of_spheres</span><span class=p>(</span><span class=n>theta</span><span class=p>,</span> <span class=n>phi</span><span class=p>):</span>
 <span class=w>    </span><span class=sd>&quot;&quot;&quot;</span>
 <span class=sd>    Generate a bunch of overlapping spheres within one poly data set:</span>
 <span class=sd>     one big sphere evenly surrounded by four small spheres that intersect the</span>
@@ -271,7 +271,7 @@ function registerListener(event, func) {
     <span class=k>return</span> <span class=n>append_data</span>
 
 
-<span class=k>def</span> <span class=nf>setup_environment_for_depth_peeling</span><span class=p>(</span><span class=n>render_window</span><span class=p>,</span> <span class=n>renderer</span><span class=p>,</span> <span class=n>max_no_of_peels</span><span class=p>,</span> <span class=n>occlusion_ratio</span><span class=p>):</span>
+<span class=k>def</span><span class=w> </span><span class=nf>setup_environment_for_depth_peeling</span><span class=p>(</span><span class=n>render_window</span><span class=p>,</span> <span class=n>renderer</span><span class=p>,</span> <span class=n>max_no_of_peels</span><span class=p>,</span> <span class=n>occlusion_ratio</span><span class=p>):</span>
 <span class=w>    </span><span class=sd>&quot;&quot;&quot;</span>
 <span class=sd>    Setup the rendering environment for depth peeling (general depth peeling support is requested).</span>
 <span class=sd>     See is_depth_peeling_supported()</span>
@@ -305,7 +305,7 @@ function registerListener(event, func) {
     <span class=k>return</span> <span class=kc>True</span>
 
 
-<span class=k>def</span> <span class=nf>is_depth_peeling_supported</span><span class=p>(</span><span class=n>render_window</span><span class=p>,</span> <span class=n>renderer</span><span class=p>,</span> <span class=n>do_it_off_screen</span><span class=p>):</span>
+<span class=k>def</span><span class=w> </span><span class=nf>is_depth_peeling_supported</span><span class=p>(</span><span class=n>render_window</span><span class=p>,</span> <span class=n>renderer</span><span class=p>,</span> <span class=n>do_it_off_screen</span><span class=p>):</span>
 <span class=w>    </span><span class=sd>&quot;&quot;&quot;</span>
 <span class=sd>    Find out whether this box supports depth peeling. Depth peeling requires a variety of openGL extensions and appropriate drivers.</span>
 

@@ -68,8 +68,8 @@ function registerListener(event, func) {
 <span class=c1># from vtkmodules.vtkRenderingCore import vtkWindowToImageFilter</span>
 
 
-<span class=k>class</span> <span class=nc>ScreenshotCallback</span><span class=p>:</span>
-    <span class=k>def</span> <span class=fm>__init__</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>caller</span><span class=p>,</span> <span class=n>file_name</span><span class=p>,</span> <span class=n>image_quality</span><span class=o>=</span><span class=mi>1</span><span class=p>,</span> <span class=n>rgba</span><span class=o>=</span><span class=kc>True</span><span class=p>):</span>
+<span class=k>class</span><span class=w> </span><span class=nc>ScreenshotCallback</span><span class=p>:</span>
+    <span class=k>def</span><span class=w> </span><span class=fm>__init__</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>caller</span><span class=p>,</span> <span class=n>file_name</span><span class=p>,</span> <span class=n>image_quality</span><span class=o>=</span><span class=mi>1</span><span class=p>,</span> <span class=n>rgba</span><span class=o>=</span><span class=kc>True</span><span class=p>):</span>
 <span class=w>        </span><span class=sd>&quot;&quot;&quot;</span>
 <span class=sd>        Set the parameters for writing the render window view to an image file.</span>
 
@@ -100,7 +100,7 @@ function registerListener(event, func) {
         <span class=bp>self</span><span class=o>.</span><span class=n>suffix</span> <span class=o>=</span> <span class=n>ext</span>
         <span class=bp>self</span><span class=o>.</span><span class=n>path</span> <span class=o>=</span> <span class=n>Path</span><span class=p>(</span><span class=nb>str</span><span class=p>(</span><span class=n>pth</span><span class=p>))</span><span class=o>.</span><span class=n>with_suffix</span><span class=p>(</span><span class=n>ext</span><span class=p>)</span>
 
-    <span class=k>def</span> <span class=fm>__call__</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>caller</span><span class=p>,</span> <span class=n>ev</span><span class=p>):</span>
+    <span class=k>def</span><span class=w> </span><span class=fm>__call__</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>caller</span><span class=p>,</span> <span class=n>ev</span><span class=p>):</span>
         <span class=k>if</span> <span class=ow>not</span> <span class=bp>self</span><span class=o>.</span><span class=n>path</span><span class=p>:</span>
             <span class=nb>print</span><span class=p>(</span><span class=s1>&#39;A file name is required.&#39;</span><span class=p>)</span>
             <span class=k>return</span>

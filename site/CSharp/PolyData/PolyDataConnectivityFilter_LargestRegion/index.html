@@ -87,10 +87,10 @@ function registerListener(event, func) {
 
 <span class=w>         </span><span class=c1>// Large sphere</span>
 <span class=hll><span class=w>         </span><span class=n>vtkSphereSource</span><span class=w> </span><span class=n>sphereSource2</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=n>vtkSphereSource</span><span class=p>.</span><span class=n>New</span><span class=p>();</span>
-</span><span class=w>         </span><span class=n>sphereSource2</span><span class=p>.</span><span class=n>SetRadius</span><span class=p>(</span><span class=m>10</span><span class=p>);</span>
-<span class=w>         </span><span class=n>sphereSource2</span><span class=p>.</span><span class=n>SetCenter</span><span class=p>(</span><span class=m>25</span><span class=p>,</span><span class=w> </span><span class=m>0</span><span class=p>,</span><span class=w> </span><span class=m>0</span><span class=p>);</span>
-<span class=w>         </span><span class=n>sphereSource2</span><span class=p>.</span><span class=n>SetThetaResolution</span><span class=p>(</span><span class=m>10</span><span class=p>);</span>
-<span class=w>         </span><span class=n>sphereSource2</span><span class=p>.</span><span class=n>SetPhiResolution</span><span class=p>(</span><span class=m>10</span><span class=p>);</span>
+</span><span class=w>         </span><span class=n>sphereSource2</span><span class=p>.</span><span class=n>SetRadius</span><span class=p>(</span><span class=mi>10</span><span class=p>);</span>
+<span class=w>         </span><span class=n>sphereSource2</span><span class=p>.</span><span class=n>SetCenter</span><span class=p>(</span><span class=mi>25</span><span class=p>,</span><span class=w> </span><span class=mi>0</span><span class=p>,</span><span class=w> </span><span class=mi>0</span><span class=p>);</span>
+<span class=w>         </span><span class=n>sphereSource2</span><span class=p>.</span><span class=n>SetThetaResolution</span><span class=p>(</span><span class=mi>10</span><span class=p>);</span>
+<span class=w>         </span><span class=n>sphereSource2</span><span class=p>.</span><span class=n>SetPhiResolution</span><span class=p>(</span><span class=mi>10</span><span class=p>);</span>
 <span class=w>         </span><span class=n>sphereSource2</span><span class=p>.</span><span class=n>Update</span><span class=p>();</span>
 
 <span class=hll><span class=w>         </span><span class=n>vtkAppendPolyData</span><span class=w> </span><span class=n>appendFilter</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=n>vtkAppendPolyData</span><span class=p>.</span><span class=n>New</span><span class=p>();</span>
@@ -117,14 +117,14 @@ function registerListener(event, func) {
 <span class=w>         </span><span class=n>extractedMapper</span><span class=p>.</span><span class=n>Update</span><span class=p>();</span>
 
 <span class=hll><span class=w>         </span><span class=n>vtkActor</span><span class=w> </span><span class=n>extractedActor</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=n>vtkActor</span><span class=p>.</span><span class=n>New</span><span class=p>();</span>
-</span><span class=w>         </span><span class=n>extractedActor</span><span class=p>.</span><span class=n>GetProperty</span><span class=p>().</span><span class=n>SetColor</span><span class=p>(</span><span class=m>1</span><span class=p>,</span><span class=w> </span><span class=m>0</span><span class=p>,</span><span class=w> </span><span class=m>0</span><span class=p>);</span>
+</span><span class=w>         </span><span class=n>extractedActor</span><span class=p>.</span><span class=n>GetProperty</span><span class=p>().</span><span class=n>SetColor</span><span class=p>(</span><span class=mi>1</span><span class=p>,</span><span class=w> </span><span class=mi>0</span><span class=p>,</span><span class=w> </span><span class=mi>0</span><span class=p>);</span>
 <span class=w>         </span><span class=n>extractedActor</span><span class=p>.</span><span class=n>SetMapper</span><span class=p>(</span><span class=n>extractedMapper</span><span class=p>);</span>
 <span class=w>         </span><span class=c1>// get a reference to the renderwindow of our renderWindowControl1</span>
 <span class=hll><span class=w>         </span><span class=n>vtkRenderWindow</span><span class=w> </span><span class=n>renderWindow</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=n>renderWindowControl1</span><span class=p>.</span><span class=n>RenderWindow</span><span class=p>;</span>
 </span><span class=w>         </span><span class=c1>// renderer</span>
 <span class=hll><span class=w>         </span><span class=n>vtkRenderer</span><span class=w> </span><span class=n>renderer</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=n>renderWindow</span><span class=p>.</span><span class=n>GetRenderers</span><span class=p>().</span><span class=n>GetFirstRenderer</span><span class=p>();</span>
 </span><span class=w>         </span><span class=c1>// set background color</span>
-<span class=w>         </span><span class=n>renderer</span><span class=p>.</span><span class=n>SetBackground</span><span class=p>(</span><span class=m>0.2</span><span class=p>,</span><span class=w> </span><span class=m>0.3</span><span class=p>,</span><span class=w> </span><span class=m>0.4</span><span class=p>);</span>
+<span class=w>         </span><span class=n>renderer</span><span class=p>.</span><span class=n>SetBackground</span><span class=p>(</span><span class=mf>0.2</span><span class=p>,</span><span class=w> </span><span class=mf>0.3</span><span class=p>,</span><span class=w> </span><span class=mf>0.4</span><span class=p>);</span>
 <span class=w>         </span><span class=c1>// add our actor to the renderer</span>
 <span class=w>         </span><span class=n>renderer</span><span class=p>.</span><span class=n>AddActor</span><span class=p>(</span><span class=n>originalActor</span><span class=p>);</span>
 <span class=w>         </span><span class=n>renderer</span><span class=p>.</span><span class=n>AddActor</span><span class=p>(</span><span class=n>extractedActor</span><span class=p>);</span>

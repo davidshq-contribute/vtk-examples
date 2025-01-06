@@ -61,30 +61,30 @@ function registerListener(event, func) {
 </code></pre></div> <p>Where:</p> <ul> <li><code>&lt;DATA&gt;</code> is the path to <code>vtk-examples/src/Testing/Data</code></li> <li><code>LakeGininderra.csv</code> is the CSV file used by this program.</li> <li><code>LakeGininderra.kmz</code> can be loaded into Google Earth to display the track.</li> </ul> <p>The parameters for typical usage are something like this:</p> <div class=codehilite><pre><span></span><code>&lt;DATA&gt;/LakeGininderra.csv -u -c -pResults
 </code></pre></div> <figure> <img style=float:middle src=https://raw.githubusercontent.com/Kitware/vtk-examples/gh-pages/src/SupplementaryData/Python/IO/LakeGininderra.jpg> <figcaption>A Google Earth image of the track.</figcaption> </figure> <p>Further information:</p> <ul> <li><a href=https://www.kitware.com/easy-data-conversion-to-vtk-with-python/ >Easy Data Conversion to VTK with Python</a>.</li> <li><a href=https://pandas.pydata.org/docs/getting_started/install.html>Installing pandas</a>.</li> <li><a href=https://discourse.vtk.org/t/vtk-examples-new-csv-examples/11632>VTK Examples - New CSV Examples</a></li> </ul> <div class="admonition question"> <p class=admonition-title>Question</p> <p>If you have a question about this example, please use the <a href=https://discourse.vtk.org/ >VTK Discourse Forum</a></p> </div> <h3 id=code>Code<a class=headerlink href=#code title="Permanent link">&para;</a></h3> <p><strong>CSVReadEdit.py</strong></p> <div class=codehilite><pre><span></span><code><span class=ch>#!/usr/bin/env python3</span>
 
-<span class=kn>from</span> <span class=nn>pathlib</span> <span class=kn>import</span> <span class=n>Path</span>
+<span class=kn>from</span><span class=w> </span><span class=nn>pathlib</span><span class=w> </span><span class=kn>import</span> <span class=n>Path</span>
 
-<span class=kn>import</span> <span class=nn>pandas</span> <span class=k>as</span> <span class=nn>pd</span>
+<span class=kn>import</span><span class=w> </span><span class=nn>pandas</span><span class=w> </span><span class=k>as</span><span class=w> </span><span class=nn>pd</span>
 <span class=c1># noinspection PyUnresolvedReferences</span>
-<span class=kn>import</span> <span class=nn>vtkmodules.vtkInteractionStyle</span>
+<span class=kn>import</span><span class=w> </span><span class=nn>vtkmodules.vtkInteractionStyle</span>
 <span class=c1># noinspection PyUnresolvedReferences</span>
-<span class=kn>import</span> <span class=nn>vtkmodules.vtkRenderingOpenGL2</span>
-<span class=kn>from</span> <span class=nn>vtk.util</span> <span class=kn>import</span> <span class=n>numpy_support</span>
-<span class=kn>from</span> <span class=nn>vtkmodules.vtkCommonColor</span> <span class=kn>import</span> <span class=p>(</span>
+<span class=kn>import</span><span class=w> </span><span class=nn>vtkmodules.vtkRenderingOpenGL2</span>
+<span class=kn>from</span><span class=w> </span><span class=nn>vtk.util</span><span class=w> </span><span class=kn>import</span> <span class=n>numpy_support</span>
+<span class=kn>from</span><span class=w> </span><span class=nn>vtkmodules.vtkCommonColor</span><span class=w> </span><span class=kn>import</span> <span class=p>(</span>
 <span class=hll>    <span class=n>vtkNamedColors</span>
 </span><span class=p>)</span>
-<span class=hll><span class=kn>from</span> <span class=nn>vtkmodules.vtkCommonCore</span> <span class=kn>import</span> <span class=n>vtkLookupTable</span><span class=p>,</span> <span class=n>vtkPoints</span>
-</span><span class=kn>from</span> <span class=nn>vtkmodules.vtkCommonDataModel</span> <span class=kn>import</span> <span class=p>(</span>
+<span class=hll><span class=kn>from</span><span class=w> </span><span class=nn>vtkmodules.vtkCommonCore</span><span class=w> </span><span class=kn>import</span> <span class=n>vtkLookupTable</span><span class=p>,</span> <span class=n>vtkPoints</span>
+</span><span class=kn>from</span><span class=w> </span><span class=nn>vtkmodules.vtkCommonDataModel</span><span class=w> </span><span class=kn>import</span> <span class=p>(</span>
 <span class=hll>    <span class=n>vtkCellArray</span><span class=p>,</span>
 </span><span class=hll>    <span class=n>vtkPolyData</span><span class=p>,</span>
 </span><span class=hll>    <span class=n>vtkPolyLine</span>
 </span><span class=p>)</span>
-<span class=hll><span class=kn>from</span> <span class=nn>vtkmodules.vtkCommonTransforms</span> <span class=kn>import</span> <span class=n>vtkTransform</span>
-</span><span class=hll><span class=kn>from</span> <span class=nn>vtkmodules.vtkFiltersGeneral</span> <span class=kn>import</span> <span class=n>vtkTransformPolyDataFilter</span>
-</span><span class=hll><span class=kn>from</span> <span class=nn>vtkmodules.vtkIOXML</span> <span class=kn>import</span> <span class=n>vtkXMLPolyDataWriter</span>
-</span><span class=hll><span class=kn>from</span> <span class=nn>vtkmodules.vtkInteractionStyle</span> <span class=kn>import</span> <span class=n>vtkInteractorStyleTrackballCamera</span>
-</span><span class=hll><span class=kn>from</span> <span class=nn>vtkmodules.vtkInteractionWidgets</span> <span class=kn>import</span> <span class=n>vtkCameraOrientationWidget</span><span class=p>,</span> <span class=n>vtkOrientationMarkerWidget</span>
-</span><span class=hll><span class=kn>from</span> <span class=nn>vtkmodules.vtkRenderingAnnotation</span> <span class=kn>import</span> <span class=n>vtkAxesActor</span><span class=p>,</span> <span class=n>vtkScalarBarActor</span>
-</span><span class=kn>from</span> <span class=nn>vtkmodules.vtkRenderingCore</span> <span class=kn>import</span> <span class=p>(</span>
+<span class=hll><span class=kn>from</span><span class=w> </span><span class=nn>vtkmodules.vtkCommonTransforms</span><span class=w> </span><span class=kn>import</span> <span class=n>vtkTransform</span>
+</span><span class=hll><span class=kn>from</span><span class=w> </span><span class=nn>vtkmodules.vtkFiltersGeneral</span><span class=w> </span><span class=kn>import</span> <span class=n>vtkTransformPolyDataFilter</span>
+</span><span class=hll><span class=kn>from</span><span class=w> </span><span class=nn>vtkmodules.vtkIOXML</span><span class=w> </span><span class=kn>import</span> <span class=n>vtkXMLPolyDataWriter</span>
+</span><span class=hll><span class=kn>from</span><span class=w> </span><span class=nn>vtkmodules.vtkInteractionStyle</span><span class=w> </span><span class=kn>import</span> <span class=n>vtkInteractorStyleTrackballCamera</span>
+</span><span class=hll><span class=kn>from</span><span class=w> </span><span class=nn>vtkmodules.vtkInteractionWidgets</span><span class=w> </span><span class=kn>import</span> <span class=n>vtkCameraOrientationWidget</span><span class=p>,</span> <span class=n>vtkOrientationMarkerWidget</span>
+</span><span class=hll><span class=kn>from</span><span class=w> </span><span class=nn>vtkmodules.vtkRenderingAnnotation</span><span class=w> </span><span class=kn>import</span> <span class=n>vtkAxesActor</span><span class=p>,</span> <span class=n>vtkScalarBarActor</span>
+</span><span class=kn>from</span><span class=w> </span><span class=nn>vtkmodules.vtkRenderingCore</span><span class=w> </span><span class=kn>import</span> <span class=p>(</span>
 <span class=hll>    <span class=n>vtkActor</span><span class=p>,</span>
 </span><span class=hll>    <span class=n>vtkColorTransferFunction</span><span class=p>,</span>
 </span><span class=hll>    <span class=n>vtkPolyDataMapper</span><span class=p>,</span>
@@ -94,8 +94,8 @@ function registerListener(event, func) {
 </span><span class=p>)</span>
 
 
-<span class=k>def</span> <span class=nf>get_program_parameters</span><span class=p>():</span>
-    <span class=kn>import</span> <span class=nn>argparse</span>
+<span class=k>def</span><span class=w> </span><span class=nf>get_program_parameters</span><span class=p>():</span>
+    <span class=kn>import</span><span class=w> </span><span class=nn>argparse</span>
     <span class=n>description</span> <span class=o>=</span> <span class=s1>&#39;Edit data from a CSV file and visualise it.&#39;</span>
     <span class=n>epilogue</span> <span class=o>=</span> <span class=s1>&#39;&#39;&#39;</span>
 <span class=s1>    This program selects ECEF, Geographic or UTM coordinates from the input file and:</span>
@@ -121,7 +121,7 @@ function registerListener(event, func) {
     <span class=k>return</span> <span class=n>args</span><span class=o>.</span><span class=n>file_name</span><span class=p>,</span> <span class=n>args</span><span class=o>.</span><span class=n>csv</span><span class=p>,</span> <span class=n>args</span><span class=o>.</span><span class=n>vtp</span><span class=p>,</span> <span class=n>args</span><span class=o>.</span><span class=n>path</span><span class=p>,</span> <span class=n>args</span><span class=o>.</span><span class=n>ecef</span><span class=p>,</span> <span class=n>args</span><span class=o>.</span><span class=n>utm</span><span class=p>,</span> <span class=n>args</span><span class=o>.</span><span class=n>geo</span>
 
 
-<span class=k>def</span> <span class=nf>main</span><span class=p>():</span>
+<span class=k>def</span><span class=w> </span><span class=nf>main</span><span class=p>():</span>
     <span class=n>ifn</span><span class=p>,</span> <span class=n>csv</span><span class=p>,</span> <span class=n>vtp</span><span class=p>,</span> <span class=n>sp</span><span class=p>,</span> <span class=n>ecef</span><span class=p>,</span> <span class=n>utm</span><span class=p>,</span> <span class=n>geo</span> <span class=o>=</span> <span class=n>get_program_parameters</span><span class=p>()</span>
     <span class=n>file_name</span> <span class=o>=</span> <span class=n>Path</span><span class=p>(</span><span class=n>ifn</span><span class=p>)</span>
     <span class=k>if</span> <span class=ow>not</span> <span class=n>file_name</span><span class=o>.</span><span class=n>is_file</span><span class=p>():</span>
@@ -322,7 +322,7 @@ function registerListener(event, func) {
     <span class=n>iren</span><span class=o>.</span><span class=n>Start</span><span class=p>()</span>
 
 
-<span class=k>def</span> <span class=nf>get_diverging_lut</span><span class=p>(</span><span class=n>color_map</span><span class=p>:</span> <span class=nb>str</span><span class=p>,</span> <span class=n>table_size</span><span class=p>:</span> <span class=nb>int</span> <span class=o>=</span> <span class=mi>256</span><span class=p>):</span>
+<span class=k>def</span><span class=w> </span><span class=nf>get_diverging_lut</span><span class=p>(</span><span class=n>color_map</span><span class=p>:</span> <span class=nb>str</span><span class=p>,</span> <span class=n>table_size</span><span class=p>:</span> <span class=nb>int</span> <span class=o>=</span> <span class=mi>256</span><span class=p>):</span>
 <span class=w>    </span><span class=sd>&quot;&quot;&quot;</span>
 <span class=sd>    See: [Diverging Color Maps for Scientific Visualization](https://www.kennethmoreland.com/color-maps/)</span>
 <span class=sd>                       start-point         mid-point           end-point\n</span>
@@ -368,7 +368,7 @@ function registerListener(event, func) {
     <span class=k>return</span> <span class=n>lut</span>
 
 
-<span class=k>def</span> <span class=nf>get_diverging_lut1</span><span class=p>(</span><span class=n>start</span><span class=p>:</span> <span class=nb>str</span><span class=p>,</span> <span class=n>mid</span><span class=p>:</span> <span class=nb>str</span><span class=p>,</span> <span class=n>end</span><span class=p>:</span> <span class=nb>str</span><span class=p>,</span> <span class=n>table_size</span><span class=p>:</span> <span class=nb>int</span> <span class=o>=</span> <span class=mi>256</span><span class=p>):</span>
+<span class=k>def</span><span class=w> </span><span class=nf>get_diverging_lut1</span><span class=p>(</span><span class=n>start</span><span class=p>:</span> <span class=nb>str</span><span class=p>,</span> <span class=n>mid</span><span class=p>:</span> <span class=nb>str</span><span class=p>,</span> <span class=n>end</span><span class=p>:</span> <span class=nb>str</span><span class=p>,</span> <span class=n>table_size</span><span class=p>:</span> <span class=nb>int</span> <span class=o>=</span> <span class=mi>256</span><span class=p>):</span>
 <span class=w>    </span><span class=sd>&quot;&quot;&quot;</span>
 <span class=sd>    Create a diverging lookup table from three named colors.</span>
 

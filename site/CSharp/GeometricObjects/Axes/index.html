@@ -82,8 +82,8 @@ function registerListener(event, func) {
 
 <span class=w>      </span><span class=k>private</span><span class=w> </span><span class=k>void</span><span class=w> </span><span class=nf>Axes</span><span class=p>()</span><span class=w> </span><span class=p>{</span>
 <span class=hll><span class=w>         </span><span class=n>vtkSphereSource</span><span class=w> </span><span class=n>sphereSource</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=n>vtkSphereSource</span><span class=p>.</span><span class=n>New</span><span class=p>();</span>
-</span><span class=w>         </span><span class=n>sphereSource</span><span class=p>.</span><span class=n>SetCenter</span><span class=p>(</span><span class=m>0.0</span><span class=p>,</span><span class=w> </span><span class=m>0.0</span><span class=p>,</span><span class=w> </span><span class=m>0.0</span><span class=p>);</span>
-<span class=w>         </span><span class=n>sphereSource</span><span class=p>.</span><span class=n>SetRadius</span><span class=p>(</span><span class=m>0.5</span><span class=p>);</span>
+</span><span class=w>         </span><span class=n>sphereSource</span><span class=p>.</span><span class=n>SetCenter</span><span class=p>(</span><span class=mf>0.0</span><span class=p>,</span><span class=w> </span><span class=mf>0.0</span><span class=p>,</span><span class=w> </span><span class=mf>0.0</span><span class=p>);</span>
+<span class=w>         </span><span class=n>sphereSource</span><span class=p>.</span><span class=n>SetRadius</span><span class=p>(</span><span class=mf>0.5</span><span class=p>);</span>
 
 <span class=w>         </span><span class=c1>//create a mapper</span>
 <span class=hll><span class=w>         </span><span class=n>vtkPolyDataMapper</span><span class=w> </span><span class=n>sphereMapper</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=n>vtkPolyDataMapper</span><span class=p>.</span><span class=n>New</span><span class=p>();</span>
@@ -96,7 +96,7 @@ function registerListener(event, func) {
 <span class=w>         </span><span class=c1>// a renderer and render window</span>
 <span class=hll><span class=w>         </span><span class=n>vtkRenderWindow</span><span class=w> </span><span class=n>renderWindow</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=n>renderWindowControl1</span><span class=p>.</span><span class=n>RenderWindow</span><span class=p>;</span>
 </span><span class=hll><span class=w>         </span><span class=n>vtkRenderer</span><span class=w> </span><span class=n>renderer</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=n>renderWindow</span><span class=p>.</span><span class=n>GetRenderers</span><span class=p>().</span><span class=n>GetFirstRenderer</span><span class=p>();</span>
-</span><span class=w>         </span><span class=n>renderer</span><span class=p>.</span><span class=n>SetBackground</span><span class=p>(</span><span class=m>0.2</span><span class=p>,</span><span class=w> </span><span class=m>0.3</span><span class=p>,</span><span class=w> </span><span class=m>0.4</span><span class=p>);</span>
+</span><span class=w>         </span><span class=n>renderer</span><span class=p>.</span><span class=n>SetBackground</span><span class=p>(</span><span class=mf>0.2</span><span class=p>,</span><span class=w> </span><span class=mf>0.3</span><span class=p>,</span><span class=w> </span><span class=mf>0.4</span><span class=p>);</span>
 
 <span class=w>         </span><span class=c1>// add the actors to the scene</span>
 <span class=w>         </span><span class=n>renderer</span><span class=p>.</span><span class=n>AddActor</span><span class=p>(</span><span class=n>sphereActor</span><span class=p>);</span>
@@ -104,7 +104,7 @@ function registerListener(event, func) {
 <span class=hll><span class=w>         </span><span class=n>vtkAxesActor</span><span class=w> </span><span class=n>axes</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=n>vtkAxesActor</span><span class=p>.</span><span class=n>New</span><span class=p>();</span>
 </span><span class=w>         </span><span class=c1>// The axes are positioned with a user transform</span>
 <span class=hll><span class=w>         </span><span class=n>vtkTransform</span><span class=w> </span><span class=n>transform</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=n>vtkTransform</span><span class=p>.</span><span class=n>New</span><span class=p>();</span>
-</span><span class=w>         </span><span class=n>transform</span><span class=p>.</span><span class=n>Translate</span><span class=p>(</span><span class=m>0.75</span><span class=p>,</span><span class=w> </span><span class=m>0.0</span><span class=p>,</span><span class=w> </span><span class=m>0.0</span><span class=p>);</span>
+</span><span class=w>         </span><span class=n>transform</span><span class=p>.</span><span class=n>Translate</span><span class=p>(</span><span class=mf>0.75</span><span class=p>,</span><span class=w> </span><span class=mf>0.0</span><span class=p>,</span><span class=w> </span><span class=mf>0.0</span><span class=p>);</span>
 <span class=w>         </span><span class=n>axes</span><span class=p>.</span><span class=n>SetUserTransform</span><span class=p>(</span><span class=n>transform</span><span class=p>);</span>
 <span class=w>         </span><span class=c1>// properties of the axes labels can be set as follows</span>
 <span class=w>         </span><span class=c1>// this sets the x axis label to red</span>

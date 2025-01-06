@@ -61,22 +61,22 @@ function registerListener(event, func) {
 <span class=sd>Delta v1..v2          - https://github.com/Kitware/trame/commit/03f28bb0084490acabf218264b96a1dbb3a17f19</span>
 <span class=sd>&quot;&quot;&quot;</span>
 
-<span class=kn>import</span> <span class=nn>os</span>
-<span class=kn>import</span> <span class=nn>io</span>
-<span class=kn>import</span> <span class=nn>numpy</span> <span class=k>as</span> <span class=nn>np</span>
-<span class=kn>import</span> <span class=nn>pandas</span> <span class=k>as</span> <span class=nn>pd</span>
+<span class=kn>import</span><span class=w> </span><span class=nn>os</span>
+<span class=kn>import</span><span class=w> </span><span class=nn>io</span>
+<span class=kn>import</span><span class=w> </span><span class=nn>numpy</span><span class=w> </span><span class=k>as</span><span class=w> </span><span class=nn>np</span>
+<span class=kn>import</span><span class=w> </span><span class=nn>pandas</span><span class=w> </span><span class=k>as</span><span class=w> </span><span class=nn>pd</span>
 
-<span class=hll><span class=kn>from</span> <span class=nn>vtkmodules.vtkCommonCore</span> <span class=kn>import</span> <span class=n>vtkPoints</span><span class=p>,</span> <span class=n>vtkIdList</span><span class=p>,</span> <span class=n>vtkLookupTable</span>
-</span><span class=hll><span class=kn>from</span> <span class=nn>vtkmodules.vtkCommonDataModel</span> <span class=kn>import</span> <span class=n>vtkUnstructuredGrid</span><span class=p>,</span> <span class=n>vtkCellArray</span>
-</span><span class=hll><span class=kn>from</span> <span class=nn>vtkmodules.vtkFiltersCore</span> <span class=kn>import</span> <span class=n>vtkThreshold</span>
+<span class=hll><span class=kn>from</span><span class=w> </span><span class=nn>vtkmodules.vtkCommonCore</span><span class=w> </span><span class=kn>import</span> <span class=n>vtkPoints</span><span class=p>,</span> <span class=n>vtkIdList</span><span class=p>,</span> <span class=n>vtkLookupTable</span>
+</span><span class=hll><span class=kn>from</span><span class=w> </span><span class=nn>vtkmodules.vtkCommonDataModel</span><span class=w> </span><span class=kn>import</span> <span class=n>vtkUnstructuredGrid</span><span class=p>,</span> <span class=n>vtkCellArray</span>
+</span><span class=hll><span class=kn>from</span><span class=w> </span><span class=nn>vtkmodules.vtkFiltersCore</span><span class=w> </span><span class=kn>import</span> <span class=n>vtkThreshold</span>
 </span>
-<span class=hll><span class=kn>from</span> <span class=nn>vtkmodules.numpy_interface.dataset_adapter</span> <span class=kn>import</span> <span class=n>numpyTovtkDataArray</span> <span class=k>as</span> <span class=n>np2da</span>
-</span><span class=kn>from</span> <span class=nn>vtkmodules.util</span> <span class=kn>import</span> <span class=n>vtkConstants</span>
+<span class=hll><span class=kn>from</span><span class=w> </span><span class=nn>vtkmodules.numpy_interface.dataset_adapter</span><span class=w> </span><span class=kn>import</span> <span class=n>numpyTovtkDataArray</span> <span class=k>as</span> <span class=n>np2da</span>
+</span><span class=kn>from</span><span class=w> </span><span class=nn>vtkmodules.util</span><span class=w> </span><span class=kn>import</span> <span class=n>vtkConstants</span>
 
 <span class=c1># Add import for the rendering</span>
-<span class=kn>from</span> <span class=nn>vtkmodules.vtkInteractionStyle</span> <span class=kn>import</span> <span class=n>vtkInteractorStyleSwitch</span>  <span class=c1># noqa</span>
-<span class=kn>import</span> <span class=nn>vtkmodules.vtkRenderingOpenGL2</span>  <span class=c1># noqa</span>
-<span class=kn>from</span> <span class=nn>vtkmodules.vtkRenderingCore</span> <span class=kn>import</span> <span class=p>(</span>
+<span class=kn>from</span><span class=w> </span><span class=nn>vtkmodules.vtkInteractionStyle</span><span class=w> </span><span class=kn>import</span> <span class=n>vtkInteractorStyleSwitch</span>  <span class=c1># noqa</span>
+<span class=kn>import</span><span class=w> </span><span class=nn>vtkmodules.vtkRenderingOpenGL2</span>  <span class=c1># noqa</span>
+<span class=kn>from</span><span class=w> </span><span class=nn>vtkmodules.vtkRenderingCore</span><span class=w> </span><span class=kn>import</span> <span class=p>(</span>
 <span class=hll>    <span class=n>vtkActor</span><span class=p>,</span>
 </span><span class=hll>    <span class=n>vtkDataSetMapper</span><span class=p>,</span>
 </span><span class=hll>    <span class=n>vtkRenderer</span><span class=p>,</span>
@@ -84,9 +84,9 @@ function registerListener(event, func) {
 </span><span class=hll>    <span class=n>vtkRenderWindowInteractor</span><span class=p>,</span>
 </span><span class=p>)</span>
 
-<span class=kn>from</span> <span class=nn>trame.app</span> <span class=kn>import</span> <span class=n>get_server</span>
-<span class=kn>from</span> <span class=nn>trame.ui.vuetify</span> <span class=kn>import</span> <span class=n>SinglePageLayout</span>
-<span class=kn>from</span> <span class=nn>trame.widgets</span> <span class=kn>import</span> <span class=n>vuetify</span><span class=p>,</span> <span class=n>vtk</span>
+<span class=kn>from</span><span class=w> </span><span class=nn>trame.app</span><span class=w> </span><span class=kn>import</span> <span class=n>get_server</span>
+<span class=kn>from</span><span class=w> </span><span class=nn>trame.ui.vuetify</span><span class=w> </span><span class=kn>import</span> <span class=n>SinglePageLayout</span>
+<span class=kn>from</span><span class=w> </span><span class=nn>trame.widgets</span><span class=w> </span><span class=kn>import</span> <span class=n>vuetify</span><span class=p>,</span> <span class=n>vtk</span>
 
 <span class=c1># -----------------------------------------------------------------------------</span>
 <span class=c1># Trame setup</span>
@@ -134,7 +134,7 @@ function registerListener(event, func) {
 
 
 <span class=nd>@state</span><span class=o>.</span><span class=n>change</span><span class=p>(</span><span class=s2>&quot;nodes_file&quot;</span><span class=p>,</span> <span class=s2>&quot;elems_file&quot;</span><span class=p>,</span> <span class=s2>&quot;field_file&quot;</span><span class=p>)</span>
-<span class=k>def</span> <span class=nf>update_grid</span><span class=p>(</span><span class=n>nodes_file</span><span class=p>,</span> <span class=n>elems_file</span><span class=p>,</span> <span class=n>field_file</span><span class=p>,</span> <span class=o>**</span><span class=n>kwargs</span><span class=p>):</span>
+<span class=k>def</span><span class=w> </span><span class=nf>update_grid</span><span class=p>(</span><span class=n>nodes_file</span><span class=p>,</span> <span class=n>elems_file</span><span class=p>,</span> <span class=n>field_file</span><span class=p>,</span> <span class=o>**</span><span class=n>kwargs</span><span class=p>):</span>
     <span class=k>if</span> <span class=ow>not</span> <span class=n>nodes_file</span><span class=p>:</span>
         <span class=k>return</span>
 
@@ -261,7 +261,7 @@ function registerListener(event, func) {
 
 
 <span class=nd>@state</span><span class=o>.</span><span class=n>change</span><span class=p>(</span><span class=s2>&quot;threshold_range&quot;</span><span class=p>)</span>
-<span class=k>def</span> <span class=nf>update_filter</span><span class=p>(</span><span class=n>threshold_range</span><span class=p>,</span> <span class=o>**</span><span class=n>kwargs</span><span class=p>):</span>
+<span class=k>def</span><span class=w> </span><span class=nf>update_filter</span><span class=p>(</span><span class=n>threshold_range</span><span class=p>,</span> <span class=o>**</span><span class=n>kwargs</span><span class=p>):</span>
     <span class=n>filter_mapper</span><span class=o>.</span><span class=n>SetScalarRange</span><span class=p>(</span>
         <span class=n>threshold_range</span>
     <span class=p>)</span>  <span class=c1># Comment if you want to have a fix color range</span>
@@ -271,7 +271,7 @@ function registerListener(event, func) {
 
 
 <span class=nd>@state</span><span class=o>.</span><span class=n>change</span><span class=p>(</span><span class=s2>&quot;mesh_status&quot;</span><span class=p>)</span>
-<span class=k>def</span> <span class=nf>update_mesh_representations</span><span class=p>(</span><span class=o>**</span><span class=n>kwargs</span><span class=p>):</span>
+<span class=k>def</span><span class=w> </span><span class=nf>update_mesh_representations</span><span class=p>(</span><span class=o>**</span><span class=n>kwargs</span><span class=p>):</span>
     <span class=c1># defaults</span>
     <span class=n>color</span> <span class=o>=</span> <span class=p>[</span><span class=mi>1</span><span class=p>,</span> <span class=mi>1</span><span class=p>,</span> <span class=mi>1</span><span class=p>]</span>
     <span class=n>representation</span> <span class=o>=</span> <span class=mi>2</span>
@@ -289,7 +289,7 @@ function registerListener(event, func) {
     <span class=n>ctrl</span><span class=o>.</span><span class=n>view_update</span><span class=p>()</span>
 
 
-<span class=k>def</span> <span class=nf>reset</span><span class=p>():</span>
+<span class=k>def</span><span class=w> </span><span class=nf>reset</span><span class=p>():</span>
     <span class=n>state</span><span class=o>.</span><span class=n>update</span><span class=p>(</span>
         <span class=p>{</span>
             <span class=s2>&quot;nodes_file&quot;</span><span class=p>:</span> <span class=kc>None</span><span class=p>,</span>
@@ -388,7 +388,7 @@ function registerListener(event, func) {
 <span class=n>parser</span><span class=o>.</span><span class=n>add_argument</span><span class=p>(</span><span class=s2>&quot;--data&quot;</span><span class=p>,</span> <span class=n>help</span><span class=o>=</span><span class=s2>&quot;Unstructured file path&quot;</span><span class=p>,</span> <span class=n>dest</span><span class=o>=</span><span class=s2>&quot;data&quot;</span><span class=p>)</span>
 <span class=n>args</span> <span class=o>=</span> <span class=n>parser</span><span class=o>.</span><span class=n>parse_args</span><span class=p>()</span>
 <span class=k>if</span> <span class=n>args</span><span class=o>.</span><span class=n>data</span><span class=p>:</span>
-<span class=hll>    <span class=kn>from</span> <span class=nn>vtkmodules.vtkIOXML</span> <span class=kn>import</span> <span class=n>vtkXMLUnstructuredGridReader</span>
+<span class=hll>    <span class=kn>from</span><span class=w> </span><span class=nn>vtkmodules.vtkIOXML</span><span class=w> </span><span class=kn>import</span> <span class=n>vtkXMLUnstructuredGridReader</span>
 </span>
 <span class=hll>    <span class=n>reader</span> <span class=o>=</span> <span class=n>vtkXMLUnstructuredGridReader</span><span class=p>()</span>
 </span>    <span class=n>reader</span><span class=o>.</span><span class=n>SetFileName</span><span class=p>(</span><span class=n>os</span><span class=o>.</span><span class=n>path</span><span class=o>.</span><span class=n>abspath</span><span class=p>(</span><span class=n>args</span><span class=o>.</span><span class=n>data</span><span class=p>))</span>
@@ -413,21 +413,21 @@ function registerListener(event, func) {
 <span class=sd>Delta v1..v2          - https://github.com/Kitware/trame/commit/03f28bb0084490acabf218264b96a1dbb3a17f19</span>
 <span class=sd>&quot;&quot;&quot;</span>
 
-<span class=kn>import</span> <span class=nn>os</span>
-<span class=kn>import</span> <span class=nn>io</span>
-<span class=kn>import</span> <span class=nn>numpy</span> <span class=k>as</span> <span class=nn>np</span>
-<span class=kn>import</span> <span class=nn>pandas</span> <span class=k>as</span> <span class=nn>pd</span>
+<span class=kn>import</span><span class=w> </span><span class=nn>os</span>
+<span class=kn>import</span><span class=w> </span><span class=nn>io</span>
+<span class=kn>import</span><span class=w> </span><span class=nn>numpy</span><span class=w> </span><span class=k>as</span><span class=w> </span><span class=nn>np</span>
+<span class=kn>import</span><span class=w> </span><span class=nn>pandas</span><span class=w> </span><span class=k>as</span><span class=w> </span><span class=nn>pd</span>
 
-<span class=hll><span class=kn>from</span> <span class=nn>vtkmodules.vtkCommonCore</span> <span class=kn>import</span> <span class=n>vtkPoints</span><span class=p>,</span> <span class=n>vtkIdList</span><span class=p>,</span> <span class=n>vtkLookupTable</span>
-</span><span class=hll><span class=kn>from</span> <span class=nn>vtkmodules.vtkCommonDataModel</span> <span class=kn>import</span> <span class=n>vtkUnstructuredGrid</span><span class=p>,</span> <span class=n>vtkCellArray</span>
-</span><span class=hll><span class=kn>from</span> <span class=nn>vtkmodules.vtkFiltersCore</span> <span class=kn>import</span> <span class=n>vtkThreshold</span>
-</span><span class=hll><span class=kn>from</span> <span class=nn>vtkmodules.numpy_interface.dataset_adapter</span> <span class=kn>import</span> <span class=n>numpyTovtkDataArray</span> <span class=k>as</span> <span class=n>np2da</span>
-</span><span class=kn>from</span> <span class=nn>vtkmodules.util</span> <span class=kn>import</span> <span class=n>vtkConstants</span>
+<span class=hll><span class=kn>from</span><span class=w> </span><span class=nn>vtkmodules.vtkCommonCore</span><span class=w> </span><span class=kn>import</span> <span class=n>vtkPoints</span><span class=p>,</span> <span class=n>vtkIdList</span><span class=p>,</span> <span class=n>vtkLookupTable</span>
+</span><span class=hll><span class=kn>from</span><span class=w> </span><span class=nn>vtkmodules.vtkCommonDataModel</span><span class=w> </span><span class=kn>import</span> <span class=n>vtkUnstructuredGrid</span><span class=p>,</span> <span class=n>vtkCellArray</span>
+</span><span class=hll><span class=kn>from</span><span class=w> </span><span class=nn>vtkmodules.vtkFiltersCore</span><span class=w> </span><span class=kn>import</span> <span class=n>vtkThreshold</span>
+</span><span class=hll><span class=kn>from</span><span class=w> </span><span class=nn>vtkmodules.numpy_interface.dataset_adapter</span><span class=w> </span><span class=kn>import</span> <span class=n>numpyTovtkDataArray</span> <span class=k>as</span> <span class=n>np2da</span>
+</span><span class=kn>from</span><span class=w> </span><span class=nn>vtkmodules.util</span><span class=w> </span><span class=kn>import</span> <span class=n>vtkConstants</span>
 
 <span class=c1># Add import for the rendering</span>
-<span class=kn>from</span> <span class=nn>vtkmodules.vtkInteractionStyle</span> <span class=kn>import</span> <span class=n>vtkInteractorStyleSwitch</span>  <span class=c1># noqa</span>
-<span class=kn>import</span> <span class=nn>vtkmodules.vtkRenderingOpenGL2</span>  <span class=c1># noqa</span>
-<span class=kn>from</span> <span class=nn>vtkmodules.vtkRenderingCore</span> <span class=kn>import</span> <span class=p>(</span>
+<span class=kn>from</span><span class=w> </span><span class=nn>vtkmodules.vtkInteractionStyle</span><span class=w> </span><span class=kn>import</span> <span class=n>vtkInteractorStyleSwitch</span>  <span class=c1># noqa</span>
+<span class=kn>import</span><span class=w> </span><span class=nn>vtkmodules.vtkRenderingOpenGL2</span>  <span class=c1># noqa</span>
+<span class=kn>from</span><span class=w> </span><span class=nn>vtkmodules.vtkRenderingCore</span><span class=w> </span><span class=kn>import</span> <span class=p>(</span>
 <span class=hll>    <span class=n>vtkActor</span><span class=p>,</span>
 </span><span class=hll>    <span class=n>vtkDataSetMapper</span><span class=p>,</span>
 </span><span class=hll>    <span class=n>vtkRenderer</span><span class=p>,</span>
@@ -435,9 +435,9 @@ function registerListener(event, func) {
 </span><span class=hll>    <span class=n>vtkRenderWindowInteractor</span><span class=p>,</span>
 </span><span class=p>)</span>
 
-<span class=kn>from</span> <span class=nn>trame.app</span> <span class=kn>import</span> <span class=n>get_server</span>
-<span class=kn>from</span> <span class=nn>trame.ui.vuetify</span> <span class=kn>import</span> <span class=n>SinglePageLayout</span>
-<span class=kn>from</span> <span class=nn>trame.widgets</span> <span class=kn>import</span> <span class=n>vuetify</span><span class=p>,</span> <span class=n>vtk</span>
+<span class=kn>from</span><span class=w> </span><span class=nn>trame.app</span><span class=w> </span><span class=kn>import</span> <span class=n>get_server</span>
+<span class=kn>from</span><span class=w> </span><span class=nn>trame.ui.vuetify</span><span class=w> </span><span class=kn>import</span> <span class=n>SinglePageLayout</span>
+<span class=kn>from</span><span class=w> </span><span class=nn>trame.widgets</span><span class=w> </span><span class=kn>import</span> <span class=n>vuetify</span><span class=p>,</span> <span class=n>vtk</span>
 
 <span class=c1># -----------------------------------------------------------------------------</span>
 <span class=c1># Trame setup</span>
@@ -485,7 +485,7 @@ function registerListener(event, func) {
 
 
 <span class=nd>@state</span><span class=o>.</span><span class=n>change</span><span class=p>(</span><span class=s2>&quot;nodes_file&quot;</span><span class=p>,</span> <span class=s2>&quot;elems_file&quot;</span><span class=p>,</span> <span class=s2>&quot;field_file&quot;</span><span class=p>)</span>
-<span class=k>def</span> <span class=nf>update_grid</span><span class=p>(</span><span class=n>nodes_file</span><span class=p>,</span> <span class=n>elems_file</span><span class=p>,</span> <span class=n>field_file</span><span class=p>,</span> <span class=o>**</span><span class=n>kwargs</span><span class=p>):</span>
+<span class=k>def</span><span class=w> </span><span class=nf>update_grid</span><span class=p>(</span><span class=n>nodes_file</span><span class=p>,</span> <span class=n>elems_file</span><span class=p>,</span> <span class=n>field_file</span><span class=p>,</span> <span class=o>**</span><span class=n>kwargs</span><span class=p>):</span>
     <span class=k>if</span> <span class=ow>not</span> <span class=n>nodes_file</span><span class=p>:</span>
         <span class=k>return</span>
 
@@ -622,7 +622,7 @@ function registerListener(event, func) {
 
 
 <span class=nd>@state</span><span class=o>.</span><span class=n>change</span><span class=p>(</span><span class=s2>&quot;threshold_range&quot;</span><span class=p>)</span>
-<span class=k>def</span> <span class=nf>update_filter</span><span class=p>(</span><span class=n>threshold_range</span><span class=p>,</span> <span class=o>**</span><span class=n>kwargs</span><span class=p>):</span>
+<span class=k>def</span><span class=w> </span><span class=nf>update_filter</span><span class=p>(</span><span class=n>threshold_range</span><span class=p>,</span> <span class=o>**</span><span class=n>kwargs</span><span class=p>):</span>
     <span class=c1># Comment if you want to have a fix color range</span>
     <span class=n>filter_mapper</span><span class=o>.</span><span class=n>SetScalarRange</span><span class=p>(</span><span class=n>threshold_range</span><span class=p>)</span>
     <span class=n>vtk_filter</span><span class=o>.</span><span class=n>SetLowerThreshold</span><span class=p>(</span><span class=n>threshold_range</span><span class=p>[</span><span class=mi>0</span><span class=p>])</span>
@@ -631,7 +631,7 @@ function registerListener(event, func) {
 
 
 <span class=nd>@state</span><span class=o>.</span><span class=n>change</span><span class=p>(</span><span class=s2>&quot;mesh_status&quot;</span><span class=p>)</span>
-<span class=k>def</span> <span class=nf>update_mesh_representations</span><span class=p>(</span><span class=o>**</span><span class=n>kwargs</span><span class=p>):</span>
+<span class=k>def</span><span class=w> </span><span class=nf>update_mesh_representations</span><span class=p>(</span><span class=o>**</span><span class=n>kwargs</span><span class=p>):</span>
     <span class=c1># defaults</span>
     <span class=n>color</span> <span class=o>=</span> <span class=p>[</span><span class=mi>1</span><span class=p>,</span> <span class=mi>1</span><span class=p>,</span> <span class=mi>1</span><span class=p>]</span>
     <span class=n>representation</span> <span class=o>=</span> <span class=mi>2</span>
@@ -649,7 +649,7 @@ function registerListener(event, func) {
     <span class=n>ctrl</span><span class=o>.</span><span class=n>view_update</span><span class=p>()</span>
 
 
-<span class=k>def</span> <span class=nf>reset</span><span class=p>():</span>
+<span class=k>def</span><span class=w> </span><span class=nf>reset</span><span class=p>():</span>
     <span class=n>state</span><span class=o>.</span><span class=n>update</span><span class=p>(</span>
         <span class=p>{</span>
             <span class=s2>&quot;nodes_file&quot;</span><span class=p>:</span> <span class=kc>None</span><span class=p>,</span>
@@ -748,7 +748,7 @@ function registerListener(event, func) {
 <span class=n>parser</span><span class=o>.</span><span class=n>add_argument</span><span class=p>(</span><span class=s2>&quot;--data&quot;</span><span class=p>,</span> <span class=n>help</span><span class=o>=</span><span class=s2>&quot;Unstructured file path&quot;</span><span class=p>,</span> <span class=n>dest</span><span class=o>=</span><span class=s2>&quot;data&quot;</span><span class=p>)</span>
 <span class=n>args</span> <span class=o>=</span> <span class=n>parser</span><span class=o>.</span><span class=n>parse_args</span><span class=p>()</span>
 <span class=k>if</span> <span class=n>args</span><span class=o>.</span><span class=n>data</span><span class=p>:</span>
-<span class=hll>    <span class=kn>from</span> <span class=nn>vtkmodules.vtkIOXML</span> <span class=kn>import</span> <span class=n>vtkXMLUnstructuredGridReader</span>
+<span class=hll>    <span class=kn>from</span><span class=w> </span><span class=nn>vtkmodules.vtkIOXML</span><span class=w> </span><span class=kn>import</span> <span class=n>vtkXMLUnstructuredGridReader</span>
 </span>
 <span class=hll>    <span class=n>reader</span> <span class=o>=</span> <span class=n>vtkXMLUnstructuredGridReader</span><span class=p>()</span>
 </span>    <span class=n>reader</span><span class=o>.</span><span class=n>SetFileName</span><span class=p>(</span><span class=n>os</span><span class=o>.</span><span class=n>path</span><span class=o>.</span><span class=n>abspath</span><span class=p>(</span><span class=n>args</span><span class=o>.</span><span class=n>data</span><span class=p>))</span>
@@ -773,20 +773,20 @@ function registerListener(event, func) {
 <span class=sd>Delta v1..v2          - https://github.com/Kitware/trame/commit/03f28bb0084490acabf218264b96a1dbb3a17f19</span>
 <span class=sd>&quot;&quot;&quot;</span>
 
-<span class=kn>import</span> <span class=nn>os</span>
-<span class=kn>import</span> <span class=nn>io</span>
-<span class=kn>import</span> <span class=nn>numpy</span> <span class=k>as</span> <span class=nn>np</span>
-<span class=kn>import</span> <span class=nn>pandas</span> <span class=k>as</span> <span class=nn>pd</span>
+<span class=kn>import</span><span class=w> </span><span class=nn>os</span>
+<span class=kn>import</span><span class=w> </span><span class=nn>io</span>
+<span class=kn>import</span><span class=w> </span><span class=nn>numpy</span><span class=w> </span><span class=k>as</span><span class=w> </span><span class=nn>np</span>
+<span class=kn>import</span><span class=w> </span><span class=nn>pandas</span><span class=w> </span><span class=k>as</span><span class=w> </span><span class=nn>pd</span>
 
-<span class=hll><span class=kn>from</span> <span class=nn>vtkmodules.vtkCommonCore</span> <span class=kn>import</span> <span class=n>vtkPoints</span><span class=p>,</span> <span class=n>vtkIdList</span>
-</span><span class=hll><span class=kn>from</span> <span class=nn>vtkmodules.vtkCommonDataModel</span> <span class=kn>import</span> <span class=n>vtkUnstructuredGrid</span><span class=p>,</span> <span class=n>vtkCellArray</span>
-</span><span class=hll><span class=kn>from</span> <span class=nn>vtkmodules.vtkFiltersCore</span> <span class=kn>import</span> <span class=n>vtkThreshold</span>
-</span><span class=hll><span class=kn>from</span> <span class=nn>vtkmodules.numpy_interface.dataset_adapter</span> <span class=kn>import</span> <span class=n>numpyTovtkDataArray</span> <span class=k>as</span> <span class=n>np2da</span>
-</span><span class=kn>from</span> <span class=nn>vtkmodules.util</span> <span class=kn>import</span> <span class=n>vtkConstants</span>
+<span class=hll><span class=kn>from</span><span class=w> </span><span class=nn>vtkmodules.vtkCommonCore</span><span class=w> </span><span class=kn>import</span> <span class=n>vtkPoints</span><span class=p>,</span> <span class=n>vtkIdList</span>
+</span><span class=hll><span class=kn>from</span><span class=w> </span><span class=nn>vtkmodules.vtkCommonDataModel</span><span class=w> </span><span class=kn>import</span> <span class=n>vtkUnstructuredGrid</span><span class=p>,</span> <span class=n>vtkCellArray</span>
+</span><span class=hll><span class=kn>from</span><span class=w> </span><span class=nn>vtkmodules.vtkFiltersCore</span><span class=w> </span><span class=kn>import</span> <span class=n>vtkThreshold</span>
+</span><span class=hll><span class=kn>from</span><span class=w> </span><span class=nn>vtkmodules.numpy_interface.dataset_adapter</span><span class=w> </span><span class=kn>import</span> <span class=n>numpyTovtkDataArray</span> <span class=k>as</span> <span class=n>np2da</span>
+</span><span class=kn>from</span><span class=w> </span><span class=nn>vtkmodules.util</span><span class=w> </span><span class=kn>import</span> <span class=n>vtkConstants</span>
 
-<span class=kn>from</span> <span class=nn>trame.app</span> <span class=kn>import</span> <span class=n>get_server</span>
-<span class=kn>from</span> <span class=nn>trame.ui.vuetify</span> <span class=kn>import</span> <span class=n>SinglePageLayout</span>
-<span class=kn>from</span> <span class=nn>trame.widgets</span> <span class=kn>import</span> <span class=n>vuetify</span><span class=p>,</span> <span class=n>vtk</span><span class=p>,</span> <span class=n>trame</span>
+<span class=kn>from</span><span class=w> </span><span class=nn>trame.app</span><span class=w> </span><span class=kn>import</span> <span class=n>get_server</span>
+<span class=kn>from</span><span class=w> </span><span class=nn>trame.ui.vuetify</span><span class=w> </span><span class=kn>import</span> <span class=n>SinglePageLayout</span>
+<span class=kn>from</span><span class=w> </span><span class=nn>trame.widgets</span><span class=w> </span><span class=kn>import</span> <span class=n>vuetify</span><span class=p>,</span> <span class=n>vtk</span><span class=p>,</span> <span class=n>trame</span>
 
 <span class=c1># -----------------------------------------------------------------------------</span>
 <span class=c1># Constants</span>
@@ -821,7 +821,7 @@ function registerListener(event, func) {
 
 
 <span class=nd>@state</span><span class=o>.</span><span class=n>change</span><span class=p>(</span><span class=s2>&quot;nodes_file&quot;</span><span class=p>,</span> <span class=s2>&quot;elems_file&quot;</span><span class=p>,</span> <span class=s2>&quot;field_file&quot;</span><span class=p>)</span>
-<span class=k>def</span> <span class=nf>update_grid</span><span class=p>(</span><span class=n>nodes_file</span><span class=p>,</span> <span class=n>elems_file</span><span class=p>,</span> <span class=n>field_file</span><span class=p>,</span> <span class=o>**</span><span class=n>kwargs</span><span class=p>):</span>
+<span class=k>def</span><span class=w> </span><span class=nf>update_grid</span><span class=p>(</span><span class=n>nodes_file</span><span class=p>,</span> <span class=n>elems_file</span><span class=p>,</span> <span class=n>field_file</span><span class=p>,</span> <span class=o>**</span><span class=n>kwargs</span><span class=p>):</span>
     <span class=n>state</span><span class=o>.</span><span class=n>picking_modes</span> <span class=o>=</span> <span class=p>[]</span>
     <span class=k>if</span> <span class=ow>not</span> <span class=n>nodes_file</span><span class=p>:</span>
         <span class=k>return</span>
@@ -942,13 +942,13 @@ function registerListener(event, func) {
 
 
 <span class=nd>@state</span><span class=o>.</span><span class=n>change</span><span class=p>(</span><span class=s2>&quot;threshold_range&quot;</span><span class=p>)</span>
-<span class=k>def</span> <span class=nf>update_filter</span><span class=p>(</span><span class=n>threshold_range</span><span class=p>,</span> <span class=o>**</span><span class=n>kwargs</span><span class=p>):</span>
+<span class=k>def</span><span class=w> </span><span class=nf>update_filter</span><span class=p>(</span><span class=n>threshold_range</span><span class=p>,</span> <span class=o>**</span><span class=n>kwargs</span><span class=p>):</span>
     <span class=n>vtk_filter</span><span class=o>.</span><span class=n>SetLowerThreshold</span><span class=p>(</span><span class=n>threshold_range</span><span class=p>[</span><span class=mi>0</span><span class=p>])</span>
     <span class=n>vtk_filter</span><span class=o>.</span><span class=n>SetUpperThreshold</span><span class=p>(</span><span class=n>threshold_range</span><span class=p>[</span><span class=mi>1</span><span class=p>])</span>
     <span class=n>ctrl</span><span class=o>.</span><span class=n>threshold_update</span><span class=p>()</span>
 
 
-<span class=k>def</span> <span class=nf>reset</span><span class=p>():</span>
+<span class=k>def</span><span class=w> </span><span class=nf>reset</span><span class=p>():</span>
     <span class=n>state</span><span class=o>.</span><span class=n>update</span><span class=p>(</span>
         <span class=p>{</span>
             <span class=s2>&quot;mesh&quot;</span><span class=p>:</span> <span class=kc>None</span><span class=p>,</span>
@@ -961,7 +961,7 @@ function registerListener(event, func) {
 
 
 <span class=nd>@state</span><span class=o>.</span><span class=n>change</span><span class=p>(</span><span class=s2>&quot;pick_data&quot;</span><span class=p>)</span>
-<span class=k>def</span> <span class=nf>update_tooltip</span><span class=p>(</span><span class=n>pick_data</span><span class=p>,</span> <span class=n>pixel_ratio</span><span class=p>,</span> <span class=o>**</span><span class=n>kwargs</span><span class=p>):</span>
+<span class=k>def</span><span class=w> </span><span class=nf>update_tooltip</span><span class=p>(</span><span class=n>pick_data</span><span class=p>,</span> <span class=n>pixel_ratio</span><span class=p>,</span> <span class=o>**</span><span class=n>kwargs</span><span class=p>):</span>
     <span class=n>state</span><span class=o>.</span><span class=n>tooltip</span> <span class=o>=</span> <span class=s2>&quot;&quot;</span>
     <span class=n>state</span><span class=o>.</span><span class=n>tooltip_style</span> <span class=o>=</span> <span class=p>{</span><span class=s2>&quot;display&quot;</span><span class=p>:</span> <span class=s2>&quot;none&quot;</span><span class=p>}</span>
     <span class=n>data</span> <span class=o>=</span> <span class=n>pick_data</span>
@@ -1121,7 +1121,7 @@ function registerListener(event, func) {
 <span class=n>parser</span><span class=o>.</span><span class=n>add_argument</span><span class=p>(</span><span class=s2>&quot;--data&quot;</span><span class=p>,</span> <span class=n>help</span><span class=o>=</span><span class=s2>&quot;Unstructured file path&quot;</span><span class=p>,</span> <span class=n>dest</span><span class=o>=</span><span class=s2>&quot;data&quot;</span><span class=p>)</span>
 <span class=n>args</span> <span class=o>=</span> <span class=n>parser</span><span class=o>.</span><span class=n>parse_args</span><span class=p>()</span>
 <span class=k>if</span> <span class=n>args</span><span class=o>.</span><span class=n>data</span><span class=p>:</span>
-<span class=hll>    <span class=kn>from</span> <span class=nn>vtkmodules.vtkIOXML</span> <span class=kn>import</span> <span class=n>vtkXMLUnstructuredGridReader</span>
+<span class=hll>    <span class=kn>from</span><span class=w> </span><span class=nn>vtkmodules.vtkIOXML</span><span class=w> </span><span class=kn>import</span> <span class=n>vtkXMLUnstructuredGridReader</span>
 </span>
 <span class=hll>    <span class=n>reader</span> <span class=o>=</span> <span class=n>vtkXMLUnstructuredGridReader</span><span class=p>()</span>
 </span>    <span class=n>reader</span><span class=o>.</span><span class=n>SetFileName</span><span class=p>(</span><span class=n>os</span><span class=o>.</span><span class=n>path</span><span class=o>.</span><span class=n>abspath</span><span class=p>(</span><span class=n>args</span><span class=o>.</span><span class=n>data</span><span class=p>))</span>

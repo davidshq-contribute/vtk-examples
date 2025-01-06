@@ -59,20 +59,20 @@ function registerListener(event, func) {
 
 <span class=c1>#  Translated from Hanoi.cxx.</span>
 
-<span class=kn>from</span> <span class=nn>dataclasses</span> <span class=kn>import</span> <span class=n>dataclass</span>
-<span class=kn>from</span> <span class=nn>pathlib</span> <span class=kn>import</span> <span class=n>Path</span>
+<span class=kn>from</span><span class=w> </span><span class=nn>dataclasses</span><span class=w> </span><span class=kn>import</span> <span class=n>dataclass</span>
+<span class=kn>from</span><span class=w> </span><span class=nn>pathlib</span><span class=w> </span><span class=kn>import</span> <span class=n>Path</span>
 
 <span class=c1># noinspection PyUnresolvedReferences</span>
-<span class=kn>import</span> <span class=nn>vtkmodules.vtkInteractionStyle</span>
+<span class=kn>import</span><span class=w> </span><span class=nn>vtkmodules.vtkInteractionStyle</span>
 <span class=c1># noinspection PyUnresolvedReferences</span>
-<span class=kn>import</span> <span class=nn>vtkmodules.vtkRenderingOpenGL2</span>
-<span class=hll><span class=kn>from</span> <span class=nn>vtkmodules.vtkCommonColor</span> <span class=kn>import</span> <span class=n>vtkNamedColors</span>
-</span><span class=hll><span class=kn>from</span> <span class=nn>vtkmodules.vtkCommonCore</span> <span class=kn>import</span> <span class=n>vtkMinimalStandardRandomSequence</span>
-</span><span class=kn>from</span> <span class=nn>vtkmodules.vtkFiltersSources</span> <span class=kn>import</span> <span class=p>(</span>
+<span class=kn>import</span><span class=w> </span><span class=nn>vtkmodules.vtkRenderingOpenGL2</span>
+<span class=hll><span class=kn>from</span><span class=w> </span><span class=nn>vtkmodules.vtkCommonColor</span><span class=w> </span><span class=kn>import</span> <span class=n>vtkNamedColors</span>
+</span><span class=hll><span class=kn>from</span><span class=w> </span><span class=nn>vtkmodules.vtkCommonCore</span><span class=w> </span><span class=kn>import</span> <span class=n>vtkMinimalStandardRandomSequence</span>
+</span><span class=kn>from</span><span class=w> </span><span class=nn>vtkmodules.vtkFiltersSources</span><span class=w> </span><span class=kn>import</span> <span class=p>(</span>
 <span class=hll>    <span class=n>vtkCylinderSource</span><span class=p>,</span>
 </span><span class=hll>    <span class=n>vtkPlaneSource</span>
 </span><span class=p>)</span>
-<span class=kn>from</span> <span class=nn>vtkmodules.vtkIOImage</span> <span class=kn>import</span> <span class=p>(</span>
+<span class=kn>from</span><span class=w> </span><span class=nn>vtkmodules.vtkIOImage</span><span class=w> </span><span class=kn>import</span> <span class=p>(</span>
 <span class=hll>    <span class=n>vtkBMPWriter</span><span class=p>,</span>
 </span><span class=hll>    <span class=n>vtkJPEGWriter</span><span class=p>,</span>
 </span><span class=hll>    <span class=n>vtkPNGWriter</span><span class=p>,</span>
@@ -80,7 +80,7 @@ function registerListener(event, func) {
 </span><span class=hll>    <span class=n>vtkPostScriptWriter</span><span class=p>,</span>
 </span><span class=hll>    <span class=n>vtkTIFFWriter</span>
 </span><span class=p>)</span>
-<span class=kn>from</span> <span class=nn>vtkmodules.vtkRenderingCore</span> <span class=kn>import</span> <span class=p>(</span>
+<span class=kn>from</span><span class=w> </span><span class=nn>vtkmodules.vtkRenderingCore</span><span class=w> </span><span class=kn>import</span> <span class=p>(</span>
 <span class=hll>    <span class=n>vtkActor</span><span class=p>,</span>
 </span><span class=hll>    <span class=n>vtkCamera</span><span class=p>,</span>
 </span><span class=hll>    <span class=n>vtkPolyDataMapper</span><span class=p>,</span>
@@ -91,8 +91,8 @@ function registerListener(event, func) {
 </span><span class=p>)</span>
 
 
-<span class=k>def</span> <span class=nf>get_program_parameters</span><span class=p>():</span>
-    <span class=kn>import</span> <span class=nn>argparse</span>
+<span class=k>def</span><span class=w> </span><span class=nf>get_program_parameters</span><span class=p>():</span>
+    <span class=kn>import</span><span class=w> </span><span class=nn>argparse</span>
     <span class=n>description</span> <span class=o>=</span> <span class=s1>&#39;Towers of Hanoi. .&#39;</span>
     <span class=n>epilogue</span> <span class=o>=</span> <span class=s1>&#39;&#39;&#39;</span>
 <span class=s1>Where:  -p specifies the number of pucks.</span>
@@ -119,12 +119,12 @@ function registerListener(event, func) {
     <span class=k>return</span> <span class=n>args</span><span class=o>.</span><span class=n>number_of_pucks</span><span class=p>,</span> <span class=n>args</span><span class=o>.</span><span class=n>number_of_steps</span><span class=p>,</span> <span class=n>args</span><span class=o>.</span><span class=n>puck_resolution</span><span class=p>,</span> <span class=n>args</span><span class=o>.</span><span class=n>configuration</span>
 
 
-<span class=k>class</span> <span class=nc>GV</span><span class=p>:</span>
+<span class=k>class</span><span class=w> </span><span class=nc>GV</span><span class=p>:</span>
 <span class=w>    </span><span class=sd>&quot;&quot;&quot;</span>
 <span class=sd>    Used to store global variables.</span>
 <span class=sd>    &quot;&quot;&quot;</span>
 
-    <span class=k>def</span> <span class=fm>__init__</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>number_of_pucks</span><span class=o>=</span><span class=mi>5</span><span class=p>,</span> <span class=n>number_of_steps</span><span class=o>=</span><span class=mi>5</span><span class=p>,</span> <span class=n>puck_resolution</span><span class=o>=</span><span class=mi>48</span><span class=p>,</span> <span class=n>configuration</span><span class=o>=</span><span class=mi>0</span><span class=p>):</span>
+    <span class=k>def</span><span class=w> </span><span class=fm>__init__</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>number_of_pucks</span><span class=o>=</span><span class=mi>5</span><span class=p>,</span> <span class=n>number_of_steps</span><span class=o>=</span><span class=mi>5</span><span class=p>,</span> <span class=n>puck_resolution</span><span class=o>=</span><span class=mi>48</span><span class=p>,</span> <span class=n>configuration</span><span class=o>=</span><span class=mi>0</span><span class=p>):</span>
         <span class=bp>self</span><span class=o>.</span><span class=n>number_of_pucks</span> <span class=o>=</span> <span class=n>number_of_pucks</span>
         <span class=bp>self</span><span class=o>.</span><span class=n>number_of_steps</span> <span class=o>=</span> <span class=n>number_of_steps</span>
         <span class=bp>self</span><span class=o>.</span><span class=n>puck_resolution</span> <span class=o>=</span> <span class=n>puck_resolution</span>
@@ -138,7 +138,7 @@ function registerListener(event, func) {
         <span class=bp>self</span><span class=o>.</span><span class=n>distance_between_pegs</span> <span class=o>=</span> <span class=mf>1.1</span> <span class=o>*</span> <span class=mf>1.25</span> <span class=o>*</span> <span class=bp>self</span><span class=o>.</span><span class=n>r_max</span>  <span class=c1># The distance between the pegs.</span>
         <span class=bp>self</span><span class=o>.</span><span class=n>number_of_moves</span> <span class=o>=</span> <span class=mi>0</span>
 
-    <span class=k>def</span> <span class=nf>update</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>number_of_pucks</span><span class=p>,</span> <span class=n>number_of_steps</span><span class=p>,</span> <span class=n>puck_resolution</span><span class=p>,</span> <span class=n>configuration</span><span class=p>):</span>
+    <span class=k>def</span><span class=w> </span><span class=nf>update</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>number_of_pucks</span><span class=p>,</span> <span class=n>number_of_steps</span><span class=p>,</span> <span class=n>puck_resolution</span><span class=p>,</span> <span class=n>configuration</span><span class=p>):</span>
         <span class=bp>self</span><span class=o>.</span><span class=n>number_of_pucks</span> <span class=o>=</span> <span class=n>number_of_pucks</span>
         <span class=bp>self</span><span class=o>.</span><span class=n>number_of_steps</span> <span class=o>=</span> <span class=n>number_of_steps</span>
         <span class=bp>self</span><span class=o>.</span><span class=n>puck_resolution</span> <span class=o>=</span> <span class=n>puck_resolution</span>
@@ -159,7 +159,7 @@ function registerListener(event, func) {
 <span class=hll><span class=n>peg_stack</span> <span class=o>=</span> <span class=p>[[</span><span class=n>vtkActor</span><span class=p>],</span> <span class=p>[</span><span class=n>vtkActor</span><span class=p>],</span> <span class=p>[</span><span class=n>vtkActor</span><span class=p>]]</span>
 </span>
 
-<span class=k>def</span> <span class=nf>hanoi</span><span class=p>():</span>
+<span class=k>def</span><span class=w> </span><span class=nf>hanoi</span><span class=p>():</span>
 
 <span class=hll>    <span class=n>colors</span> <span class=o>=</span> <span class=n>vtkNamedColors</span><span class=p>()</span>
 </span>
@@ -254,7 +254,7 @@ function registerListener(event, func) {
     <span class=n>iren</span><span class=o>.</span><span class=n>Start</span><span class=p>()</span>
 
 
-<span class=k>def</span> <span class=nf>verify_parameters</span><span class=p>(</span><span class=n>max_pucks</span><span class=p>):</span>
+<span class=k>def</span><span class=w> </span><span class=nf>verify_parameters</span><span class=p>(</span><span class=n>max_pucks</span><span class=p>):</span>
     <span class=n>number_of_pucks</span><span class=p>,</span> <span class=n>number_of_steps</span><span class=p>,</span> <span class=n>puck_resolution</span><span class=p>,</span> <span class=n>configuration</span> <span class=o>=</span> <span class=n>get_program_parameters</span><span class=p>()</span>
     <span class=n>number_of_pucks</span> <span class=o>=</span> <span class=nb>abs</span><span class=p>(</span><span class=n>number_of_pucks</span><span class=p>)</span>
     <span class=n>number_of_steps</span> <span class=o>=</span> <span class=nb>abs</span><span class=p>(</span><span class=n>number_of_steps</span><span class=p>)</span>
@@ -278,7 +278,7 @@ function registerListener(event, func) {
     <span class=k>return</span> <span class=n>check</span>
 
 
-<span class=k>def</span> <span class=nf>move_puck</span><span class=p>(</span><span class=n>peg1</span><span class=p>,</span> <span class=n>peg2</span><span class=p>):</span>
+<span class=k>def</span><span class=w> </span><span class=nf>move_puck</span><span class=p>(</span><span class=n>peg1</span><span class=p>,</span> <span class=n>peg2</span><span class=p>):</span>
 <span class=w>    </span><span class=sd>&quot;&quot;&quot;</span>
 <span class=sd>    This routine is responsible for moving pucks from peg1 to peg2.</span>
 <span class=sd>    :param peg1: Initial peg.</span>
@@ -332,7 +332,7 @@ function registerListener(event, func) {
     <span class=n>peg_stack</span><span class=p>[</span><span class=n>peg2</span><span class=p>]</span><span class=o>.</span><span class=n>append</span><span class=p>(</span><span class=n>moving_actor</span><span class=p>)</span>
 
 
-<span class=k>def</span> <span class=nf>tower_of_hanoi</span><span class=p>(</span><span class=n>n</span><span class=p>,</span> <span class=n>peg1</span><span class=p>,</span> <span class=n>peg2</span><span class=p>,</span> <span class=n>peg3</span><span class=p>):</span>
+<span class=k>def</span><span class=w> </span><span class=nf>tower_of_hanoi</span><span class=p>(</span><span class=n>n</span><span class=p>,</span> <span class=n>peg1</span><span class=p>,</span> <span class=n>peg2</span><span class=p>,</span> <span class=n>peg3</span><span class=p>):</span>
 <span class=w>    </span><span class=sd>&quot;&quot;&quot;</span>
 <span class=sd>    Tower of Hanoi.</span>
 <span class=sd>    :param n: Number of disks.</span>
@@ -354,18 +354,18 @@ function registerListener(event, func) {
         <span class=n>move_puck</span><span class=p>(</span><span class=n>peg1</span><span class=p>,</span> <span class=n>peg2</span><span class=p>)</span>
 
 
-<span class=k>class</span> <span class=nc>OrientationObserver</span><span class=p>:</span>
-    <span class=k>def</span> <span class=fm>__init__</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>cam</span><span class=p>):</span>
+<span class=k>class</span><span class=w> </span><span class=nc>OrientationObserver</span><span class=p>:</span>
+    <span class=k>def</span><span class=w> </span><span class=fm>__init__</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>cam</span><span class=p>):</span>
         <span class=bp>self</span><span class=o>.</span><span class=n>cam</span> <span class=o>=</span> <span class=n>cam</span>
 
-    <span class=k>def</span> <span class=fm>__call__</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>caller</span><span class=p>,</span> <span class=n>ev</span><span class=p>):</span>
+    <span class=k>def</span><span class=w> </span><span class=fm>__call__</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>caller</span><span class=p>,</span> <span class=n>ev</span><span class=p>):</span>
         <span class=c1># Just do this to demonstrate who called callback and the event that triggered it.</span>
         <span class=nb>print</span><span class=p>(</span><span class=n>caller</span><span class=o>.</span><span class=n>class_name</span><span class=p>,</span> <span class=s1>&#39;Event Id:&#39;</span><span class=p>,</span> <span class=n>ev</span><span class=p>)</span>
         <span class=c1># Now print the camera orientation.</span>
         <span class=n>camera_orientation</span><span class=p>(</span><span class=bp>self</span><span class=o>.</span><span class=n>cam</span><span class=p>)</span>
 
 
-<span class=k>def</span> <span class=nf>camera_orientation</span><span class=p>(</span><span class=n>cam</span><span class=p>):</span>
+<span class=k>def</span><span class=w> </span><span class=nf>camera_orientation</span><span class=p>(</span><span class=n>cam</span><span class=p>):</span>
     <span class=n>res</span> <span class=o>=</span> <span class=sa>f</span><span class=s1>&#39;</span><span class=se>\t</span><span class=s1>camera = ren.active_camera</span><span class=se>\n</span><span class=s1>&#39;</span>
     <span class=n>res</span> <span class=o>+=</span> <span class=sa>f</span><span class=s1>&#39;</span><span class=se>\t</span><span class=s1>camera.position = (</span><span class=si>{</span><span class=s2>&quot;, &quot;</span><span class=o>.</span><span class=n>join</span><span class=p>(</span><span class=nb>map</span><span class=p>(</span><span class=s2>&quot;</span><span class=si>{0:0.6f}</span><span class=s2>&quot;</span><span class=o>.</span><span class=n>format</span><span class=p>,</span><span class=w> </span><span class=n>cam</span><span class=o>.</span><span class=n>position</span><span class=p>))</span><span class=si>}</span><span class=s1>)</span><span class=se>\n</span><span class=s1>&#39;</span>
     <span class=n>res</span> <span class=o>+=</span> <span class=sa>f</span><span class=s1>&#39;</span><span class=se>\t</span><span class=s1>camera.focal_point = (</span><span class=si>{</span><span class=s2>&quot;, &quot;</span><span class=o>.</span><span class=n>join</span><span class=p>(</span><span class=nb>map</span><span class=p>(</span><span class=s2>&quot;</span><span class=si>{0:0.6f}</span><span class=s2>&quot;</span><span class=o>.</span><span class=n>format</span><span class=p>,</span><span class=w> </span><span class=n>cam</span><span class=o>.</span><span class=n>focal_point</span><span class=p>))</span><span class=si>}</span><span class=s1>)</span><span class=se>\n</span><span class=s1>&#39;</span>
@@ -375,7 +375,7 @@ function registerListener(event, func) {
     <span class=nb>print</span><span class=p>(</span><span class=n>res</span><span class=p>)</span>
 
 
-<span class=k>def</span> <span class=nf>write_image</span><span class=p>(</span><span class=n>file_name</span><span class=p>,</span> <span class=n>ren_window</span><span class=p>,</span> <span class=n>rgba</span><span class=o>=</span><span class=kc>True</span><span class=p>):</span>
+<span class=k>def</span><span class=w> </span><span class=nf>write_image</span><span class=p>(</span><span class=n>file_name</span><span class=p>,</span> <span class=n>ren_window</span><span class=p>,</span> <span class=n>rgba</span><span class=o>=</span><span class=kc>True</span><span class=p>):</span>
 <span class=w>    </span><span class=sd>&quot;&quot;&quot;</span>
 <span class=sd>    Write the render window view to an image file.</span>
 
@@ -436,15 +436,15 @@ function registerListener(event, func) {
 
 
 <span class=nd>@dataclass</span><span class=p>(</span><span class=n>frozen</span><span class=o>=</span><span class=kc>True</span><span class=p>)</span>
-<span class=k>class</span> <span class=nc>WindowToImageFilter</span><span class=p>:</span>
+<span class=k>class</span><span class=w> </span><span class=nc>WindowToImageFilter</span><span class=p>:</span>
     <span class=nd>@dataclass</span><span class=p>(</span><span class=n>frozen</span><span class=o>=</span><span class=kc>True</span><span class=p>)</span>
-    <span class=k>class</span> <span class=nc>InputBufferType</span><span class=p>:</span>
+    <span class=k>class</span><span class=w> </span><span class=nc>InputBufferType</span><span class=p>:</span>
         <span class=n>VTK_RGB</span><span class=p>:</span> <span class=nb>int</span> <span class=o>=</span> <span class=mi>3</span>
         <span class=n>VTK_RGBA</span><span class=p>:</span> <span class=nb>int</span> <span class=o>=</span> <span class=mi>4</span>
         <span class=n>VTK_ZBUFFER</span><span class=p>:</span> <span class=nb>int</span> <span class=o>=</span> <span class=mi>5</span>
 
 
-<span class=k>def</span> <span class=nf>main</span><span class=p>():</span>
+<span class=k>def</span><span class=w> </span><span class=nf>main</span><span class=p>():</span>
     <span class=n>max_pucks</span> <span class=o>=</span> <span class=mi>20</span>
     <span class=k>if</span> <span class=ow>not</span> <span class=n>verify_parameters</span><span class=p>(</span><span class=n>max_pucks</span><span class=p>):</span>
         <span class=k>return</span>

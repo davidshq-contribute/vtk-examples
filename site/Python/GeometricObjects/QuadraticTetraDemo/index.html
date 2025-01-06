@@ -59,28 +59,28 @@ function registerListener(event, func) {
 <span class=c1># -*- coding: utf-8 -*-</span>
 
 <span class=c1># noinspection PyUnresolvedReferences</span>
-<span class=kn>import</span> <span class=nn>vtkmodules.vtkInteractionStyle</span>
+<span class=kn>import</span><span class=w> </span><span class=nn>vtkmodules.vtkInteractionStyle</span>
 <span class=c1># noinspection PyUnresolvedReferences</span>
-<span class=kn>import</span> <span class=nn>vtkmodules.vtkRenderingOpenGL2</span>
-<span class=hll><span class=kn>from</span> <span class=nn>vtkmodules.vtkCommonColor</span> <span class=kn>import</span> <span class=n>vtkNamedColors</span>
-</span><span class=kn>from</span> <span class=nn>vtkmodules.vtkCommonCore</span> <span class=kn>import</span> <span class=p>(</span>
+<span class=kn>import</span><span class=w> </span><span class=nn>vtkmodules.vtkRenderingOpenGL2</span>
+<span class=hll><span class=kn>from</span><span class=w> </span><span class=nn>vtkmodules.vtkCommonColor</span><span class=w> </span><span class=kn>import</span> <span class=n>vtkNamedColors</span>
+</span><span class=kn>from</span><span class=w> </span><span class=nn>vtkmodules.vtkCommonCore</span><span class=w> </span><span class=kn>import</span> <span class=p>(</span>
 <span class=hll>    <span class=n>vtkCommand</span><span class=p>,</span>
 </span><span class=hll>    <span class=n>vtkMinimalStandardRandomSequence</span><span class=p>,</span>
 </span><span class=hll>    <span class=n>vtkPoints</span>
 </span><span class=p>)</span>
-<span class=kn>from</span> <span class=nn>vtkmodules.vtkCommonDataModel</span> <span class=kn>import</span> <span class=p>(</span>
+<span class=kn>from</span><span class=w> </span><span class=nn>vtkmodules.vtkCommonDataModel</span><span class=w> </span><span class=kn>import</span> <span class=p>(</span>
 <span class=hll>    <span class=n>vtkGenericCell</span><span class=p>,</span>
 </span><span class=hll>    <span class=n>vtkQuadraticTetra</span><span class=p>,</span>
 </span><span class=hll>    <span class=n>vtkUnstructuredGrid</span>
 </span><span class=p>)</span>
-<span class=hll><span class=kn>from</span> <span class=nn>vtkmodules.vtkFiltersCore</span> <span class=kn>import</span> <span class=n>vtkGlyph3D</span>
-</span><span class=hll><span class=kn>from</span> <span class=nn>vtkmodules.vtkFiltersGeneral</span> <span class=kn>import</span> <span class=n>vtkTessellatorFilter</span>
-</span><span class=hll><span class=kn>from</span> <span class=nn>vtkmodules.vtkFiltersSources</span> <span class=kn>import</span> <span class=n>vtkSphereSource</span>
-</span><span class=kn>from</span> <span class=nn>vtkmodules.vtkInteractionWidgets</span> <span class=kn>import</span> <span class=p>(</span>
+<span class=hll><span class=kn>from</span><span class=w> </span><span class=nn>vtkmodules.vtkFiltersCore</span><span class=w> </span><span class=kn>import</span> <span class=n>vtkGlyph3D</span>
+</span><span class=hll><span class=kn>from</span><span class=w> </span><span class=nn>vtkmodules.vtkFiltersGeneral</span><span class=w> </span><span class=kn>import</span> <span class=n>vtkTessellatorFilter</span>
+</span><span class=hll><span class=kn>from</span><span class=w> </span><span class=nn>vtkmodules.vtkFiltersSources</span><span class=w> </span><span class=kn>import</span> <span class=n>vtkSphereSource</span>
+</span><span class=kn>from</span><span class=w> </span><span class=nn>vtkmodules.vtkInteractionWidgets</span><span class=w> </span><span class=kn>import</span> <span class=p>(</span>
 <span class=hll>    <span class=n>vtkSliderRepresentation2D</span><span class=p>,</span>
 </span><span class=hll>    <span class=n>vtkSliderWidget</span>
 </span><span class=p>)</span>
-<span class=kn>from</span> <span class=nn>vtkmodules.vtkRenderingCore</span> <span class=kn>import</span> <span class=p>(</span>
+<span class=kn>from</span><span class=w> </span><span class=nn>vtkmodules.vtkRenderingCore</span><span class=w> </span><span class=kn>import</span> <span class=p>(</span>
 <span class=hll>    <span class=n>vtkActor</span><span class=p>,</span>
 </span><span class=hll>    <span class=n>vtkActor2D</span><span class=p>,</span>
 </span><span class=hll>    <span class=n>vtkDataSetMapper</span><span class=p>,</span>
@@ -92,7 +92,7 @@ function registerListener(event, func) {
 </span><span class=p>)</span>
 
 
-<span class=k>def</span> <span class=nf>main</span><span class=p>():</span>
+<span class=k>def</span><span class=w> </span><span class=nf>main</span><span class=p>():</span>
 <span class=hll>    <span class=n>namedColors</span> <span class=o>=</span> <span class=n>vtkNamedColors</span><span class=p>()</span>
 </span>
     <span class=n>uGrid</span> <span class=o>=</span> <span class=n>MakeQuadraticTetra</span><span class=p>()</span>
@@ -179,12 +179,12 @@ function registerListener(event, func) {
     <span class=n>interactor</span><span class=o>.</span><span class=n>Start</span><span class=p>()</span>
 
 
-<span class=k>class</span> <span class=nc>SliderCallbackChordError</span><span class=p>():</span>
-    <span class=k>def</span> <span class=fm>__init__</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>tessellate</span><span class=p>,</span> <span class=n>textMapper</span><span class=p>):</span>
+<span class=k>class</span><span class=w> </span><span class=nc>SliderCallbackChordError</span><span class=p>():</span>
+    <span class=k>def</span><span class=w> </span><span class=fm>__init__</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>tessellate</span><span class=p>,</span> <span class=n>textMapper</span><span class=p>):</span>
         <span class=bp>self</span><span class=o>.</span><span class=n>tessellate</span> <span class=o>=</span> <span class=n>tessellate</span>
         <span class=bp>self</span><span class=o>.</span><span class=n>textMapper</span> <span class=o>=</span> <span class=n>textMapper</span>
 
-    <span class=k>def</span> <span class=fm>__call__</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>caller</span><span class=p>,</span> <span class=n>ev</span><span class=p>):</span>
+    <span class=k>def</span><span class=w> </span><span class=fm>__call__</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>caller</span><span class=p>,</span> <span class=n>ev</span><span class=p>):</span>
         <span class=n>sliderWidget</span> <span class=o>=</span> <span class=n>caller</span>
         <span class=n>value</span> <span class=o>=</span> <span class=n>sliderWidget</span><span class=o>.</span><span class=n>GetRepresentation</span><span class=p>()</span><span class=o>.</span><span class=n>GetValue</span><span class=p>()</span>
         <span class=bp>self</span><span class=o>.</span><span class=n>tessellate</span><span class=o>.</span><span class=n>SetChordError</span><span class=p>(</span><span class=n>value</span><span class=p>)</span>
@@ -206,7 +206,7 @@ function registerListener(event, func) {
         <span class=bp>self</span><span class=o>.</span><span class=n>textMapper</span><span class=o>.</span><span class=n>SetInput</span><span class=p>(</span><span class=n>ss</span><span class=p>)</span>
 
 
-<span class=k>def</span> <span class=nf>MakeWidget</span><span class=p>(</span><span class=n>widget</span><span class=p>,</span> <span class=n>tessellate</span><span class=p>,</span> <span class=n>textMapper</span><span class=p>,</span> <span class=n>interactor</span><span class=p>):</span>
+<span class=k>def</span><span class=w> </span><span class=nf>MakeWidget</span><span class=p>(</span><span class=n>widget</span><span class=p>,</span> <span class=n>tessellate</span><span class=p>,</span> <span class=n>textMapper</span><span class=p>,</span> <span class=n>interactor</span><span class=p>):</span>
     <span class=c1># Setup a slider widget for each varying parameter</span>
     <span class=n>tubeWidth</span> <span class=o>=</span> <span class=mf>0.008</span>
     <span class=n>sliderLength</span> <span class=o>=</span> <span class=mf>0.008</span>
@@ -238,7 +238,7 @@ function registerListener(event, func) {
 <span class=hll>    <span class=n>widget</span><span class=o>.</span><span class=n>AddObserver</span><span class=p>(</span><span class=n>vtkCommand</span><span class=o>.</span><span class=n>InteractionEvent</span><span class=p>,</span> <span class=n>SliderCallbackChordError</span><span class=p>(</span><span class=n>tessellate</span><span class=p>,</span> <span class=n>textMapper</span><span class=p>))</span>
 </span>
 
-<span class=k>def</span> <span class=nf>MakeQuadraticTetra</span><span class=p>():</span>
+<span class=k>def</span><span class=w> </span><span class=nf>MakeQuadraticTetra</span><span class=p>():</span>
 <span class=hll>    <span class=n>aTetra</span> <span class=o>=</span> <span class=n>vtkQuadraticTetra</span><span class=p>()</span>
 </span><span class=hll>    <span class=n>points</span> <span class=o>=</span> <span class=n>vtkPoints</span><span class=p>()</span>
 </span>
