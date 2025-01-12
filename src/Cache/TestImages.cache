@@ -1903,3 +1903,16 @@ https://github.com/Kitware/vtk-examples/blob/gh-pages/src/Testing/Baseline/Pytho
 https://github.com/Kitware/vtk-examples/blob/gh-pages/src/Testing/Baseline/PythonicAPI/Annotation/TestLegendScaleActor.png https://tinyurl.com/2a2s5p42
 https://github.com/Kitware/vtk-examples/blob/gh-pages/src/Testing/Baseline/PythonicAPI/Annotation/TestPolarAxesActor.png https://tinyurl.com/22d253zy
 https://github.com/Kitware/vtk-examples/blob/gh-pages/src/Testing/Baseline/Cxx/Filtering/TestSpatioTemporalHarmonicsSource.png https://tinyurl.com/2yxl7ocb
+https://github.com/Kitware/vtk-examples/blob/gh-pages/src/Testing/Baseline/PythonicAPI/Filtering/TestSpatioTemporalHarmonicsSource.png https://tinyurl.com/2xvrnt7n
+https://github.com/Kitware/vtk-examples/blob/gh-pages/src/Testing/Baseline/PythonicAPI/PolyData/TestHighlightBadCells.png https://tinyurl.com/2bphxnt3
+https://github.com/Kitware/vtk-examples/blob/gh-pages/src/Testing/Baseline/PythonicAPI/PolyData/TestMeshQuality.png https://tinyurl.com/29tps7y9
+https://github.com/Kitware/vtk-examples/blob/gh-pages/src/Testing/Baseline/PythonicAPI/Meshes/TestMatrixMathFilter.png https://tinyurl.com/2cjve5n4
+https://github.com/Kitware/vtk-examples/blob/gh-pages/src/Testing/Baseline/PythonicAPI/Meshes/TestOBBDicer.png https://tinyurl.com/2a3l6r8y
+https://github.com/Kitware/vtk-examples/blob/gh-pages/src/Testing/Baseline/PythonicAPI/Meshes/TestSplitPolyData.png https://tinyurl.com/2996qcex
+https://github.com/Kitware/vtk-examples/blob/gh-pages/src/Testing/Baseline/PythonicAPI/Visualization/TestMultipleRenderWindows.png https://tinyurl.com/249jbmgr
+https://github.com/Kitware/vtk-examples/blob/gh-pages/src/Testing/Baseline/PythonicAPI/Visualization/TestMultipleViewports.png https://tinyurl.com/27kawfpv
+https://github.com/Kitware/vtk-examples/blob/gh-pages/src/Testing/Baseline/PythonicAPI/InfoVis/TestMutableGraphHelper.png https://tinyurl.com/2yq94byo
+https://github.com/Kitware/vtk-examples/blob/gh-pages/src/Testing/Baseline/PythonicAPI/Lighting/TestLight.png https://tinyurl.com/28epcujw
+https://github.com/Kitware/vtk-examples/blob/gh-pages/src/Testing/Baseline/PythonicAPI/VolumeRendering/TestMultiBlockVolumeMapper.png https://tinyurl.com/22knhpsp
+https://github.com/Kitware/vtk-examples/blob/gh-pages/src/Testing/Baseline/PythonicAPI/Widgets/TestLineWidget2.png https://tinyurl.com/2av2k922
+https://github.com/Kitware/vtk-examples/blob/gh-pages/src/Testing/Baseline/PythonicAPI/Widgets/TestLogoWidget.png https://tinyurl.com/254xp4as
