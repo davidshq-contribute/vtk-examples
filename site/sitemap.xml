@@ -1117,6 +1117,10 @@
          <lastmod>2025-02-19</lastmod>
     </url>
     <url>
+         <loc>https://examples.vtk.org/site/Cxx/GeometricObjects/PolyhedronAndHexahedron/</loc>
+         <lastmod>2025-02-19</lastmod>
+    </url>
+    <url>
          <loc>https://examples.vtk.org/site/Cxx/GeometricObjects/Pyramid/</loc>
          <lastmod>2025-02-19</lastmod>
     </url>
@@ -6178,6 +6182,10 @@
     </url>
     <url>
          <loc>https://examples.vtk.org/site/Python/GeometricObjects/Polyhedron/</loc>
+         <lastmod>2025-02-19</lastmod>
+    </url>
+    <url>
+         <loc>https://examples.vtk.org/site/Python/GeometricObjects/PolyhedronAndHexahedron/</loc>
          <lastmod>2025-02-19</lastmod>
     </url>
     <url>
